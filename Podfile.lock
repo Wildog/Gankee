@@ -1,0 +1,18 @@
+PODS:
+  - ReactiveObjC (2.1.2)
+  - RKDropdownAlert (0.3.0)
+  - YYModel (1.0.3)
+
+DEPENDENCIES:
+  - ReactiveObjC
+  - RKDropdownAlert
+  - YYModel
+
+SPEC CHECKSUMS:
+  ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
+  RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
+  YYModel: 63142c2f07c5c8c9d1c261689cf3827ea6ab2886
+
+PODFILE CHECKSUM: f477e89262e7b304491d8208d7ec0e5434683922
+
+COCOAPODS: 1.1.1

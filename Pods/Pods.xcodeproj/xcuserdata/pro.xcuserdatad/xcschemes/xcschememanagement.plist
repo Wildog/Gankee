@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-Gankee.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>RKDropdownAlert.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>ReactiveObjC.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YYModel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>11215E148FB0BA454E6BE93DEE6792DA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F24BCE52BDE36914A89C83D3A946DA4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>96D6302F700E335155F348D0B0EBD05E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B5D869579AF0325D7FE7F3FD4DE2879E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

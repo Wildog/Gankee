@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		150C7E491E360BE30049E7B0 /* GKHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E481E360BE30049E7B0 /* GKHomeViewModel.m */; };
+		150C7E4C1E3630220049E7B0 /* HomeTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E4B1E3630220049E7B0 /* HomeTableViewDataSource.m */; };
+		150C7E561E3896010049E7B0 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E531E3896010049E7B0 /* DIDatepicker.m */; };
+		150C7E571E3896010049E7B0 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */; };
 		1569A1661E35BAEE009F1E46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1651E35BAEE009F1E46 /* main.m */; };
 		1569A1691E35BAEE009F1E46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1681E35BAEE009F1E46 /* AppDelegate.m */; };
-		1569A16C1E35BAEE009F1E46 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A16B1E35BAEE009F1E46 /* FirstViewController.m */; };
+		1569A16C1E35BAEE009F1E46 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A16B1E35BAEE009F1E46 /* HomeViewController.m */; };
 		1569A16F1E35BAEE009F1E46 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A16E1E35BAEE009F1E46 /* SecondViewController.m */; };
 		1569A1721E35BAEE009F1E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1701E35BAEE009F1E46 /* Main.storyboard */; };
 		1569A1741E35BAEE009F1E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1731E35BAEE009F1E46 /* Assets.xcassets */; };
 		1569A1771E35BAEE009F1E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1751E35BAEE009F1E46 /* LaunchScreen.storyboard */; };
 		1569A1821E35BAEE009F1E46 /* GankeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1811E35BAEE009F1E46 /* GankeeTests.m */; };
+		1569A18E1E35BB70009F1E46 /* GKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A18D1E35BB70009F1E46 /* GKClient.m */; };
+		1569A1911E35D689009F1E46 /* GKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1901E35D689009F1E46 /* GKItem.m */; };
+		1569A1931E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1921E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib */; };
+		8AFCDD311917514910D1CEA0 /* libPods-Gankee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD3146582E3823EBEB1936C /* libPods-Gankee.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,12 +36,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		150C7E471E360BE30049E7B0 /* GKHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKHomeViewModel.h; sourceTree = "<group>"; };
+		150C7E481E360BE30049E7B0 /* GKHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKHomeViewModel.m; sourceTree = "<group>"; };
+		150C7E4A1E3630220049E7B0 /* HomeTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewDataSource.h; sourceTree = "<group>"; };
+		150C7E4B1E3630220049E7B0 /* HomeTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewDataSource.m; sourceTree = "<group>"; };
+		150C7E521E3896010049E7B0 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
+		150C7E531E3896010049E7B0 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
+		150C7E541E3896010049E7B0 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
+		150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
 		1569A1611E35BAEE009F1E46 /* Gankee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gankee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1569A1651E35BAEE009F1E46 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1569A1671E35BAEE009F1E46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1569A1681E35BAEE009F1E46 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1569A16A1E35BAEE009F1E46 /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		1569A16B1E35BAEE009F1E46 /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		1569A16A1E35BAEE009F1E46 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		1569A16B1E35BAEE009F1E46 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		1569A16D1E35BAEE009F1E46 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		1569A16E1E35BAEE009F1E46 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		1569A1711E35BAEE009F1E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +59,14 @@
 		1569A17D1E35BAEE009F1E46 /* GankeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GankeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1569A1811E35BAEE009F1E46 /* GankeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GankeeTests.m; sourceTree = "<group>"; };
 		1569A1831E35BAEE009F1E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1569A18C1E35BB70009F1E46 /* GKClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKClient.h; sourceTree = "<group>"; };
+		1569A18D1E35BB70009F1E46 /* GKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKClient.m; sourceTree = "<group>"; };
+		1569A18F1E35D689009F1E46 /* GKItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKItem.h; sourceTree = "<group>"; };
+		1569A1901E35D689009F1E46 /* GKItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKItem.m; sourceTree = "<group>"; };
+		1569A1921E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GKHomeSectionHeaderView.xib; sourceTree = "<group>"; };
+		5E46AEC01AEAB05D099024FB /* Pods-Gankee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gankee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gankee/Pods-Gankee.release.xcconfig"; sourceTree = "<group>"; };
+		949D99474379F9D9E7F21A90 /* Pods-Gankee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gankee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gankee/Pods-Gankee.debug.xcconfig"; sourceTree = "<group>"; };
+		9FD3146582E3823EBEB1936C /* libPods-Gankee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gankee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AFCDD311917514910D1CEA0 /* libPods-Gankee.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,12 +88,84 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A02169C409C798825FDEBCC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				949D99474379F9D9E7F21A90 /* Pods-Gankee.debug.xcconfig */,
+				5E46AEC01AEAB05D099024FB /* Pods-Gankee.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		150C7E4D1E364C150049E7B0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1569A16D1E35BAEE009F1E46 /* SecondViewController.h */,
+				1569A16E1E35BAEE009F1E46 /* SecondViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		150C7E4E1E364C270049E7B0 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				1569A1751E35BAEE009F1E46 /* LaunchScreen.storyboard */,
+				1569A1701E35BAEE009F1E46 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		150C7E4F1E364C660049E7B0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1569A18F1E35D689009F1E46 /* GKItem.h */,
+				1569A1901E35D689009F1E46 /* GKItem.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		150C7E501E364C730049E7B0 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				1569A18C1E35BB70009F1E46 /* GKClient.h */,
+				1569A18D1E35BB70009F1E46 /* GKClient.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		150C7E511E364C860049E7B0 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1569A16A1E35BAEE009F1E46 /* HomeViewController.h */,
+				1569A16B1E35BAEE009F1E46 /* HomeViewController.m */,
+				150C7E471E360BE30049E7B0 /* GKHomeViewModel.h */,
+				150C7E481E360BE30049E7B0 /* GKHomeViewModel.m */,
+				150C7E4A1E3630220049E7B0 /* HomeTableViewDataSource.h */,
+				150C7E4B1E3630220049E7B0 /* HomeTableViewDataSource.m */,
+				1569A1921E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		150C7E581E38960D0049E7B0 /* Additionals */ = {
+			isa = PBXGroup;
+			children = (
+				150C7E521E3896010049E7B0 /* DIDatepicker.h */,
+				150C7E531E3896010049E7B0 /* DIDatepicker.m */,
+				150C7E541E3896010049E7B0 /* DIDatepickerDateView.h */,
+				150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */,
+			);
+			name = Additionals;
+			sourceTree = "<group>";
+		};
 		1569A1581E35BAED009F1E46 = {
 			isa = PBXGroup;
 			children = (
 				1569A1631E35BAEE009F1E46 /* Gankee */,
 				1569A1801E35BAEE009F1E46 /* GankeeTests */,
 				1569A1621E35BAEE009F1E46 /* Products */,
+				0A02169C409C798825FDEBCC /* Pods */,
+				25A43778CB02F8D9885AA4E0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,13 +183,13 @@
 			children = (
 				1569A1671E35BAEE009F1E46 /* AppDelegate.h */,
 				1569A1681E35BAEE009F1E46 /* AppDelegate.m */,
-				1569A16A1E35BAEE009F1E46 /* FirstViewController.h */,
-				1569A16B1E35BAEE009F1E46 /* FirstViewController.m */,
-				1569A16D1E35BAEE009F1E46 /* SecondViewController.h */,
-				1569A16E1E35BAEE009F1E46 /* SecondViewController.m */,
-				1569A1701E35BAEE009F1E46 /* Main.storyboard */,
+				150C7E581E38960D0049E7B0 /* Additionals */,
+				150C7E4D1E364C150049E7B0 /* Controllers */,
+				150C7E511E364C860049E7B0 /* Home */,
+				150C7E501E364C730049E7B0 /* Managers */,
+				150C7E4F1E364C660049E7B0 /* Models */,
+				150C7E4E1E364C270049E7B0 /* Storyboard */,
 				1569A1731E35BAEE009F1E46 /* Assets.xcassets */,
-				1569A1751E35BAEE009F1E46 /* LaunchScreen.storyboard */,
 				1569A1781E35BAEE009F1E46 /* Info.plist */,
 				1569A1641E35BAEE009F1E46 /* Supporting Files */,
 			);
@@ -116,6 +213,14 @@
 			path = GankeeTests;
 			sourceTree = "<group>";
 		};
+		25A43778CB02F8D9885AA4E0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9FD3146582E3823EBEB1936C /* libPods-Gankee.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -123,9 +228,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1569A1861E35BAEE009F1E46 /* Build configuration list for PBXNativeTarget "Gankee" */;
 			buildPhases = (
+				8EFA31DA51B0EEB4D3036287 /* [CP] Check Pods Manifest.lock */,
 				1569A15D1E35BAED009F1E46 /* Sources */,
 				1569A15E1E35BAED009F1E46 /* Frameworks */,
 				1569A15F1E35BAED009F1E46 /* Resources */,
+				65B3D2C6A6073EC3E07F457C /* [CP] Embed Pods Frameworks */,
+				76CD3423F9F7BB94CA8C4964 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -181,7 +289,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 1569A1581E35BAED009F1E46;
@@ -200,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1569A1931E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib in Resources */,
 				1569A1771E35BAEE009F1E46 /* LaunchScreen.storyboard in Resources */,
 				1569A1741E35BAEE009F1E46 /* Assets.xcassets in Resources */,
 				1569A1721E35BAEE009F1E46 /* Main.storyboard in Resources */,
@@ -215,15 +323,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		65B3D2C6A6073EC3E07F457C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gankee/Pods-Gankee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76CD3423F9F7BB94CA8C4964 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Gankee/Pods-Gankee-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8EFA31DA51B0EEB4D3036287 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1569A15D1E35BAED009F1E46 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1569A1911E35D689009F1E46 /* GKItem.m in Sources */,
 				1569A16F1E35BAEE009F1E46 /* SecondViewController.m in Sources */,
 				1569A1691E35BAEE009F1E46 /* AppDelegate.m in Sources */,
-				1569A16C1E35BAEE009F1E46 /* FirstViewController.m in Sources */,
+				150C7E4C1E3630220049E7B0 /* HomeTableViewDataSource.m in Sources */,
+				1569A16C1E35BAEE009F1E46 /* HomeViewController.m in Sources */,
+				150C7E491E360BE30049E7B0 /* GKHomeViewModel.m in Sources */,
+				1569A18E1E35BB70009F1E46 /* GKClient.m in Sources */,
 				1569A1661E35BAEE009F1E46 /* main.m in Sources */,
+				150C7E561E3896010049E7B0 /* DIDatepicker.m in Sources */,
+				150C7E571E3896010049E7B0 /* DIDatepickerDateView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +431,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -305,7 +468,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -316,6 +479,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -346,7 +510,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -355,6 +519,7 @@
 		};
 		1569A1871E35BAEE009F1E46 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 949D99474379F9D9E7F21A90 /* Pods-Gankee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2476E2Q84Y;
@@ -367,6 +532,7 @@
 		};
 		1569A1881E35BAEE009F1E46 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5E46AEC01AEAB05D099024FB /* Pods-Gankee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2476E2Q84Y;
@@ -422,6 +588,7 @@
 				1569A1881E35BAEE009F1E46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1569A1891E35BAEE009F1E46 /* Build configuration list for PBXNativeTarget "GankeeTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +597,7 @@
 				1569A18B1E35BAEE009F1E46 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
