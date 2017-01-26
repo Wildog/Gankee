@@ -59,9 +59,9 @@
     RACSubject *signal = [RACSubject subject];
     
     NSString *ifRandom = randomize ? @"random/": @"";
-    NSString *ifPage = randomize ? @"" : [NSString stringWithFormat:@"/%lu", page];
+    NSString *ifPage = randomize ? @"" : [NSString stringWithFormat:@"/%lu", (unsigned long)page];
     NSString *urlString = [NSString stringWithFormat:@"%@%@data/%@/%lu%@",
-                            BASE_URL, ifRandom, _mapping[@(category)], count, ifPage];
+                            BASE_URL, ifRandom, _mapping[@(category)], (unsigned long)count, ifPage];
     
     NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
     NSURLSessionDataTask *task = [_session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -99,19 +99,16 @@
                     NSDictionary *results = resp[@"results"];
                     for (NSString *categoryKey in results) {
                         NSMutableArray<GKItem *> *items = [NSMutableArray arrayWithCapacity:5];
-                        for (NSDictionary *itemInfo in results[categoryKey]) {
+                        for (NSMutableDictionary *itemInfo in results[categoryKey]) {
+                            if (itemInfo[@"who"] == [NSNull null]) {
+                                itemInfo[@"who"] = @"互联网";
+                            }
                             GKItem *item = [GKItem yy_modelWithDictionary:itemInfo];
                             [items addObject:item];
                         }
                         dict[categoryKey] = items;
                     }
                     
-                    [dict[@"categories"] insertObject:@"Random" atIndex:0];
-                    
-                    GKItem *randomItem = [[GKItem alloc] init];
-                    randomItem.desc = [NSString stringWithFormat:@"%d", arc4random()];
-                    dict[@"Random"] = @[randomItem];
-                
                     [subscriber sendNext:dict];
                     [subscriber sendCompleted];
                 }

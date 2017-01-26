@@ -10,15 +10,18 @@
 #import <ReactiveObjC.h>
 #import "GKItem.h"
 #import "GKClient.h"
-#import "HomeTableViewDataSource.h"
+#import "GKHomeTableViewDataSource.h"
 
 @interface GKHomeViewModel : NSObject
 
 @property (nonatomic, strong) NSString *currentDay;
 @property (nonatomic, strong, readonly) NSArray *availableDays;
-@property (nonatomic, strong, readonly) HomeTableViewDataSource *dataSource;
+@property (nonatomic, strong, readonly) GKHomeTableViewDataSource *dataSource;
 
-- (instancetype)initWithCellIdentifier:(NSString *)cellIdentifier configureCellBlock:(HomeTableViewCellConfigureBlock)configureCellBlock;
+- (instancetype)initWithCellIdentifier:(NSString *)identifier
+                    configureCellBlock:(GKHomeTableViewCellConfigureBlock)configureCellBlock
+                     altCellIdentifier:(NSString *)altIdentifier
+                 altConfigureCellBlock:(GKHomeTableViewCellConfigureBlock)altConfigureCellBlock;
 
 - (RACSignal *)itemsForCurrentDaySignal;
 - (RACSignal *)availableDaysSignal;

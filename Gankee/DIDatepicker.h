@@ -17,6 +17,7 @@ extern const CGFloat kDIDatepickerHeight;
 // UI
 @property (strong, nonatomic) UIColor *bottomLineColor;
 @property (strong, nonatomic) UIColor *selectedDateBottomLineColor;
+@property (assign, nonatomic) BOOL displayed;
 
 // methods
 - (void)fillDatesFromDate:(NSDate *)fromDate numberOfDays:(NSInteger)nextDatesCount;
@@ -25,5 +26,8 @@ extern const CGFloat kDIDatepickerHeight;
 - (void)fillCurrentYear;
 - (void)selectDate:(NSDate *)date;
 - (void)selectDateAtIndex:(NSUInteger)index;
+- (void)selectDateFromString:(NSString *)string;
+- (void)fillDatesFromArray:(NSArray *)array;
+- (NSDateFormatter *)dateFormatter;
 
 @end

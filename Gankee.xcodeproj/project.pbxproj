@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		150C7E491E360BE30049E7B0 /* GKHomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E481E360BE30049E7B0 /* GKHomeViewModel.m */; };
-		150C7E4C1E3630220049E7B0 /* HomeTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E4B1E3630220049E7B0 /* HomeTableViewDataSource.m */; };
+		150C7E4C1E3630220049E7B0 /* GKHomeTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E4B1E3630220049E7B0 /* GKHomeTableViewDataSource.m */; };
 		150C7E561E3896010049E7B0 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E531E3896010049E7B0 /* DIDatepicker.m */; };
 		150C7E571E3896010049E7B0 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */; };
+		1523E0D81E39C2A1009BB38F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1523E0D71E39C2A1009BB38F /* SafariServices.framework */; };
 		1569A1661E35BAEE009F1E46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1651E35BAEE009F1E46 /* main.m */; };
 		1569A1691E35BAEE009F1E46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1681E35BAEE009F1E46 /* AppDelegate.m */; };
-		1569A16C1E35BAEE009F1E46 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A16B1E35BAEE009F1E46 /* HomeViewController.m */; };
+		1569A16C1E35BAEE009F1E46 /* GKHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A16B1E35BAEE009F1E46 /* GKHomeViewController.m */; };
 		1569A16F1E35BAEE009F1E46 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A16E1E35BAEE009F1E46 /* SecondViewController.m */; };
 		1569A1721E35BAEE009F1E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1701E35BAEE009F1E46 /* Main.storyboard */; };
 		1569A1741E35BAEE009F1E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1731E35BAEE009F1E46 /* Assets.xcassets */; };
@@ -21,7 +22,7 @@
 		1569A1821E35BAEE009F1E46 /* GankeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1811E35BAEE009F1E46 /* GankeeTests.m */; };
 		1569A18E1E35BB70009F1E46 /* GKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A18D1E35BB70009F1E46 /* GKClient.m */; };
 		1569A1911E35D689009F1E46 /* GKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1901E35D689009F1E46 /* GKItem.m */; };
-		1569A1931E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1921E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib */; };
+		1569A1931E35EFF7009F1E46 /* GKHomeSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */; };
 		8AFCDD311917514910D1CEA0 /* libPods-Gankee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD3146582E3823EBEB1936C /* libPods-Gankee.a */; };
 /* End PBXBuildFile section */
 
@@ -38,18 +39,20 @@
 /* Begin PBXFileReference section */
 		150C7E471E360BE30049E7B0 /* GKHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKHomeViewModel.h; sourceTree = "<group>"; };
 		150C7E481E360BE30049E7B0 /* GKHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKHomeViewModel.m; sourceTree = "<group>"; };
-		150C7E4A1E3630220049E7B0 /* HomeTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewDataSource.h; sourceTree = "<group>"; };
-		150C7E4B1E3630220049E7B0 /* HomeTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewDataSource.m; sourceTree = "<group>"; };
+		150C7E4A1E3630220049E7B0 /* GKHomeTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKHomeTableViewDataSource.h; sourceTree = "<group>"; };
+		150C7E4B1E3630220049E7B0 /* GKHomeTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKHomeTableViewDataSource.m; sourceTree = "<group>"; };
 		150C7E521E3896010049E7B0 /* DIDatepicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepicker.h; sourceTree = "<group>"; };
 		150C7E531E3896010049E7B0 /* DIDatepicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepicker.m; sourceTree = "<group>"; };
 		150C7E541E3896010049E7B0 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
 		150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
+		150C7E5E1E39A8270049E7B0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1523E0D71E39C2A1009BB38F /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		1569A1611E35BAEE009F1E46 /* Gankee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gankee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1569A1651E35BAEE009F1E46 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1569A1671E35BAEE009F1E46 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1569A1681E35BAEE009F1E46 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		1569A16A1E35BAEE009F1E46 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		1569A16B1E35BAEE009F1E46 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		1569A16A1E35BAEE009F1E46 /* GKHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKHomeViewController.h; sourceTree = "<group>"; };
+		1569A16B1E35BAEE009F1E46 /* GKHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKHomeViewController.m; sourceTree = "<group>"; };
 		1569A16D1E35BAEE009F1E46 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		1569A16E1E35BAEE009F1E46 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		1569A1711E35BAEE009F1E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,7 +66,7 @@
 		1569A18D1E35BB70009F1E46 /* GKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKClient.m; sourceTree = "<group>"; };
 		1569A18F1E35D689009F1E46 /* GKItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKItem.h; sourceTree = "<group>"; };
 		1569A1901E35D689009F1E46 /* GKItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKItem.m; sourceTree = "<group>"; };
-		1569A1921E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GKHomeSectionHeaderView.xib; sourceTree = "<group>"; };
+		1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GKHomeSectionHeader.xib; sourceTree = "<group>"; };
 		5E46AEC01AEAB05D099024FB /* Pods-Gankee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gankee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gankee/Pods-Gankee.release.xcconfig"; sourceTree = "<group>"; };
 		949D99474379F9D9E7F21A90 /* Pods-Gankee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gankee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gankee/Pods-Gankee.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD3146582E3823EBEB1936C /* libPods-Gankee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gankee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1523E0D81E39C2A1009BB38F /* SafariServices.framework in Frameworks */,
 				8AFCDD311917514910D1CEA0 /* libPods-Gankee.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,13 +101,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		150C7E4D1E364C150049E7B0 /* Controllers */ = {
+		150C7E4D1E364C150049E7B0 /* Second */ = {
 			isa = PBXGroup;
 			children = (
 				1569A16D1E35BAEE009F1E46 /* SecondViewController.h */,
 				1569A16E1E35BAEE009F1E46 /* SecondViewController.m */,
 			);
-			name = Controllers;
+			name = Second;
 			sourceTree = "<group>";
 		};
 		150C7E4E1E364C270049E7B0 /* Storyboard */ = {
@@ -136,13 +140,13 @@
 		150C7E511E364C860049E7B0 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1569A16A1E35BAEE009F1E46 /* HomeViewController.h */,
-				1569A16B1E35BAEE009F1E46 /* HomeViewController.m */,
+				1569A16A1E35BAEE009F1E46 /* GKHomeViewController.h */,
+				1569A16B1E35BAEE009F1E46 /* GKHomeViewController.m */,
 				150C7E471E360BE30049E7B0 /* GKHomeViewModel.h */,
 				150C7E481E360BE30049E7B0 /* GKHomeViewModel.m */,
-				150C7E4A1E3630220049E7B0 /* HomeTableViewDataSource.h */,
-				150C7E4B1E3630220049E7B0 /* HomeTableViewDataSource.m */,
-				1569A1921E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib */,
+				150C7E4A1E3630220049E7B0 /* GKHomeTableViewDataSource.h */,
+				150C7E4B1E3630220049E7B0 /* GKHomeTableViewDataSource.m */,
+				1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -183,12 +187,12 @@
 			children = (
 				1569A1671E35BAEE009F1E46 /* AppDelegate.h */,
 				1569A1681E35BAEE009F1E46 /* AppDelegate.m */,
-				150C7E581E38960D0049E7B0 /* Additionals */,
-				150C7E4D1E364C150049E7B0 /* Controllers */,
+				150C7E4E1E364C270049E7B0 /* Storyboard */,
 				150C7E511E364C860049E7B0 /* Home */,
+				150C7E4D1E364C150049E7B0 /* Second */,
 				150C7E501E364C730049E7B0 /* Managers */,
 				150C7E4F1E364C660049E7B0 /* Models */,
-				150C7E4E1E364C270049E7B0 /* Storyboard */,
+				150C7E581E38960D0049E7B0 /* Additionals */,
 				1569A1731E35BAEE009F1E46 /* Assets.xcassets */,
 				1569A1781E35BAEE009F1E46 /* Info.plist */,
 				1569A1641E35BAEE009F1E46 /* Supporting Files */,
@@ -216,6 +220,8 @@
 		25A43778CB02F8D9885AA4E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1523E0D71E39C2A1009BB38F /* SafariServices.framework */,
+				150C7E5E1E39A8270049E7B0 /* WebKit.framework */,
 				9FD3146582E3823EBEB1936C /* libPods-Gankee.a */,
 			);
 			name = Frameworks;
@@ -307,7 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1569A1931E35EFF7009F1E46 /* GKHomeSectionHeaderView.xib in Resources */,
+				1569A1931E35EFF7009F1E46 /* GKHomeSectionHeader.xib in Resources */,
 				1569A1771E35BAEE009F1E46 /* LaunchScreen.storyboard in Resources */,
 				1569A1741E35BAEE009F1E46 /* Assets.xcassets in Resources */,
 				1569A1721E35BAEE009F1E46 /* Main.storyboard in Resources */,
@@ -379,8 +385,8 @@
 				1569A1911E35D689009F1E46 /* GKItem.m in Sources */,
 				1569A16F1E35BAEE009F1E46 /* SecondViewController.m in Sources */,
 				1569A1691E35BAEE009F1E46 /* AppDelegate.m in Sources */,
-				150C7E4C1E3630220049E7B0 /* HomeTableViewDataSource.m in Sources */,
-				1569A16C1E35BAEE009F1E46 /* HomeViewController.m in Sources */,
+				150C7E4C1E3630220049E7B0 /* GKHomeTableViewDataSource.m in Sources */,
+				1569A16C1E35BAEE009F1E46 /* GKHomeViewController.m in Sources */,
 				150C7E491E360BE30049E7B0 /* GKHomeViewModel.m in Sources */,
 				1569A18E1E35BB70009F1E46 /* GKClient.m in Sources */,
 				1569A1661E35BAEE009F1E46 /* main.m in Sources */,

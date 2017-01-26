@@ -22,9 +22,9 @@
     NSArray *imageURLs = dic[@"images"];
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:imageURLs.count];
     for (NSString *imageURL in imageURLs) {
-        NSString *urlString = imageURL;
+        NSString *urlString = [NSString stringWithFormat:@"%@%@", imageURL, @"?imageView2/2/w/200/format/jpg/interlace/1"];
         if ([imageURL hasPrefix:@"http://"]) {
-            urlString = [imageURL stringByReplacingCharactersInRange:NSMakeRange(0, 7) withString:@"https://"];
+            //urlString = [imageURL stringByReplacingCharactersInRange:NSMakeRange(0, 7) withString:@"https://"];
         }
         NSURL *url = [NSURL URLWithString:urlString];
         [images addObject:url];

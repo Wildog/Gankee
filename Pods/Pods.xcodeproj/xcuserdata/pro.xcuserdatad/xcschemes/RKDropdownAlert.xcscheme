@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '8F24BCE52BDE36914A89C83D3A946DA4'
+               BlueprintIdentifier = 'CC06B7A026E36A52B9BBBBC0C2F98C66'
                BlueprintName = 'RKDropdownAlert'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libRKDropdownAlert.a'>

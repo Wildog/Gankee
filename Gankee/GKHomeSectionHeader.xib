@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="h8h-2s-B2L">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ev1-c7-uH0">
+                    <rect key="frame" x="0.0" y="21" width="4" height="18"/>
+                    <color key="backgroundColor" red="0.13725490868091583" green="0.62352943420410156" blue="0.5215686559677124" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="4" id="1n0-fe-KQ2"/>
+                        <constraint firstAttribute="height" constant="18" id="axE-ST-0wW"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Djl-RU-2s8">
+                    <rect key="frame" x="17" y="19.5" width="338" height="19.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                    <color key="textColor" red="0.32596820592880249" green="0.35582458972930908" blue="0.42441949248313904" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="ev1-c7-uH0" firstAttribute="leading" secondItem="h8h-2s-B2L" secondAttribute="leading" id="GHi-C4-TIx"/>
+                <constraint firstItem="Djl-RU-2s8" firstAttribute="leading" secondItem="ev1-c7-uH0" secondAttribute="trailing" constant="13" id="Kec-7C-aZf"/>
+                <constraint firstItem="Djl-RU-2s8" firstAttribute="bottom" secondItem="ev1-c7-uH0" secondAttribute="bottom" id="QNU-SX-T9r"/>
+                <constraint firstAttribute="trailing" secondItem="Djl-RU-2s8" secondAttribute="trailing" constant="20" id="lav-0R-kRc"/>
+                <constraint firstItem="ev1-c7-uH0" firstAttribute="centerY" secondItem="h8h-2s-B2L" secondAttribute="centerY" id="r7k-JF-fUi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-510.5" y="-659"/>
+        </view>
+    </objects>
+</document>

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Masonry.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Gankee.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -19,6 +24,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDCycleScrollView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>11215E148FB0BA454E6BE93DEE6792DA</key>
+		<key>0109BA8CC27F4371D376C9C388241AD8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F24BCE52BDE36914A89C83D3A946DA4</key>
+		<key>25B77C3480EE8412B160BEA929080C4C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96D6302F700E335155F348D0B0EBD05E</key>
+		<key>44B5C39576A5242B45828274FCEF3DB4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B5D869579AF0325D7FE7F3FD4DE2879E</key>
+		<key>5013B7C2F805E5F711C1A774AD8D6230</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A44E1F5D085AFC02FD5F8FF1B74AE2B7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC06B7A026E36A52B9BBBBC0C2F98C66</key>
 		<dict>
 			<key>primary</key>
 			<true/>

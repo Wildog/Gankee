@@ -5,4 +5,7 @@ target "Gankee" do
     pod 'YYModel'
     pod 'ReactiveObjC'
     pod 'RKDropdownAlert'
+    pod 'SDWebImage'
+    pod 'Masonry'
+    pod 'SDCycleScrollView'
 end

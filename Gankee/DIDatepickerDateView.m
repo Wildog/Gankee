@@ -70,7 +70,7 @@ const CGFloat kDIDatepickerSelectionLineWidth = 51.;
     
     if ([self isWeekday:date]) {
         [dateString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:@"HelveticaNeue-Medium" size:8]
+                           value:[UIFont fontWithName:@"HelveticaNeue-Light" size:8]
                            range:NSMakeRange(dayFormattedString.length + 1, dayInWeekFormattedString.length)];
     }
     
