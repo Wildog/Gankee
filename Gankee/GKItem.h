@@ -21,4 +21,6 @@
 @property (nonatomic, strong) NSURL *url;
 @property (nonatomic, strong) NSString *author;
 
+- (NSString *)imageURLStringForBanner;
+
 @end

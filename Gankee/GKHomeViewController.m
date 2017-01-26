@@ -9,18 +9,20 @@
 #import "GKHomeViewController.h"
 #import "GKHomeViewModel.h"
 #import "DIDatepicker.h"
-#import "RACEXTScope.h"
+#import "SDCycleScrollView.h"
+#import <RACEXTScope.h>
 #import <RKDropdownAlert.h>
 #import <Masonry.h>
 #import <SDWebImage/UIImageView+WebCache.h>
 #import <SafariServices/SafariServices.h>
 
-@interface GKHomeViewController () <UITableViewDelegate, UIViewControllerPreviewingDelegate>
+@interface GKHomeViewController () <UITableViewDelegate, UIViewControllerPreviewingDelegate, SDCycleScrollViewDelegate>
 
 @property (nonatomic, strong) GKHomeViewModel *viewModel;
 @property (nonatomic, strong) RACCommand *refreshControlCommand;
 @property (nonatomic, strong) RACCommand *toggleCalendarCommand;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSDateFormatter *dateFormatterForBanner;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIView *titleView;
@@ -29,6 +31,7 @@
 @property (weak, nonatomic) IBOutlet DIDatepicker *datepicker;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton *barButton;
+@property (nonatomic, strong) SDCycleScrollView *cycleView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
@@ -93,8 +96,8 @@
 - (RACCommand *)toggleCalendarCommand {
     if (!_toggleCalendarCommand) {
         _toggleCalendarCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-            if (self.datepicker.hidden) {
-                self.datepicker.hidden = NO;
+            if (self.datepicker.superview.hidden) {
+                self.datepicker.superview.hidden = NO;
                 [UIView animateWithDuration:0.3 animations:^{
                     self.datepicker.transform = CGAffineTransformMakeTranslation(0, self.datepicker.frame.size.height);
                 } completion:^(BOOL finished) {
@@ -103,7 +106,7 @@
                 [UIView animateWithDuration:0.3 animations:^{
                     self.datepicker.transform = CGAffineTransformMakeTranslation(0, -self.datepicker.frame.size.height);
                 } completion:^(BOOL finished) {
-                    self.datepicker.hidden = YES;
+                    self.datepicker.superview.hidden = YES;
                 }];
             }
             
@@ -122,7 +125,15 @@
     return _dateFormatter;
 }
 
-#pragma mark View Controller
+- (NSDateFormatter *)dateFormatterForBanner {
+    if (!_dateFormatterForBanner) {
+        _dateFormatterForBanner = [[NSDateFormatter alloc] init];
+        [_dateFormatterForBanner setDateFormat:@"yyyy-M-d"];
+    }
+    return _dateFormatterForBanner;
+}
+
+#pragma mark Life Cycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -136,15 +147,14 @@
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 80;
     
-    UIView *tableHeaderView = [[UIView alloc] init];
-    tableHeaderView.backgroundColor = [UIColor redColor];
-    self.tableView.tableHeaderView = tableHeaderView;
-    [tableHeaderView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.tableView.mas_top);
-        make.left.equalTo(self.tableView.mas_left);
-        make.right.equalTo(self.tableView.mas_right);
-        make.height.equalTo(@(100));
-    }];
+    self.cycleView = [[SDCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, 0, 150)];
+    self.cycleView.placeholderImage = [UIImage imageNamed:@"banner-placeholder"];
+    self.cycleView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
+    self.cycleView.autoScrollTimeInterval = 4.0;
+    self.cycleView.pageDotColor = [UIColor colorWithRed:0.25 green:0.39 blue:0.53 alpha:1];
+    self.cycleView.currentPageDotColor = [UIColor colorWithRed:0.16 green:0.73 blue:0.61 alpha:1];
+    self.cycleView.delegate = self;
+    self.tableView.tableHeaderView = self.cycleView;
     
     // get availableDays
     [[self.viewModel.availableDaysSignal deliverOnMainThread] subscribeNext:^(id x) {
@@ -161,11 +171,49 @@
     }] deliverOnMainThread] subscribeNext:^(id x) {
         @strongify(self)
         [[[self.viewModel itemsForCurrentDaySignal] deliverOnMainThread] subscribeNext:^(id _Nullable x) {
+            [[self.viewModel randomItemsSignal] subscribeNext:^(id  _Nullable x) {
+            }];
         } error:^(NSError * _Nullable error) {
             [RKDropdownAlert title:@"出错了！" message:[error localizedDescription]];
         } completed:^{
+            // this will not trigger control event sending
             [self.datepicker selectDateFromString:x];
         }];
+    }];
+    
+    // update cycleView when randomItems update
+    [RACObserve(self.viewModel, randomItems) subscribeNext:^(NSArray *randomItems) {
+        @strongify(self)
+        if (randomItems.count > 1) {
+            NSMutableArray *imageURLStringsArray = [NSMutableArray arrayWithCapacity:5];
+            NSMutableArray *descsArray = [NSMutableArray arrayWithCapacity:5];
+            NSMutableArray *datesArray = [NSMutableArray arrayWithCapacity:5];
+            NSMutableArray *categoriesArray = [NSMutableArray arrayWithCapacity:5];
+            for (GKItem *item in randomItems) {
+                NSString *urlString = [item imageURLStringForBanner];
+                [imageURLStringsArray addObject:urlString];
+                
+                NSString *desc = item.desc;
+                [descsArray addObject:desc];
+                
+                NSString *category = item.category ? item.category : @"未知分类";
+                [categoriesArray addObject:category];
+                
+                NSString *date = item.created ? [self.dateFormatterForBanner stringFromDate:item.created] : @"未知日期";
+                [datesArray addObject:date];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.cycleView.descs = descsArray;
+                self.cycleView.categories = categoriesArray;
+                self.cycleView.dates = datesArray;
+                self.cycleView.imageURLStringsGroup = imageURLStringsArray;
+            });
+        } else if (randomItems) {
+            [[self.viewModel randomItemsSignal] subscribeNext:^(id  _Nullable x) {
+            }];
+        }
+    } error:^(NSError * _Nullable error) {
+        [RKDropdownAlert title:@"出错了！" message:[error localizedDescription]];
     }];
     
     // reload data when dataSource updates
@@ -247,7 +295,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-#pragma mark 3d touch
+#pragma mark CycleView Delegate
+
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
+    SFSafariViewController *viewController = [[SFSafariViewController alloc] initWithURL:self.viewModel.randomItems[index].url];
+    viewController.preferredControlTintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1];
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+#pragma mark Previewing Delegate
 
 
 - (void)check3DTouch {

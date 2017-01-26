@@ -25,7 +25,7 @@ typedef NS_ENUM(NSUInteger, GKCategory) {
 
 + (instancetype)client;
 
-- (RACSubject *)dataForCategory:(GKCategory)category
+- (RACSignal *)dataForCategory:(GKCategory)category
                     onPage:(NSUInteger)page
                  withCount:(NSUInteger)count
                 randomize:(BOOL)randomize;

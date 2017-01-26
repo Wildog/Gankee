@@ -22,15 +22,30 @@
     NSArray *imageURLs = dic[@"images"];
     NSMutableArray *images = [NSMutableArray arrayWithCapacity:imageURLs.count];
     for (NSString *imageURL in imageURLs) {
-        NSString *urlString = [NSString stringWithFormat:@"%@%@", imageURL, @"?imageView2/2/w/200/format/jpg/interlace/1"];
-        if ([imageURL hasPrefix:@"http://"]) {
-            //urlString = [imageURL stringByReplacingCharactersInRange:NSMakeRange(0, 7) withString:@"https://"];
+        if (![imageURL containsString:@"img.gank.io"]) {
+            continue;
         }
+        
+        NSString *urlString = [NSString stringWithFormat:@"%@%@", imageURL, @"?imageView2/2/w/200/format/jpg/interlace/1"];
+        /*
+        if ([imageURL hasPrefix:@"http://"]) {
+            urlString = [imageURL stringByReplacingCharactersInRange:NSMakeRange(0, 7) withString:@"https://"];
+        }
+         */
         NSURL *url = [NSURL URLWithString:urlString];
         [images addObject:url];
     }
     _images = images;
     return YES;
+}
+
+- (NSString *)imageURLStringForBanner {
+    if (!self.images[0]) {
+        return nil;
+    }
+    
+    NSString *URLString = [self.images[0] absoluteString];
+    return [URLString stringByReplacingOccurrencesOfString:@"2/w/200" withString:@"1/w/600/h/300"];
 }
 
 @end

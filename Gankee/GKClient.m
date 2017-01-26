@@ -51,31 +51,46 @@
     return client;
 }
 
-- (RACSubject *)dataForCategory:(GKCategory)category
+- (RACSignal *)dataForCategory:(GKCategory)category
                  onPage:(NSUInteger)page
               withCount:(NSUInteger)count
               randomize:(BOOL)randomize {
-    
-    RACSubject *signal = [RACSubject subject];
-    
-    NSString *ifRandom = randomize ? @"random/": @"";
-    NSString *ifPage = randomize ? @"" : [NSString stringWithFormat:@"/%lu", (unsigned long)page];
-    NSString *urlString = [NSString stringWithFormat:@"%@%@data/%@/%lu%@",
-                            BASE_URL, ifRandom, _mapping[@(category)], (unsigned long)count, ifPage];
-    
-    NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
-    NSURLSessionDataTask *task = [_session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSString *ifRandom = randomize ? @"random/": @"";
+        NSString *ifPage = randomize ? @"" : [NSString stringWithFormat:@"/%lu", (unsigned long)page];
+        NSString *urlString = [NSString stringWithFormat:@"%@%@data/%@/%lu%@",
+                                BASE_URL, ifRandom, _mapping[@(category)], (unsigned long)count, ifPage];
         
-        if (error) {
-            [signal sendError:error];
-        } else {
-            [signal sendNext:data];
-            [signal sendCompleted];
-        }
-    }];
-    [task resume];
-    
-    return signal;
+        NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
+        NSURLSessionDataTask *task = [_session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (error) {
+                [subscriber sendError:error];
+            } else {
+                NSError *parseError;
+                NSDictionary *resp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+                
+                if (parseError) {
+                    [subscriber sendError:parseError];
+                } else {
+                    NSDictionary *results = resp[@"results"];
+                    NSMutableArray<GKItem *> *items = [NSMutableArray arrayWithCapacity:count];
+                    
+                    for (NSMutableDictionary *itemInfo in results) {
+                        if (itemInfo[@"who"] == [NSNull null]) {
+                            itemInfo[@"who"] = @"互联网";
+                        }
+                        GKItem *item = [GKItem yy_modelWithDictionary:itemInfo];
+                        [items addObject:item];
+                    }
+                    
+                    [subscriber sendNext:items];
+                    [subscriber sendCompleted];
+                }
+            }
+        }];
+        [task resume];
+        return nil;
+    }] logError];
 }
 
 - (RACSignal *)dataForDay:(NSString *)day {

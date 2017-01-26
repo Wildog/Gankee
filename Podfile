@@ -7,5 +7,4 @@ target "Gankee" do
     pod 'RKDropdownAlert'
     pod 'SDWebImage'
     pod 'Masonry'
-    pod 'SDCycleScrollView'
 end

@@ -23,6 +23,13 @@
 		1569A18E1E35BB70009F1E46 /* GKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A18D1E35BB70009F1E46 /* GKClient.m */; };
 		1569A1911E35D689009F1E46 /* GKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1901E35D689009F1E46 /* GKItem.m */; };
 		1569A1931E35EFF7009F1E46 /* GKHomeSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */; };
+		15D9BA581E3A2E8F0020C283 /* TAAbstractDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA4B1E3A2E8F0020C283 /* TAAbstractDotView.m */; };
+		15D9BA591E3A2E8F0020C283 /* TAAnimatedDotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA4D1E3A2E8F0020C283 /* TAAnimatedDotView.m */; };
+		15D9BA5A1E3A2E8F0020C283 /* TADotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA4F1E3A2E8F0020C283 /* TADotView.m */; };
+		15D9BA5B1E3A2E8F0020C283 /* TAPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA511E3A2E8F0020C283 /* TAPageControl.m */; };
+		15D9BA5C1E3A2E8F0020C283 /* SDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA531E3A2E8F0020C283 /* SDCollectionViewCell.m */; };
+		15D9BA5D1E3A2E8F0020C283 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA551E3A2E8F0020C283 /* SDCycleScrollView.m */; };
+		15D9BA5E1E3A2E8F0020C283 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA571E3A2E8F0020C283 /* UIView+SDExtension.m */; };
 		8AFCDD311917514910D1CEA0 /* libPods-Gankee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD3146582E3823EBEB1936C /* libPods-Gankee.a */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +74,20 @@
 		1569A18F1E35D689009F1E46 /* GKItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKItem.h; sourceTree = "<group>"; };
 		1569A1901E35D689009F1E46 /* GKItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKItem.m; sourceTree = "<group>"; };
 		1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GKHomeSectionHeader.xib; sourceTree = "<group>"; };
+		15D9BA4A1E3A2E8F0020C283 /* TAAbstractDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAbstractDotView.h; sourceTree = "<group>"; };
+		15D9BA4B1E3A2E8F0020C283 /* TAAbstractDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAbstractDotView.m; sourceTree = "<group>"; };
+		15D9BA4C1E3A2E8F0020C283 /* TAAnimatedDotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAAnimatedDotView.h; sourceTree = "<group>"; };
+		15D9BA4D1E3A2E8F0020C283 /* TAAnimatedDotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAAnimatedDotView.m; sourceTree = "<group>"; };
+		15D9BA4E1E3A2E8F0020C283 /* TADotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TADotView.h; sourceTree = "<group>"; };
+		15D9BA4F1E3A2E8F0020C283 /* TADotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TADotView.m; sourceTree = "<group>"; };
+		15D9BA501E3A2E8F0020C283 /* TAPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TAPageControl.h; sourceTree = "<group>"; };
+		15D9BA511E3A2E8F0020C283 /* TAPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TAPageControl.m; sourceTree = "<group>"; };
+		15D9BA521E3A2E8F0020C283 /* SDCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCollectionViewCell.h; sourceTree = "<group>"; };
+		15D9BA531E3A2E8F0020C283 /* SDCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCollectionViewCell.m; sourceTree = "<group>"; };
+		15D9BA541E3A2E8F0020C283 /* SDCycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCycleScrollView.h; sourceTree = "<group>"; };
+		15D9BA551E3A2E8F0020C283 /* SDCycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCycleScrollView.m; sourceTree = "<group>"; };
+		15D9BA561E3A2E8F0020C283 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
+		15D9BA571E3A2E8F0020C283 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		5E46AEC01AEAB05D099024FB /* Pods-Gankee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gankee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gankee/Pods-Gankee.release.xcconfig"; sourceTree = "<group>"; };
 		949D99474379F9D9E7F21A90 /* Pods-Gankee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gankee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gankee/Pods-Gankee.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD3146582E3823EBEB1936C /* libPods-Gankee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gankee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,10 +175,8 @@
 		150C7E581E38960D0049E7B0 /* Additionals */ = {
 			isa = PBXGroup;
 			children = (
-				150C7E521E3896010049E7B0 /* DIDatepicker.h */,
-				150C7E531E3896010049E7B0 /* DIDatepicker.m */,
-				150C7E541E3896010049E7B0 /* DIDatepickerDateView.h */,
-				150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */,
+				15D9BA481E3A2E8F0020C283 /* SDCycleScrollView */,
+				15D9BA471E3A2E200020C283 /* DIDatePicker */,
 			);
 			name = Additionals;
 			sourceTree = "<group>";
@@ -215,6 +234,46 @@
 				1569A1831E35BAEE009F1E46 /* Info.plist */,
 			);
 			path = GankeeTests;
+			sourceTree = "<group>";
+		};
+		15D9BA471E3A2E200020C283 /* DIDatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				150C7E521E3896010049E7B0 /* DIDatepicker.h */,
+				150C7E531E3896010049E7B0 /* DIDatepicker.m */,
+				150C7E541E3896010049E7B0 /* DIDatepickerDateView.h */,
+				150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */,
+			);
+			name = DIDatePicker;
+			sourceTree = "<group>";
+		};
+		15D9BA481E3A2E8F0020C283 /* SDCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				15D9BA491E3A2E8F0020C283 /* PageControl */,
+				15D9BA521E3A2E8F0020C283 /* SDCollectionViewCell.h */,
+				15D9BA531E3A2E8F0020C283 /* SDCollectionViewCell.m */,
+				15D9BA541E3A2E8F0020C283 /* SDCycleScrollView.h */,
+				15D9BA551E3A2E8F0020C283 /* SDCycleScrollView.m */,
+				15D9BA561E3A2E8F0020C283 /* UIView+SDExtension.h */,
+				15D9BA571E3A2E8F0020C283 /* UIView+SDExtension.m */,
+			);
+			path = SDCycleScrollView;
+			sourceTree = "<group>";
+		};
+		15D9BA491E3A2E8F0020C283 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				15D9BA4A1E3A2E8F0020C283 /* TAAbstractDotView.h */,
+				15D9BA4B1E3A2E8F0020C283 /* TAAbstractDotView.m */,
+				15D9BA4C1E3A2E8F0020C283 /* TAAnimatedDotView.h */,
+				15D9BA4D1E3A2E8F0020C283 /* TAAnimatedDotView.m */,
+				15D9BA4E1E3A2E8F0020C283 /* TADotView.h */,
+				15D9BA4F1E3A2E8F0020C283 /* TADotView.m */,
+				15D9BA501E3A2E8F0020C283 /* TAPageControl.h */,
+				15D9BA511E3A2E8F0020C283 /* TAPageControl.m */,
+			);
+			path = PageControl;
 			sourceTree = "<group>";
 		};
 		25A43778CB02F8D9885AA4E0 /* Frameworks */ = {
@@ -383,15 +442,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				1569A1911E35D689009F1E46 /* GKItem.m in Sources */,
+				15D9BA5A1E3A2E8F0020C283 /* TADotView.m in Sources */,
 				1569A16F1E35BAEE009F1E46 /* SecondViewController.m in Sources */,
 				1569A1691E35BAEE009F1E46 /* AppDelegate.m in Sources */,
+				15D9BA581E3A2E8F0020C283 /* TAAbstractDotView.m in Sources */,
 				150C7E4C1E3630220049E7B0 /* GKHomeTableViewDataSource.m in Sources */,
 				1569A16C1E35BAEE009F1E46 /* GKHomeViewController.m in Sources */,
+				15D9BA5B1E3A2E8F0020C283 /* TAPageControl.m in Sources */,
+				15D9BA5C1E3A2E8F0020C283 /* SDCollectionViewCell.m in Sources */,
 				150C7E491E360BE30049E7B0 /* GKHomeViewModel.m in Sources */,
 				1569A18E1E35BB70009F1E46 /* GKClient.m in Sources */,
+				15D9BA591E3A2E8F0020C283 /* TAAnimatedDotView.m in Sources */,
 				1569A1661E35BAEE009F1E46 /* main.m in Sources */,
 				150C7E561E3896010049E7B0 /* DIDatepicker.m in Sources */,
 				150C7E571E3896010049E7B0 /* DIDatepickerDateView.m in Sources */,
+				15D9BA5E1E3A2E8F0020C283 /* UIView+SDExtension.m in Sources */,
+				15D9BA5D1E3A2E8F0020C283 /* SDCycleScrollView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

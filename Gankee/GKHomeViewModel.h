@@ -16,6 +16,7 @@
 
 @property (nonatomic, strong) NSString *currentDay;
 @property (nonatomic, strong, readonly) NSArray *availableDays;
+@property (nonatomic, strong, readonly) NSArray<GKItem *> *randomItems;
 @property (nonatomic, strong, readonly) GKHomeTableViewDataSource *dataSource;
 
 - (instancetype)initWithCellIdentifier:(NSString *)identifier
@@ -25,5 +26,6 @@
 
 - (RACSignal *)itemsForCurrentDaySignal;
 - (RACSignal *)availableDaysSignal;
+- (RACSignal *)randomItemsSignal;
 
 @end

@@ -2,18 +2,15 @@ PODS:
   - Masonry (1.0.2)
   - ReactiveObjC (2.1.2)
   - RKDropdownAlert (0.3.0)
-  - SDCycleScrollView (1.65):
-    - SDWebImage (~> 3.7)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - YYModel (1.0.3)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - Masonry
   - ReactiveObjC
   - RKDropdownAlert
-  - SDCycleScrollView
   - SDWebImage
   - YYModel
 
@@ -21,10 +18,9 @@ SPEC CHECKSUMS:
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   ReactiveObjC: 7b6782ae39f9ac0f57205c3b0c0b69b9dd7048c0
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
-  SDCycleScrollView: f72904c77698a7f93a41bcbbc2d78b073bf7326c
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  YYModel: 63142c2f07c5c8c9d1c261689cf3827ea6ab2886
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: b8a8a05693948b72c3857aff662864d8ad114815
+PODFILE CHECKSUM: 1668bdb10a5d9206148c954b458badc705a2023e
 
 COCOAPODS: 1.1.1
