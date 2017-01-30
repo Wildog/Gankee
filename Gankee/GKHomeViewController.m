@@ -92,13 +92,14 @@
                 [self.viewModel.allDataLoadedSignal sendCompleted];
                 [self displayAlertWithError:error];
             } completed:^{
-                [self.datepicker fillDatesFromArray:self.viewModel.availableDays];
                 // this will trigger subsequent signals to update the dataSource
-                if (!self.viewModel.currentDay) {
+                if (!self.viewModel.currentDay
+                    || self.datepicker.dates.count != self.viewModel.availableDays.count) {
                     self.viewModel.currentDay = self.viewModel.availableDays[0];
                 } else {
                     self.viewModel.currentDay = self.viewModel.currentDay;
                 }
+                [self.datepicker fillDatesFromArray:self.viewModel.availableDays];
             }];
 
             return self.viewModel.allDataLoadedSignal;

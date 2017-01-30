@@ -197,7 +197,7 @@ self.tableView.infiniteScrollIndicatorView = indicator;
 Swift: 
 ```swift
 // optionally you can use custom indicator view
-tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRect(x: 0, y: 0, width: 24, height: 24))
+tableView.infiniteScrollIndicatorView = CustomInfiniteIndicator(frame: CGRectMake(0, 0, 24, 24))
 ```
 
 Please see example implementation of indicator view:
@@ -253,7 +253,7 @@ tableView.infiniteScrollTriggerOffset = 500;
 * Vlad [brightsider](https://github.com/brightsider)<br/>
   Add access to check loading status
 
-.. and many others who reported issues and participated in conversations
+  .. and many others who reported issues and participated in conversations
 
 ### Attributions
 

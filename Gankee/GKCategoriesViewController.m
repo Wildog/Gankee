@@ -16,6 +16,7 @@
 @property (weak, nonatomic) YTPageController *pageController;
 @property (weak, nonatomic) IBOutlet WDScrollableSegmentedControl *scrollSegment;
 @property (strong, nonatomic) IBOutlet UIView *titleView;
+@property (strong, nonatomic) IBOutlet UIButton *addButton;
 @property (strong, nonatomic) NSArray *categories;
 @property (strong, nonatomic) NSMutableDictionary *viewControllers;
 
@@ -28,6 +29,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.titleView = self.titleView;
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.addButton];
     
     self.viewControllers = [NSMutableDictionary dictionary];
     self.categories = @[@"全部", @"iOS", @"Android", @"App", @"前端", @"瞎推荐", @"拓展资源", @"休息视频", @"福利"];

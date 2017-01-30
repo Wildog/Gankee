@@ -79,6 +79,9 @@
                 
                 if (parseError) {
                     [subscriber sendError:parseError];
+                } else if ([(NSNumber *)resp[@"error"] boolValue]) {
+                    NSError *responseError = [NSError errorWithDomain:@"GKErrorDomain" code:-44 userInfo:@{NSLocalizedDescriptionKey: resp[@"msg"]}];
+                    [subscriber sendError:responseError];
                 } else {
                     NSDictionary *results = resp[@"results"];
                     NSMutableArray<GKItem *> *items = [NSMutableArray arrayWithCapacity:count];
@@ -133,6 +136,9 @@
                 
                 if (parseError) {
                     [subscriber sendError:parseError];
+                } else if ([(NSNumber *)resp[@"error"] boolValue]) {
+                    NSError *responseError = [NSError errorWithDomain:@"GKErrorDomain" code:-44 userInfo:@{NSLocalizedDescriptionKey: resp[@"msg"]}];
+                    [subscriber sendError:responseError];
                 } else {
                     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
                     dict[@"categories"] = resp[@"category"];
@@ -190,6 +196,9 @@
             
                 if (parseError) {
                     [subscriber sendError:parseError];
+                } else if ([(NSNumber *)resp[@"error"] boolValue]) {
+                    NSError *responseError = [NSError errorWithDomain:@"GKErrorDomain" code:-44 userInfo:@{NSLocalizedDescriptionKey: resp[@"msg"]}];
+                    [subscriber sendError:responseError];
                 } else {
                     [subscriber sendNext:resp[@"results"]];
                     [subscriber sendCompleted];
@@ -201,5 +210,35 @@
     }] logError];
 }
 
+- (RACSignal *)submitURL:(NSString *)url desc:(NSString *)desc category:(NSString *)category author:(NSString *)author {
+    return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+        NSURL *finalUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@add2gank", BASE_URL]];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:finalUrl];
+        NSString *body = [NSString stringWithFormat:@"url=%@&desc=%@&type=%@&who=%@", url, desc, category, author];
+        request.HTTPMethod = @"POST";
+        request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
+        request.timeoutInterval = 10;
+        
+        NSURLSessionDataTask *task = [_session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (error) {
+                [subscriber sendError:error];
+            } else {
+                NSError *parseError;
+                NSDictionary *resp = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:&parseError];
+                if (parseError) {
+                    [subscriber sendError:parseError];
+                } else if ([(NSNumber *)resp[@"error"] boolValue]) {
+                    NSError *responseError = [NSError errorWithDomain:@"GKErrorDomain" code:-44 userInfo:@{NSLocalizedDescriptionKey: resp[@"msg"]}];
+                    [subscriber sendError:responseError];
+                } else {
+                    [subscriber sendNext:resp[@"msg"]];
+                    [subscriber sendCompleted];
+                }
+            }
+        }];
+        [task resume];
+        return nil;
+    }] logError];
+}
 
 @end

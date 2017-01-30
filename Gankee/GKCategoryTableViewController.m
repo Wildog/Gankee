@@ -139,7 +139,7 @@
     }];
     
     [self.tableView setShouldShowInfiniteScrollHandler:^BOOL(UITableView * _Nonnull tableView) {
-        return !tableView.refreshControl.refreshing;
+        return !tableView.refreshControl.refreshing && !self.viewModel.noMoreResults;
     }];
     
     [[[self.viewModel moreItemsSignal] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {

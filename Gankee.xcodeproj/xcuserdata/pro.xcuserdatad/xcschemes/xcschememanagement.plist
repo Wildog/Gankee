@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Share Extension.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>1569A17C1E35BAEE009F1E46</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>156E7A8A1E3FBAA7005E469C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>156E7AA31E3FC192005E469C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -35,4 +35,6 @@ typedef NS_ENUM(NSUInteger, GKCategory) {
 
 - (RACSignal *)availableDays;
 
+- (RACSignal *)submitURL:(NSString *)url desc:(NSString *)desc category:(NSString *)category author:(NSString *)author;
+
 @end

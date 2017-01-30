@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>MKDropdownMenu.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -15,6 +20,11 @@
 			<false/>
 		</dict>
 		<key>Pods-Gankee.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Share Extension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -52,22 +62,32 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0573D35CC5EF4CB964FB32092C2298C9</key>
+		<key>053A57217E60681FFAA62FB3A239ABB0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1826F303BE78D742E56A87E72B880AF3</key>
+		<key>0BB2A5A53B5EADDFD13AB33A5B034BCB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>193B1536FB26DE10E029124905678875</key>
+		<key>1205C03A7AD5F276BD98E8BB5F3207C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2069C8E0694B7F0EDC7BAA4117C7CC03</key>
+		<key>1D9ACDAE11AA173517116CAC3482FEBB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>37EB48451B013EE7BB34B2740598AE24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>490B7A932C3084E5DBAB523091DC1A8D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5B6BAA2E46309288A2A155F77DA40163</key>
+		<key>7621001FE3E4A0AC26DC0888C5465ED9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8F68640C65D5924FD78499ECCA557F00</key>
+		<key>9650B5ADCE86F1A055FAFC635284BDB5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -92,7 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ED140A4F4F23545E768BE43209AD341F</key>
+		<key>B2B12432A8BF02A90A057E7477070158</key>
 		<dict>
 			<key>primary</key>
 			<true/>

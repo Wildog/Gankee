@@ -92,7 +92,6 @@
     [UIView animateWithDuration:0.3 animations:^{
         self.tabBarController.tabBar.transform = CGAffineTransformMakeTranslation(0, self.tabBarController.tabBar.frame.size.height);
     }];
-    self.textField.clearButtonMode = UITextFieldViewModeWhileEditing;
     [self.textField becomeFirstResponder];
     
     @weakify(self)

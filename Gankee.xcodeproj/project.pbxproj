@@ -16,6 +16,7 @@
 		1540BA3E1E3E04F900D14C8D /* GKSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540BA3D1E3E04F900D14C8D /* GKSafariViewController.m */; };
 		1540BA411E3E0E9600D14C8D /* GKReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540BA401E3E0E9600D14C8D /* GKReportViewController.m */; };
 		1540BA441E3E0F1300D14C8D /* GKReportActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540BA431E3E0F1300D14C8D /* GKReportActivity.m */; };
+		154E446F1E3F7AAA00B74177 /* GKSubmitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 154E446E1E3F7AAA00B74177 /* GKSubmitViewController.m */; };
 		1560E71E1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 1560E71D1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl.m */; };
 		1569A1661E35BAEE009F1E46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1651E35BAEE009F1E46 /* main.m */; };
 		1569A1691E35BAEE009F1E46 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1681E35BAEE009F1E46 /* AppDelegate.m */; };
@@ -24,10 +25,20 @@
 		1569A1721E35BAEE009F1E46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1701E35BAEE009F1E46 /* Main.storyboard */; };
 		1569A1741E35BAEE009F1E46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1731E35BAEE009F1E46 /* Assets.xcassets */; };
 		1569A1771E35BAEE009F1E46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1751E35BAEE009F1E46 /* LaunchScreen.storyboard */; };
-		1569A1821E35BAEE009F1E46 /* GankeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1811E35BAEE009F1E46 /* GankeeTests.m */; };
 		1569A18E1E35BB70009F1E46 /* GKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A18D1E35BB70009F1E46 /* GKClient.m */; };
 		1569A1911E35D689009F1E46 /* GKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1901E35D689009F1E46 /* GKItem.m */; };
 		1569A1931E35EFF7009F1E46 /* GKHomeSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */; };
+		156E7A841E3F8184005E469C /* WDHoshiTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E7A801E3F8184005E469C /* WDHoshiTextField.m */; };
+		156E7A851E3F8184005E469C /* WDTextFieldsEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E7A831E3F8184005E469C /* WDTextFieldsEffects.m */; };
+		156E7AA81E3FC192005E469C /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E7AA71E3FC192005E469C /* ShareViewController.m */; };
+		156E7AAB1E3FC192005E469C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156E7AA91E3FC192005E469C /* MainInterface.storyboard */; };
+		156E7AAF1E3FC192005E469C /* Share Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 156E7AA41E3FC192005E469C /* Share Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		156E7AB31E3FC278005E469C /* GKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1901E35D689009F1E46 /* GKItem.m */; };
+		156E7AB41E3FC283005E469C /* WDHoshiTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E7A801E3F8184005E469C /* WDHoshiTextField.m */; };
+		156E7AB51E3FC283005E469C /* WDTextFieldsEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E7A831E3F8184005E469C /* WDTextFieldsEffects.m */; };
+		156E7AB61E3FC290005E469C /* GKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A18D1E35BB70009F1E46 /* GKClient.m */; };
+		156E7AB71E3FC428005E469C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1731E35BAEE009F1E46 /* Assets.xcassets */; };
+		156E7AB91E3FCA10005E469C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156E7AB81E3FCA10005E469C /* MobileCoreServices.framework */; };
 		157B5F031E3AFEF600F310D8 /* GKPieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 157B5F021E3AFEF600F310D8 /* GKPieView.m */; };
 		15B1BF9F1E3CBD1E00FBF4EE /* GKCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B1BF9E1E3CBD1E00FBF4EE /* GKCategoryTableViewController.m */; };
 		15B1BFA51E3CBF5900FBF4EE /* GKResultTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B1BFA41E3CBF5900FBF4EE /* GKResultTableViewModel.m */; };
@@ -39,20 +50,36 @@
 		15D9BA5D1E3A2E8F0020C283 /* SDCycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA551E3A2E8F0020C283 /* SDCycleScrollView.m */; };
 		15D9BA5E1E3A2E8F0020C283 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA571E3A2E8F0020C283 /* UIView+SDExtension.m */; };
 		15EF4CF21E3AF89C00FA6A04 /* GKPieLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EF4CF11E3AF89C00FA6A04 /* GKPieLayer.m */; };
+		331E5721F2C0E02D225123C5 /* libPods-Share Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AF3C2E842ECE6E8120FED8 /* libPods-Share Extension.a */; };
 		8AFCDD311917514910D1CEA0 /* libPods-Gankee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD3146582E3823EBEB1936C /* libPods-Gankee.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1569A17E1E35BAEE009F1E46 /* PBXContainerItemProxy */ = {
+		156E7AAD1E3FC192005E469C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 1569A1591E35BAED009F1E46 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1569A1601E35BAED009F1E46;
-			remoteInfo = Gankee;
+			remoteGlobalIDString = 156E7AA31E3FC192005E469C;
+			remoteInfo = "Share Extension";
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		156E7A9A1E3FBAA7005E469C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				156E7AAF1E3FC192005E469C /* Share Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0D90BD8EA6EA7C94B9B194C8 /* Pods-Share Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Share Extension/Pods-Share Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		150C7E471E360BE30049E7B0 /* GKHomeViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKHomeViewModel.h; sourceTree = "<group>"; };
 		150C7E481E360BE30049E7B0 /* GKHomeViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKHomeViewModel.m; sourceTree = "<group>"; };
 		150C7E4A1E3630220049E7B0 /* GKHomeTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKHomeTableViewDataSource.h; sourceTree = "<group>"; };
@@ -71,6 +98,8 @@
 		1540BA401E3E0E9600D14C8D /* GKReportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKReportViewController.m; sourceTree = "<group>"; };
 		1540BA421E3E0F1300D14C8D /* GKReportActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKReportActivity.h; sourceTree = "<group>"; };
 		1540BA431E3E0F1300D14C8D /* GKReportActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKReportActivity.m; sourceTree = "<group>"; };
+		154E446D1E3F7AAA00B74177 /* GKSubmitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKSubmitViewController.h; sourceTree = "<group>"; };
+		154E446E1E3F7AAA00B74177 /* GKSubmitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKSubmitViewController.m; sourceTree = "<group>"; };
 		1560E71C1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDScrollableSegmentedControl.h; sourceTree = "<group>"; };
 		1560E71D1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDScrollableSegmentedControl.m; sourceTree = "<group>"; };
 		1569A1611E35BAEE009F1E46 /* Gankee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gankee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,14 +114,21 @@
 		1569A1731E35BAEE009F1E46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1569A1761E35BAEE009F1E46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1569A1781E35BAEE009F1E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1569A17D1E35BAEE009F1E46 /* GankeeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GankeeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1569A1811E35BAEE009F1E46 /* GankeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GankeeTests.m; sourceTree = "<group>"; };
-		1569A1831E35BAEE009F1E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1569A18C1E35BB70009F1E46 /* GKClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKClient.h; sourceTree = "<group>"; };
 		1569A18D1E35BB70009F1E46 /* GKClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKClient.m; sourceTree = "<group>"; };
 		1569A18F1E35D689009F1E46 /* GKItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKItem.h; sourceTree = "<group>"; };
 		1569A1901E35D689009F1E46 /* GKItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKItem.m; sourceTree = "<group>"; };
 		1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GKHomeSectionHeader.xib; sourceTree = "<group>"; };
+		156E7A801E3F8184005E469C /* WDHoshiTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDHoshiTextField.m; sourceTree = "<group>"; };
+		156E7A811E3F8184005E469C /* WDHoshiTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDHoshiTextField.h; sourceTree = "<group>"; };
+		156E7A821E3F8184005E469C /* WDTextFieldsEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDTextFieldsEffects.h; sourceTree = "<group>"; };
+		156E7A831E3F8184005E469C /* WDTextFieldsEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDTextFieldsEffects.m; sourceTree = "<group>"; };
+		156E7AA41E3FC192005E469C /* Share Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Share Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		156E7AA61E3FC192005E469C /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		156E7AA71E3FC192005E469C /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		156E7AAA1E3FC192005E469C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		156E7AAC1E3FC192005E469C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		156E7AB81E3FCA10005E469C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		157B5F011E3AFEF600F310D8 /* GKPieView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPieView.h; sourceTree = "<group>"; };
 		157B5F021E3AFEF600F310D8 /* GKPieView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPieView.m; sourceTree = "<group>"; };
 		15B1BF9D1E3CBD1E00FBF4EE /* GKCategoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKCategoryTableViewController.h; sourceTree = "<group>"; };
@@ -115,9 +151,14 @@
 		15D9BA571E3A2E8F0020C283 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		15EF4CF01E3AF89C00FA6A04 /* GKPieLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPieLayer.h; sourceTree = "<group>"; };
 		15EF4CF11E3AF89C00FA6A04 /* GKPieLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPieLayer.m; sourceTree = "<group>"; };
+		1ED5307FC54FFD72242EBB4E /* Pods-ShareAction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareAction.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareAction/Pods-ShareAction.release.xcconfig"; sourceTree = "<group>"; };
 		5E46AEC01AEAB05D099024FB /* Pods-Gankee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gankee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gankee/Pods-Gankee.release.xcconfig"; sourceTree = "<group>"; };
+		6D9CE4FD0975C99AC916C93C /* Pods-Share Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Share Extension/Pods-Share Extension.release.xcconfig"; sourceTree = "<group>"; };
+		87EEF12AB91090699E5E3271 /* Pods-ShareAction.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareAction.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareAction/Pods-ShareAction.debug.xcconfig"; sourceTree = "<group>"; };
 		949D99474379F9D9E7F21A90 /* Pods-Gankee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gankee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Gankee/Pods-Gankee.debug.xcconfig"; sourceTree = "<group>"; };
 		9FD3146582E3823EBEB1936C /* libPods-Gankee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Gankee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A858B47B6D5C51B00113CF42 /* libPods-ShareAction.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShareAction.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E6AF3C2E842ECE6E8120FED8 /* libPods-Share Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Share Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +171,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1569A17A1E35BAEE009F1E46 /* Frameworks */ = {
+		156E7AA11E3FC192005E469C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156E7AB91E3FCA10005E469C /* MobileCoreServices.framework in Frameworks */,
+				331E5721F2C0E02D225123C5 /* libPods-Share Extension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +188,10 @@
 			children = (
 				949D99474379F9D9E7F21A90 /* Pods-Gankee.debug.xcconfig */,
 				5E46AEC01AEAB05D099024FB /* Pods-Gankee.release.xcconfig */,
+				87EEF12AB91090699E5E3271 /* Pods-ShareAction.debug.xcconfig */,
+				1ED5307FC54FFD72242EBB4E /* Pods-ShareAction.release.xcconfig */,
+				0D90BD8EA6EA7C94B9B194C8 /* Pods-Share Extension.debug.xcconfig */,
+				6D9CE4FD0975C99AC916C93C /* Pods-Share Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -156,6 +203,8 @@
 				1569A16E1E35BAEE009F1E46 /* GKCategoriesViewController.m */,
 				15B1BF9D1E3CBD1E00FBF4EE /* GKCategoryTableViewController.h */,
 				15B1BF9E1E3CBD1E00FBF4EE /* GKCategoryTableViewController.m */,
+				154E446D1E3F7AAA00B74177 /* GKSubmitViewController.h */,
+				154E446E1E3F7AAA00B74177 /* GKSubmitViewController.m */,
 			);
 			name = "Categories Scene";
 			sourceTree = "<group>";
@@ -206,6 +255,7 @@
 		150C7E581E38960D0049E7B0 /* Additionals */ = {
 			isa = PBXGroup;
 			children = (
+				156E7A861E3F818C005E469C /* WDHoshiTextField */,
 				1560E71B1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl */,
 				15A9D8B31E3B20480020C459 /* GKPieView */,
 				15D9BA481E3A2E8F0020C283 /* SDCycleScrollView */,
@@ -240,7 +290,7 @@
 			isa = PBXGroup;
 			children = (
 				1569A1631E35BAEE009F1E46 /* Gankee */,
-				1569A1801E35BAEE009F1E46 /* GankeeTests */,
+				156E7AA51E3FC192005E469C /* Share Extension */,
 				1569A1621E35BAEE009F1E46 /* Products */,
 				0A02169C409C798825FDEBCC /* Pods */,
 				25A43778CB02F8D9885AA4E0 /* Frameworks */,
@@ -251,7 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				1569A1611E35BAEE009F1E46 /* Gankee.app */,
-				1569A17D1E35BAEE009F1E46 /* GankeeTests.xctest */,
+				156E7AA41E3FC192005E469C /* Share Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -284,13 +334,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1569A1801E35BAEE009F1E46 /* GankeeTests */ = {
+		156E7A861E3F818C005E469C /* WDHoshiTextField */ = {
 			isa = PBXGroup;
 			children = (
-				1569A1811E35BAEE009F1E46 /* GankeeTests.m */,
-				1569A1831E35BAEE009F1E46 /* Info.plist */,
+				156E7A801E3F8184005E469C /* WDHoshiTextField.m */,
+				156E7A811E3F8184005E469C /* WDHoshiTextField.h */,
+				156E7A821E3F8184005E469C /* WDTextFieldsEffects.h */,
+				156E7A831E3F8184005E469C /* WDTextFieldsEffects.m */,
 			);
-			path = GankeeTests;
+			name = WDHoshiTextField;
+			sourceTree = "<group>";
+		};
+		156E7AA51E3FC192005E469C /* Share Extension */ = {
+			isa = PBXGroup;
+			children = (
+				156E7AA61E3FC192005E469C /* ShareViewController.h */,
+				156E7AA71E3FC192005E469C /* ShareViewController.m */,
+				156E7AA91E3FC192005E469C /* MainInterface.storyboard */,
+				156E7AAC1E3FC192005E469C /* Info.plist */,
+			);
+			path = "Share Extension";
 			sourceTree = "<group>";
 		};
 		157580911E3F0AA500D62D08 /* General View Models */ = {
@@ -356,9 +419,12 @@
 		25A43778CB02F8D9885AA4E0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				156E7AB81E3FCA10005E469C /* MobileCoreServices.framework */,
 				1523E0D71E39C2A1009BB38F /* SafariServices.framework */,
 				150C7E5E1E39A8270049E7B0 /* WebKit.framework */,
 				9FD3146582E3823EBEB1936C /* libPods-Gankee.a */,
+				A858B47B6D5C51B00113CF42 /* libPods-ShareAction.a */,
+				E6AF3C2E842ECE6E8120FED8 /* libPods-Share Extension.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -376,33 +442,36 @@
 				1569A15F1E35BAED009F1E46 /* Resources */,
 				65B3D2C6A6073EC3E07F457C /* [CP] Embed Pods Frameworks */,
 				76CD3423F9F7BB94CA8C4964 /* [CP] Copy Pods Resources */,
+				156E7A9A1E3FBAA7005E469C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				156E7AAE1E3FC192005E469C /* PBXTargetDependency */,
 			);
 			name = Gankee;
 			productName = Gankee;
 			productReference = 1569A1611E35BAEE009F1E46 /* Gankee.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1569A17C1E35BAEE009F1E46 /* GankeeTests */ = {
+		156E7AA31E3FC192005E469C /* Share Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1569A1891E35BAEE009F1E46 /* Build configuration list for PBXNativeTarget "GankeeTests" */;
+			buildConfigurationList = 156E7AB01E3FC192005E469C /* Build configuration list for PBXNativeTarget "Share Extension" */;
 			buildPhases = (
-				1569A1791E35BAEE009F1E46 /* Sources */,
-				1569A17A1E35BAEE009F1E46 /* Frameworks */,
-				1569A17B1E35BAEE009F1E46 /* Resources */,
+				AAEFDC8894307265DC27DFD7 /* [CP] Check Pods Manifest.lock */,
+				156E7AA01E3FC192005E469C /* Sources */,
+				156E7AA11E3FC192005E469C /* Frameworks */,
+				156E7AA21E3FC192005E469C /* Resources */,
+				33C6C55F29D731528F2EFB58 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				1569A17F1E35BAEE009F1E46 /* PBXTargetDependency */,
 			);
-			name = GankeeTests;
-			productName = GankeeTests;
-			productReference = 1569A17D1E35BAEE009F1E46 /* GankeeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
+			name = "Share Extension";
+			productName = "Share Extension";
+			productReference = 156E7AA41E3FC192005E469C /* Share Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -418,11 +487,10 @@
 						DevelopmentTeam = 2476E2Q84Y;
 						ProvisioningStyle = Automatic;
 					};
-					1569A17C1E35BAEE009F1E46 = {
+					156E7AA31E3FC192005E469C = {
 						CreatedOnToolsVersion = 8.2;
 						DevelopmentTeam = 2476E2Q84Y;
 						ProvisioningStyle = Automatic;
-						TestTargetID = 1569A1601E35BAED009F1E46;
 					};
 				};
 			};
@@ -440,7 +508,7 @@
 			projectRoot = "";
 			targets = (
 				1569A1601E35BAED009F1E46 /* Gankee */,
-				1569A17C1E35BAEE009F1E46 /* GankeeTests */,
+				156E7AA31E3FC192005E469C /* Share Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -457,16 +525,33 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1569A17B1E35BAEE009F1E46 /* Resources */ = {
+		156E7AA21E3FC192005E469C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156E7AB71E3FC428005E469C /* Assets.xcassets in Resources */,
+				156E7AAB1E3FC192005E469C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		33C6C55F29D731528F2EFB58 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Share Extension/Pods-Share Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		65B3D2C6A6073EC3E07F457C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -512,6 +597,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		AAEFDC8894307265DC27DFD7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -535,8 +635,10 @@
 				15D9BA5B1E3A2E8F0020C283 /* TAPageControl.m in Sources */,
 				15D9BA5C1E3A2E8F0020C283 /* SDCollectionViewCell.m in Sources */,
 				150C7E491E360BE30049E7B0 /* GKHomeViewModel.m in Sources */,
+				156E7A841E3F8184005E469C /* WDHoshiTextField.m in Sources */,
 				1540BA441E3E0F1300D14C8D /* GKReportActivity.m in Sources */,
 				1569A18E1E35BB70009F1E46 /* GKClient.m in Sources */,
+				154E446F1E3F7AAA00B74177 /* GKSubmitViewController.m in Sources */,
 				15D9BA591E3A2E8F0020C283 /* TAAnimatedDotView.m in Sources */,
 				1569A1661E35BAEE009F1E46 /* main.m in Sources */,
 				150C7E561E3896010049E7B0 /* DIDatepicker.m in Sources */,
@@ -545,24 +647,29 @@
 				15D9BA5E1E3A2E8F0020C283 /* UIView+SDExtension.m in Sources */,
 				15D9BA5D1E3A2E8F0020C283 /* SDCycleScrollView.m in Sources */,
 				157B5F031E3AFEF600F310D8 /* GKPieView.m in Sources */,
+				156E7A851E3F8184005E469C /* WDTextFieldsEffects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1569A1791E35BAEE009F1E46 /* Sources */ = {
+		156E7AA01E3FC192005E469C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1569A1821E35BAEE009F1E46 /* GankeeTests.m in Sources */,
+				156E7AB31E3FC278005E469C /* GKItem.m in Sources */,
+				156E7AB41E3FC283005E469C /* WDHoshiTextField.m in Sources */,
+				156E7AA81E3FC192005E469C /* ShareViewController.m in Sources */,
+				156E7AB51E3FC283005E469C /* WDTextFieldsEffects.m in Sources */,
+				156E7AB61E3FC290005E469C /* GKClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		1569A17F1E35BAEE009F1E46 /* PBXTargetDependency */ = {
+		156E7AAE1E3FC192005E469C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1569A1601E35BAED009F1E46 /* Gankee */;
-			targetProxy = 1569A17E1E35BAEE009F1E46 /* PBXContainerItemProxy */;
+			target = 156E7AA31E3FC192005E469C /* Share Extension */;
+			targetProxy = 156E7AAD1E3FC192005E469C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -581,6 +688,14 @@
 				1569A1761E35BAEE009F1E46 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		156E7AA91E3FC192005E469C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				156E7AAA1E3FC192005E469C /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -627,7 +742,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -669,7 +784,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -683,6 +798,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2476E2Q84Y;
 				INFOPLIST_FILE = Gankee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dog.wil.Gankee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -696,35 +812,38 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2476E2Q84Y;
 				INFOPLIST_FILE = Gankee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = dog.wil.Gankee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
-		1569A18A1E35BAEE009F1E46 /* Debug */ = {
+		156E7AB11E3FC192005E469C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D90BD8EA6EA7C94B9B194C8 /* Pods-Share Extension.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2476E2Q84Y;
-				INFOPLIST_FILE = GankeeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dog.wil.GankeeTests;
+				INFOPLIST_FILE = "Share Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "dog.wil.Gankee.Share-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gankee.app/Gankee";
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
-		1569A18B1E35BAEE009F1E46 /* Release */ = {
+		156E7AB21E3FC192005E469C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D9CE4FD0975C99AC916C93C /* Pods-Share Extension.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 2476E2Q84Y;
-				INFOPLIST_FILE = GankeeTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = dog.wil.GankeeTests;
+				INFOPLIST_FILE = "Share Extension/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "dog.wil.Gankee.Share-Extension";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gankee.app/Gankee";
+				SKIP_INSTALL = YES;
 			};
 			name = Release;
 		};
@@ -749,11 +868,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1569A1891E35BAEE009F1E46 /* Build configuration list for PBXNativeTarget "GankeeTests" */ = {
+		156E7AB01E3FC192005E469C /* Build configuration list for PBXNativeTarget "Share Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1569A18A1E35BAEE009F1E46 /* Debug */,
-				1569A18B1E35BAEE009F1E46 /* Release */,
+				156E7AB11E3FC192005E469C /* Debug */,
+				156E7AB21E3FC192005E469C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
