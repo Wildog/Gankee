@@ -9,17 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "GKItem.h"
 
-typedef void (^GKHomeTableViewCellConfigureBlock)(id cell, GKItem *item);
-
 @interface GKHomeTableViewDataSource : NSObject <UITableViewDataSource>
 
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray *> *dict;
 
 - (id)initWithDict:(NSDictionary<NSString *, NSArray *> *)dict
     cellIdentifier:(NSString *)identifier
-configureCellBlock:(GKHomeTableViewCellConfigureBlock)configureCellBlock
+configureCellBlock:(GKCellConfigureBlock)configureCellBlock
     altCellIdentifier:(NSString *)altIdentifier
-altConfigureCellBlock:(GKHomeTableViewCellConfigureBlock)altConfigureCellBlock;
+altConfigureCellBlock:(GKCellConfigureBlock)altConfigureCellBlock;
 
 - (GKItem *)itemAtIndexPath:(NSIndexPath *)indexPath;
 

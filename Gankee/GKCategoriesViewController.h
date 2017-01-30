@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SecondViewController : UIViewController
-
+@interface GKCategoriesViewController : UIViewController
 
 @end
 

@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>MKDropdownMenu.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,6 +34,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>UIScrollView-InfiniteScroll.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YTPageController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YYModel.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,22 +52,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>07C054BFDFB3EBC56BB14A60E1A80C16</key>
+		<key>0573D35CC5EF4CB964FB32092C2298C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>378492C78A6675799595D68B4AB85530</key>
+		<key>1826F303BE78D742E56A87E72B880AF3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6141C016BD5C55A48A5B3990F732042E</key>
+		<key>193B1536FB26DE10E029124905678875</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68DFF0C02ABE3912B8C6DDA1B4B9695C</key>
+		<key>2069C8E0694B7F0EDC7BAA4117C7CC03</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>558DD321411961505CC7A5A2F7CE5CDE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5B6BAA2E46309288A2A155F77DA40163</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8F68640C65D5924FD78499ECCA557F00</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,7 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C82934F3712E4F91FDBB2F1F91798CEA</key>
+		<key>ED140A4F4F23545E768BE43209AD341F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

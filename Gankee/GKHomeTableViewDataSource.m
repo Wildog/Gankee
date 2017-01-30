@@ -11,9 +11,9 @@
 @interface GKHomeTableViewDataSource ()
 
 @property (nonatomic, copy) NSString *cellIdentifier;
-@property (nonatomic, copy) GKHomeTableViewCellConfigureBlock configureCellBlock;
+@property (nonatomic, copy) GKCellConfigureBlock configureCellBlock;
 @property (nonatomic, copy) NSString *altCellIdentifier;
-@property (nonatomic, copy) GKHomeTableViewCellConfigureBlock altConfigureCellBlock;
+@property (nonatomic, copy) GKCellConfigureBlock altConfigureCellBlock;
 
 @end
 
@@ -23,7 +23,8 @@
     return nil;
 }
 
-- (id)initWithDict:(NSDictionary<NSString *,NSArray *> *)dict cellIdentifier:(NSString *)identifier configureCellBlock:(GKHomeTableViewCellConfigureBlock)configureCellBlock altCellIdentifier:(NSString *)altIdentifier altConfigureCellBlock:(GKHomeTableViewCellConfigureBlock)altConfigureCellBlock {
+- (id)initWithDict:(NSDictionary<NSString *,NSArray *> *)dict cellIdentifier:(NSString *)identifier configureCellBlock:(GKCellConfigureBlock)configureCellBlock altCellIdentifier:(NSString *)altIdentifier altConfigureCellBlock:(GKCellConfigureBlock)altConfigureCellBlock {
+    self = [super init];
     if (self) {
         self.dict = dict;
         self.cellIdentifier = identifier;

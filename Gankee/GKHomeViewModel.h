@@ -15,14 +15,16 @@
 @interface GKHomeViewModel : NSObject
 
 @property (nonatomic, strong) NSString *currentDay;
+@property (nonatomic, assign) NSInteger currentRandomItemIndex;
 @property (nonatomic, strong, readonly) NSArray *availableDays;
 @property (nonatomic, strong, readonly) NSArray<GKItem *> *randomItems;
 @property (nonatomic, strong, readonly) GKHomeTableViewDataSource *dataSource;
+@property (nonatomic, strong, readonly) RACSubject *allDataLoadedSignal;
 
 - (instancetype)initWithCellIdentifier:(NSString *)identifier
-                    configureCellBlock:(GKHomeTableViewCellConfigureBlock)configureCellBlock
+                    configureCellBlock:(GKCellConfigureBlock)configureCellBlock
                      altCellIdentifier:(NSString *)altIdentifier
-                 altConfigureCellBlock:(GKHomeTableViewCellConfigureBlock)altConfigureCellBlock;
+                 altConfigureCellBlock:(GKCellConfigureBlock)altConfigureCellBlock;
 
 - (RACSignal *)itemsForCurrentDaySignal;
 - (RACSignal *)availableDaysSignal;

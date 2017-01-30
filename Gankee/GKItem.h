@@ -24,3 +24,5 @@
 - (NSString *)imageURLStringForBanner;
 
 @end
+
+typedef void (^GKCellConfigureBlock)(id cell, GKItem *item);

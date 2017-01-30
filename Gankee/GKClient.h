@@ -28,7 +28,8 @@ typedef NS_ENUM(NSUInteger, GKCategory) {
 - (RACSignal *)dataForCategory:(GKCategory)category
                     onPage:(NSUInteger)page
                  withCount:(NSUInteger)count
-                randomize:(BOOL)randomize;
+                  onSearch:(NSString *)search
+                 randomize:(BOOL)randomize;
 
 - (RACSignal *)dataForDay:(NSString *)day;
 

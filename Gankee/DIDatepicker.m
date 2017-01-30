@@ -54,7 +54,7 @@ NSString * const kDIDatepickerCellIndentifier = @"kDIDatepickerCellIndentifier";
     
     [self.datesCollectionView reloadData];
     
-    self.selectedDate = _selectedDate;
+    //self.selectedDate = _selectedDate;
 }
 
 - (void)setSelectedDate:(NSDate *)selectedDate
@@ -112,16 +112,8 @@ NSString * const kDIDatepickerCellIndentifier = @"kDIDatepickerCellIndentifier";
 }
 
 - (void)selectDateFromString:(NSString *)string {
-    if (!self.dates) return;
-    
     NSDate *date = [[self dateFormatter] dateFromString:string];
     _selectedDate = date;
-    
-    NSUInteger index = [self.dates indexOfObject:date];
-    NSIndexPath *selectedCellIndexPath = [NSIndexPath indexPathForItem:index inSection:0];
-    [self.datesCollectionView deselectItemAtIndexPath:selectedIndexPath animated:NO];
-    [self.datesCollectionView selectItemAtIndexPath:selectedCellIndexPath animated:NO scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
-    selectedIndexPath = selectedCellIndexPath;
 }
 
 - (void)selectDateAtIndex:(NSUInteger)index
@@ -164,14 +156,23 @@ NSString * const kDIDatepickerCellIndentifier = @"kDIDatepickerCellIndentifier";
 }
 
 - (void)fillDatesFromArray:(NSArray *)array {
-    NSMutableArray *dates = [[NSMutableArray alloc] init];
-    
-    for (NSString *dateString in array) {
-        NSDate *date = [[self dateFormatter] dateFromString:dateString];
-        [dates addObject:date];
-    }
-    
-    self.dates = dates;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSMutableArray *dates = [[NSMutableArray alloc] initWithCapacity:array.count];
+        
+        for (NSString *dateString in array) {
+            NSDate *date = [[self dateFormatter] dateFromString:dateString];
+            [dates addObject:date];
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.dates = dates;
+            NSUInteger index = [self.dates indexOfObject:_selectedDate];
+            NSIndexPath *selectedCellIndexPath = [NSIndexPath indexPathForItem:index inSection:0];
+            [self.datesCollectionView deselectItemAtIndexPath:selectedIndexPath animated:NO];
+            [self.datesCollectionView selectItemAtIndexPath:selectedCellIndexPath animated:NO scrollPosition:UICollectionViewScrollPositionNone];
+            selectedIndexPath = selectedCellIndexPath;
+        });
+    });
 }
 
 - (void)fillDatesFromDate:(NSDate *)fromDate numberOfDays:(NSInteger)numberOfDays

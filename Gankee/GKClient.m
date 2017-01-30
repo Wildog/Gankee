@@ -54,12 +54,20 @@
 - (RACSignal *)dataForCategory:(GKCategory)category
                  onPage:(NSUInteger)page
               withCount:(NSUInteger)count
+               onSearch:(NSString *)search
               randomize:(BOOL)randomize {
     return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        NSString *ifRandom = randomize ? @"random/": @"";
-        NSString *ifPage = randomize ? @"" : [NSString stringWithFormat:@"/%lu", (unsigned long)page];
-        NSString *urlString = [NSString stringWithFormat:@"%@%@data/%@/%lu%@",
-                                BASE_URL, ifRandom, _mapping[@(category)], (unsigned long)count, ifPage];
+        NSString *urlString = nil;
+        
+        if (!search) {
+            NSString *ifRandom = randomize ? @"random/": @"";
+            NSString *ifPage = randomize ? @"" : [NSString stringWithFormat:@"/%lu", (unsigned long)page];
+            urlString = [NSString stringWithFormat:@"%@%@data/%@/%lu%@",
+                         BASE_URL, ifRandom, _mapping[@(category)], (unsigned long)count, ifPage];
+        } else {
+            urlString = [NSString stringWithFormat:@"%@search/query/%@/category/%@/count/%lu/page/%lu",
+                         BASE_URL, search, _mapping[@(category)], (unsigned long)count, (unsigned long)page];
+        }
         
         NSURL *url = [NSURL URLWithString:[urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
         NSURLSessionDataTask *task = [_session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -78,6 +86,24 @@
                     for (NSMutableDictionary *itemInfo in results) {
                         if (itemInfo[@"who"] == [NSNull null]) {
                             itemInfo[@"who"] = @"互联网";
+                        }
+                        if (itemInfo[@"type"] == [NSNull null]) {
+                            itemInfo[@"type"] = @"未知分类";
+                        }
+                        // gank.io really has lots of messy non-standart time format
+                        if (itemInfo[@"createdAt"] != [NSNull null]) {
+                            NSString *created = itemInfo[@"createdAt"];
+                            NSRange range = [created rangeOfString:@"." options:NSBackwardsSearch];
+                            if (range.location != NSNotFound) {
+                                itemInfo[@"createdAt"] = [created substringToIndex:range.location];
+                            }
+                        }
+                        if (itemInfo[@"publishedAt"] != [NSNull null]) {
+                            NSString *published = itemInfo[@"publishedAt"];
+                            NSRange range = [published rangeOfString:@"." options:NSBackwardsSearch];
+                            if (range.location != NSNotFound) {
+                                itemInfo[@"publishedAt"] = [published substringToIndex:range.location];
+                            }
                         }
                         GKItem *item = [GKItem yy_modelWithDictionary:itemInfo];
                         [items addObject:item];
@@ -117,6 +143,24 @@
                         for (NSMutableDictionary *itemInfo in results[categoryKey]) {
                             if (itemInfo[@"who"] == [NSNull null]) {
                                 itemInfo[@"who"] = @"互联网";
+                            }
+                            if (itemInfo[@"type"] == [NSNull null]) {
+                                itemInfo[@"type"] = @"未知分类";
+                            }
+                            // gank.io really has lots of messy non-standart time format
+                            if (itemInfo[@"createdAt"] != [NSNull null]) {
+                                NSString *created = itemInfo[@"createdAt"];
+                                NSRange range = [created rangeOfString:@"." options:NSBackwardsSearch];
+                                if (range.location != NSNotFound) {
+                                    itemInfo[@"createdAt"] = [created substringToIndex:range.location];
+                                }
+                            }
+                            if (itemInfo[@"publishedAt"] != [NSNull null]) {
+                                NSString *published = itemInfo[@"publishedAt"];
+                                NSRange range = [published rangeOfString:@"." options:NSBackwardsSearch];
+                                if (range.location != NSNotFound) {
+                                    itemInfo[@"publishedAt"] = [published substringToIndex:range.location];
+                                }
                             }
                             GKItem *item = [GKItem yy_modelWithDictionary:itemInfo];
                             [items addObject:item];

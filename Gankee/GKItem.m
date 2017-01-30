@@ -11,8 +11,8 @@
 @implementation GKItem
 
 + (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"itemID" : @"_id",
-             @"created" : @"createdAt",
+    return @{@"itemID" : @[@"_id", @"ganhuo_id"],
+             @"created": @"createdAt",
              @"published": @"publishedAt",
              @"category": @"type",
              @"author": @"who"};

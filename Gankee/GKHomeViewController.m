@@ -8,19 +8,21 @@
 
 #import "GKHomeViewController.h"
 #import "GKHomeViewModel.h"
+#import "GKSafariViewController.h"
 #import "DIDatepicker.h"
 #import "SDCycleScrollView.h"
+#import "GKPieView.h"
 #import <RACEXTScope.h>
 #import <RKDropdownAlert.h>
 #import <Masonry.h>
 #import <SDWebImage/UIImageView+WebCache.h>
-#import <SafariServices/SafariServices.h>
 
 @interface GKHomeViewController () <UITableViewDelegate, UIViewControllerPreviewingDelegate, SDCycleScrollViewDelegate>
 
 @property (nonatomic, strong) GKHomeViewModel *viewModel;
 @property (nonatomic, strong) RACCommand *refreshControlCommand;
 @property (nonatomic, strong) RACCommand *toggleCalendarCommand;
+@property (nonatomic, strong) RACCommand *showSearchCommand;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @property (nonatomic, strong) NSDateFormatter *dateFormatterForBanner;
 
@@ -31,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet DIDatepicker *datepicker;
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton *barButton;
+@property (strong, nonatomic) IBOutlet UIButton *searchButton;
+@property (nonatomic, strong) GKPieView *pieView;
 @property (nonatomic, strong) SDCycleScrollView *cycleView;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 
@@ -42,7 +46,9 @@
 
 - (GKHomeViewModel *)viewModel {
     if (!_viewModel) {
+        @weakify(self)
         _viewModel = [[GKHomeViewModel alloc] initWithCellIdentifier:@"home_cell" configureCellBlock:^(UITableViewCell *cell, GKItem *item) {
+            @strongify(self)
             UILabel *descLabel = (UILabel *)[cell viewWithTag:1];
             UILabel *authorLabel = (UILabel *)[cell viewWithTag:2];
             UILabel *timeLabel = (UILabel *)[cell viewWithTag:3];
@@ -58,6 +64,7 @@
             
             [imageView sd_setImageWithURL:item.images[0] placeholderImage:[UIImage imageNamed:@"placeholder"] options:SDWebImageProgressiveDownload];
         } altCellIdentifier:@"home_cell_no_img" altConfigureCellBlock:^(UITableViewCell *cell, GKItem *item) {
+            @strongify(self)
             UILabel *descLabel = (UILabel *)[cell viewWithTag:1];
             UILabel *authorLabel = (UILabel *)[cell viewWithTag:2];
             UILabel *timeLabel = (UILabel *)[cell viewWithTag:3];
@@ -76,17 +83,25 @@
 
 - (RACCommand *)refreshControlCommand {
     if (!_refreshControlCommand) {
+        @weakify(self)
         _refreshControlCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
-            [[self.viewModel.availableDaysSignal deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
+            @strongify(self)
+            // only update availableDays here
+            [self.viewModel.availableDaysSignal subscribeNext:^(id  _Nullable x) {
             } error:^(NSError * _Nullable error) {
-                [_refreshControl endRefreshing];
-                [RKDropdownAlert title:@"出错了！" message:[error localizedDescription]];
+                [self.viewModel.allDataLoadedSignal sendCompleted];
+                [self displayAlertWithError:error];
             } completed:^{
-                // after filling dates, datepicker's setSelectedDate will send control event triggering change of currentDay, finally leads to update the dataSource and reload data
                 [self.datepicker fillDatesFromArray:self.viewModel.availableDays];
+                // this will trigger subsequent signals to update the dataSource
+                if (!self.viewModel.currentDay) {
+                    self.viewModel.currentDay = self.viewModel.availableDays[0];
+                } else {
+                    self.viewModel.currentDay = self.viewModel.currentDay;
+                }
             }];
-            
-            return [RACSignal empty];
+
+            return self.viewModel.allDataLoadedSignal;
         }];
     }
     
@@ -95,7 +110,9 @@
 
 - (RACCommand *)toggleCalendarCommand {
     if (!_toggleCalendarCommand) {
+        @weakify(self)
         _toggleCalendarCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+            @strongify(self)
             if (self.datepicker.superview.hidden) {
                 self.datepicker.superview.hidden = NO;
                 [UIView animateWithDuration:0.3 animations:^{
@@ -115,6 +132,18 @@
     }
     
     return _toggleCalendarCommand;
+}
+
+- (RACCommand *)showSearchCommand {
+    if (!_showSearchCommand) {
+        @weakify(self)
+        _showSearchCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            @strongify(self)
+            [self.navigationController performSegueWithIdentifier:@"search_segue" sender:nil];
+            return [RACSignal empty];
+        }];
+    }
+    return _showSearchCommand;
 }
 
 - (NSDateFormatter *)dateFormatter {
@@ -137,16 +166,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // set navigation item
+    // setup navigation item
     self.navigationItem.titleView = self.titleView;
     self.barButton.rac_command = self.toggleCalendarCommand;
+    self.searchButton.rac_command = self.showSearchCommand;
     
     // setup tableView
     self.tableView.dataSource = self.viewModel.dataSource;
     self.tableView.delegate = self;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 80;
+    [self setupLoadingView];
     
+    // setup refreshControl
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.tintColor = [UIColor colorWithRed:0.078 green:0.580 blue:0.529 alpha:0.600];
+    self.refreshControl.rac_command = self.refreshControlCommand;
+    self.tableView.refreshControl = self.refreshControl;
+    
+    // setup banner cycleView
     self.cycleView = [[SDCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, 0, 150)];
     self.cycleView.placeholderImage = [UIImage imageNamed:@"banner-placeholder"];
     self.cycleView.bannerImageViewContentMode = UIViewContentModeScaleAspectFill;
@@ -157,86 +195,72 @@
     self.tableView.tableHeaderView = self.cycleView;
     
     // get availableDays
-    [[self.viewModel.availableDaysSignal deliverOnMainThread] subscribeNext:^(id x) {
+    [self.viewModel.availableDaysSignal subscribeNext:^(id x) {
     } error:^(NSError * _Nullable error) {
-        [RKDropdownAlert title:@"出错了！" message:[error localizedDescription]];
+        [self displayAlertWithError:error];
     } completed:^{
         [self.datepicker fillDatesFromArray:self.viewModel.availableDays];
+        self.viewModel.currentDay = self.viewModel.availableDays[0];
     }];
     
-    // update dataSource if currentDay changes and is valid
+    // update dataSource and randomItems if currentDay changes and is valid
     @weakify(self)
-    [[[RACObserve(self.viewModel, currentDay) filter:^BOOL(NSString *value) {
+    [[RACObserve(self.viewModel, currentDay) filter:^BOOL(NSString *value) {
         return (value.length > 0);
-    }] deliverOnMainThread] subscribeNext:^(id x) {
+    }] subscribeNext:^(id x) {
         @strongify(self)
-        [[[self.viewModel itemsForCurrentDaySignal] deliverOnMainThread] subscribeNext:^(id _Nullable x) {
-            [[self.viewModel randomItemsSignal] subscribeNext:^(id  _Nullable x) {
-            }];
+        [[[self.viewModel itemsForCurrentDaySignal] combineLatestWith:self.viewModel.randomItemsSignal] subscribeNext:^(id _Nullable x) {
         } error:^(NSError * _Nullable error) {
-            [RKDropdownAlert title:@"出错了！" message:[error localizedDescription]];
+            [self.viewModel.allDataLoadedSignal sendCompleted];
+            [self displayAlertWithError:error];
         } completed:^{
-            // this will not trigger control event sending
-            [self.datepicker selectDateFromString:x];
+            // check if enough data
+            if (self.viewModel.randomItems.count > 1) {
+                NSMutableArray *imageURLStringsArray = [NSMutableArray arrayWithCapacity:5];
+                NSMutableArray *descsArray = [NSMutableArray arrayWithCapacity:5];
+                NSMutableArray *datesArray = [NSMutableArray arrayWithCapacity:5];
+                NSMutableArray *categoriesArray = [NSMutableArray arrayWithCapacity:5];
+                for (GKItem *item in self.viewModel.randomItems) {
+                    NSString *urlString = [item imageURLStringForBanner];
+                    [imageURLStringsArray addObject:urlString];
+                    
+                    NSString *desc = item.desc;
+                    [descsArray addObject:desc];
+                    
+                    NSString *category = item.category ? item.category : @"未知分类";
+                    [categoriesArray addObject:category];
+                    
+                    NSString *date = item.created ? [self.dateFormatterForBanner stringFromDate:item.created] : @"未知日期";
+                    [datesArray addObject:date];
+                }
+                // reload tableView and cycleView
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.cycleView.descs = descsArray;
+                    self.cycleView.categories = categoriesArray;
+                    self.cycleView.dates = datesArray;
+                    self.cycleView.imageURLStringsGroup = imageURLStringsArray;
+                    [self.viewModel.allDataLoadedSignal sendCompleted];
+                    [self.pieView.pieLayer removeAllAnimations];
+                    [self.pieView removeFromSuperview];
+                    self.tableView.hidden = NO;
+                    [self.tableView reloadData];
+                });
+            } else {
+                // if not enough randomItems to display, trigger signal to make an another request
+                self.viewModel.currentDay = self.viewModel.currentDay;
+            }
         }];
     }];
     
-    // update cycleView when randomItems update
-    [RACObserve(self.viewModel, randomItems) subscribeNext:^(NSArray *randomItems) {
-        @strongify(self)
-        if (randomItems.count > 1) {
-            NSMutableArray *imageURLStringsArray = [NSMutableArray arrayWithCapacity:5];
-            NSMutableArray *descsArray = [NSMutableArray arrayWithCapacity:5];
-            NSMutableArray *datesArray = [NSMutableArray arrayWithCapacity:5];
-            NSMutableArray *categoriesArray = [NSMutableArray arrayWithCapacity:5];
-            for (GKItem *item in randomItems) {
-                NSString *urlString = [item imageURLStringForBanner];
-                [imageURLStringsArray addObject:urlString];
-                
-                NSString *desc = item.desc;
-                [descsArray addObject:desc];
-                
-                NSString *category = item.category ? item.category : @"未知分类";
-                [categoriesArray addObject:category];
-                
-                NSString *date = item.created ? [self.dateFormatterForBanner stringFromDate:item.created] : @"未知日期";
-                [datesArray addObject:date];
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.cycleView.descs = descsArray;
-                self.cycleView.categories = categoriesArray;
-                self.cycleView.dates = datesArray;
-                self.cycleView.imageURLStringsGroup = imageURLStringsArray;
-            });
-        } else if (randomItems) {
-            [[self.viewModel randomItemsSignal] subscribeNext:^(id  _Nullable x) {
-            }];
-        }
-    } error:^(NSError * _Nullable error) {
-        [RKDropdownAlert title:@"出错了！" message:[error localizedDescription]];
-    }];
-    
-    // reload data when dataSource updates
-    [[RACObserve(self.viewModel.dataSource, dict) deliverOnMainThread] subscribeNext:^(NSDictionary *x) {
-        @strongify(self)
-        [self.refreshControl endRefreshing];
-        [self.tableView reloadData];
-    }];
-    
     // when datepicker's selectedDate changes, update currentDay to the corresponding string
-    RAC(self.viewModel, currentDay) = [[[self.datepicker rac_signalForControlEvents:UIControlEventValueChanged] map:^id _Nullable(__kindof UIControl * _Nullable value) {
+    RAC(self.viewModel, currentDay) = [[[[self.datepicker rac_signalForControlEvents:UIControlEventValueChanged] map:^id _Nullable(__kindof UIControl * _Nullable value) {
         @strongify(self)
         return [[self.datepicker dateFormatter] stringFromDate:self.datepicker.selectedDate];
     }] filter:^BOOL(id  _Nullable value) {
         return (value) ? YES : NO;
+    }] doNext:^(id  _Nullable x) {
+        [self setupLoadingView];
     }];
-    
-    // setup RefreshControl
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.tintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:0.6];
-    self.refreshControl.rac_command = self.refreshControlCommand;
-    self.tableView.refreshControl = _refreshControl;
-    
     
     // animate titleView when currentDay changes for the first time
     RAC(self.currentDayLabel, text) = [[[RACObserve(self.viewModel, currentDay)
@@ -246,13 +270,21 @@
                                         doNext:^(id x) {
                                             @strongify(self)
                                             if (self.currentDayLabel.alpha == 0) {
-                                                self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.barButton];
-                                                self.barButton.transform = CGAffineTransformMakeScale(0, 0);
+                                                // set datepicker's selected date,
+                                                // this will not trigger control event
+                                                [self.datepicker selectDateFromString:self.viewModel.currentDay];
                                                 
-                                                [UIView animateWithDuration:0.35 delay:0.3 usingSpringWithDamping:0.75 initialSpringVelocity:3 options:0 animations:^{
-                                                    self.barButton.transform = CGAffineTransformIdentity;
+                                                // add datepicker button
+                                                self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.barButton];
+                                                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.searchButton];
+                                                self.barButton.transform = self.searchButton.transform = CGAffineTransformMakeScale(0, 0);
+                                                
+                                                // animate button
+                                                [UIView animateWithDuration:0.4 delay:0.3 usingSpringWithDamping:0.75 initialSpringVelocity:3 options:0 animations:^{
+                                                    self.barButton.transform = self.searchButton.transform = CGAffineTransformIdentity;
                                                 } completion:nil];
                                                 
+                                                // animate title
                                                 [UIView animateWithDuration:0.5 animations:^{
                                                     self.titleImageView.transform = CGAffineTransformMakeTranslation(0, -11);
                                                     self.currentDayLabel.alpha = 1.0;
@@ -261,8 +293,11 @@
                                         }];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [UIView animateWithDuration:0.2 animations:^{
+        self.tabBarController.tabBar.transform = CGAffineTransformIdentity;
+    } completion:nil];
     [self check3DTouch];
 }
 
@@ -271,6 +306,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setupLoadingView {
+    // setup loading view
+    self.tableView.hidden = YES;
+    if (!_pieView) {
+        _pieView = [[GKPieView alloc] initWithFrame:CGRectMake(0, 0, 60, 60) startAngle:0 endAngle:270 fillColor:[UIColor clearColor] strokeColor:[UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1] strokeWidth:2];
+    }
+    [self.view addSubview:_pieView];
+    [_pieView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.height.equalTo(@(60));
+        make.width.equalTo(@(60));
+    }];
+    [_pieView startAnimating];
+}
+
+- (void)displayAlertWithError:(NSError *)error {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [RKDropdownAlert title:@"出错了，刷新试试" message:[error localizedDescription]];
+        [self.pieView.pieLayer removeAllAnimations];
+        [self.pieView removeFromSuperview];
+        self.tableView.hidden = NO;
+    });
+}
 
 #pragma mark tableView delegate
 
@@ -289,8 +347,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    SFSafariViewController *viewController = [[SFSafariViewController alloc] initWithURL:[self.viewModel.dataSource itemAtIndexPath:indexPath].url];
-    viewController.preferredControlTintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1];
+    GKSafariViewController *viewController = [[GKSafariViewController alloc] initWithItem:[self.viewModel.dataSource itemAtIndexPath:indexPath]];
     [self presentViewController:viewController animated:YES completion:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
@@ -298,9 +355,12 @@
 #pragma mark CycleView Delegate
 
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index {
-    SFSafariViewController *viewController = [[SFSafariViewController alloc] initWithURL:self.viewModel.randomItems[index].url];
-    viewController.preferredControlTintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1];
+    GKSafariViewController *viewController = [[GKSafariViewController alloc] initWithItem:self.viewModel.randomItems[index]];
     [self presentViewController:viewController animated:YES completion:nil];
+}
+
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didScrollToIndex:(NSInteger)index {
+    self.viewModel.currentRandomItemIndex = index;
 }
 
 #pragma mark Previewing Delegate
@@ -319,23 +379,35 @@
 }
 
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext viewControllerForLocation:(CGPoint)location {
-    if ([self.presentationController isKindOfClass:[SFSafariViewController class]]) {
+    if ([self.presentationController isKindOfClass:[GKSafariViewController class]]) {
         return nil;
     }
     
     CGPoint cellPosition = [_tableView convertPoint:location fromView:self.view];
-    NSIndexPath *path = [_tableView indexPathForRowAtPoint:cellPosition];
     
-    if (path) {
-        UITableViewCell *cell = [_tableView cellForRowAtIndexPath:path];
-        previewingContext.sourceRect = [self.view convertRect:cell.frame fromView:_tableView];
+    if (CGRectContainsPoint(_cycleView.frame, cellPosition)) {
         
-        SFSafariViewController *viewController = [[SFSafariViewController alloc] initWithURL:[self.viewModel.dataSource itemAtIndexPath:path].url];
-        viewController.preferredControlTintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1];
+        previewingContext.sourceRect = [self.view convertRect:_cycleView.frame fromView:_tableView];
+        
+        GKSafariViewController *viewController = [[GKSafariViewController alloc] initWithItem:self.viewModel.randomItems[self.viewModel.currentRandomItemIndex]];
         
         return viewController;
+        
+    } else {
+        
+        NSIndexPath *path = [_tableView indexPathForRowAtPoint:cellPosition];
+        
+        if (path) {
+            UITableViewCell *cell = [_tableView cellForRowAtIndexPath:path];
+            previewingContext.sourceRect = [self.view convertRect:cell.frame fromView:_tableView];
+            
+            GKSafariViewController *viewController = [[GKSafariViewController alloc] initWithItem:[self.viewModel.dataSource itemAtIndexPath:path]];
+            
+            return viewController;
+        }
+        
+        return nil;
     }
-    return nil;
 }
 
 - (void)previewingContext:(id<UIViewControllerPreviewing>)previewingContext commitViewController:(UIViewController *)viewControllerToCommit {
