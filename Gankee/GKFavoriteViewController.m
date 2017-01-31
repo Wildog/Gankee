@@ -6,11 +6,12 @@
 //  Copyright © 2017 Wildog. All rights reserved.
 //
 
+#import <RKDropdownAlert.h>
 #import "GKFavoriteViewController.h"
 #import "GKFavoriteItem+CoreDataClass.h"
 #import "GKSafariViewController.h"
 
-@interface GKFavoriteViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
+@interface GKFavoriteViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UISearchResultsUpdating>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *titleView;
@@ -46,6 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.titleView = self.titleView;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.settingButton];
     
@@ -53,6 +55,7 @@
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.searchBar.placeholder = @"搜索本地收藏";
     self.searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    self.searchController.searchResultsUpdater = self;
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 80;
@@ -64,7 +67,7 @@
     [NSFetchedResultsController deleteCacheWithName:nil];
     NSError *error;
     if (![self.fetchedResultsController performFetch:&error]) {
-        NSLog(@"Unresolved error: %@", error);
+        [RKDropdownAlert title:@"出错了" message:error.localizedDescription];
     }
 }
 
@@ -115,6 +118,41 @@
     }
 }
 
+#pragma mark TableView Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    GKSafariViewController *viewController = [[GKSafariViewController alloc] initWithFavoriteItem:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    [self presentViewController:viewController animated:YES completion:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        GKFavoriteItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+            GKFavoriteItem *localItem = [item MR_inContext:localContext];
+            [localItem MR_deleteEntity];
+        }];
+    }
+}
+
+#pragma mark SearchResults Updater
+
+- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
+    [NSFetchedResultsController deleteCacheWithName:nil];
+    NSPredicate *predicate = nil;
+    if (searchController.searchBar.text.length > 0) {
+        predicate = [NSPredicate predicateWithFormat:@"desc CONTAINS[cd] %@", searchController.searchBar.text];
+    }
+    self.fetchedResultsController.fetchRequest.predicate = predicate;
+    NSError *error;
+    if (![self.fetchedResultsController performFetch:&error]) {
+        [RKDropdownAlert title:@"出错了" message:error.localizedDescription];
+    } else {
+        [self.tableView reloadData];
+    }
+}
+
 #pragma mark FetchedResultsController Delegate
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
@@ -155,24 +193,6 @@
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
     [self.tableView endUpdates];
-}
-
-#pragma mark TableView Delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    GKSafariViewController *viewController = [[GKSafariViewController alloc] initWithFavoriteItem:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-    [self presentViewController:viewController animated:YES completion:nil];
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        GKFavoriteItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
-        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-            GKFavoriteItem *localItem = [item MR_inContext:localContext];
-            [localItem MR_deleteEntity];
-        }];
-    }
 }
 
 #pragma mark Previewing Delegate
