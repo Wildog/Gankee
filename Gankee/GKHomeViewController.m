@@ -12,6 +12,7 @@
 #import "DIDatepicker.h"
 #import "SDCycleScrollView.h"
 #import "GKPieView.h"
+#import "UIRefreshControl+UITableView.h"
 #import <RACEXTScope.h>
 #import <RKDropdownAlert.h>
 #import <Masonry.h>
@@ -31,7 +32,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
 @property (weak, nonatomic) IBOutlet UILabel *currentDayLabel;
 @property (weak, nonatomic) IBOutlet DIDatepicker *datepicker;
-@property (weak, nonatomic) IBOutlet UINavigationItem *navigationItem;
 @property (weak, nonatomic) IBOutlet UIButton *barButton;
 @property (strong, nonatomic) IBOutlet UIButton *searchButton;
 @property (nonatomic, strong) GKPieView *pieView;
@@ -183,7 +183,7 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.tintColor = [UIColor colorWithRed:0.078 green:0.580 blue:0.529 alpha:0.600];
     self.refreshControl.rac_command = self.refreshControlCommand;
-    self.tableView.refreshControl = self.refreshControl;
+    [self.refreshControl addToTableView:self.tableView];
     
     // setup banner cycleView
     self.cycleView = [[SDCycleScrollView alloc] initWithFrame:CGRectMake(0, 0, 0, 150)];

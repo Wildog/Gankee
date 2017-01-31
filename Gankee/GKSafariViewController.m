@@ -29,8 +29,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.preferredControlTintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1];
     self.delegate = self;
+    if ([self respondsToSelector:NSSelectorFromString(@"setPreferredControlTintColor:")]) {
+        // iOS 10+ only
+        self.preferredControlTintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1];
+    }
 }
 
 - (UIPreviewAction *)shareAction {

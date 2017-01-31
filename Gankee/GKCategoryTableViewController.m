@@ -9,6 +9,7 @@
 #import <RKDropdownAlert.h>
 #import <Masonry.h>
 #import <UIScrollView+InfiniteScroll.h>
+#import "UIRefreshControl+UITableView.h"
 #import "GKCategoryTableViewController.h"
 #import "GKSafariViewController.h"
 #import "GKPieView.h"
@@ -105,20 +106,18 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     self.refreshControl.tintColor = [UIColor colorWithRed:0.078 green:0.580 blue:0.529 alpha:0.600];
     self.refreshControl.rac_command = self.refreshControlCommand;
-    self.tableView.refreshControl = self.refreshControl;
+    [self.refreshControl addToTableView:self.tableView];
     self.tableView.infiniteScrollIndicatorMargin = 22;
     
     @weakify(self)
     [self.tableView addInfiniteScrollWithHandler:^(UITableView * _Nonnull tableView) {
         @strongify(self)
-        tableView.refreshControl = nil;
         self.viewModel.currentPage += 1;
         //NSUInteger previousItemsCount = self.viewModel.items.count;
         
         [[self.viewModel.moreItemsSignal deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
         } error:^(NSError * _Nullable error) {
             [tableView finishInfiniteScroll];
-            tableView.refreshControl = self.refreshControl;
             [self displayAlertWithError:error];
         } completed:^{
             // buggy animation with self-sizing tableView,
@@ -133,13 +132,12 @@
             //[tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
             
             [tableView reloadData];
-            tableView.refreshControl = self.refreshControl;
             [tableView finishInfiniteScroll];
         }];
     }];
     
     [self.tableView setShouldShowInfiniteScrollHandler:^BOOL(UITableView * _Nonnull tableView) {
-        return !tableView.refreshControl.refreshing && !self.viewModel.noMoreResults;
+        return !self.refreshControl.refreshing && !self.viewModel.noMoreResults;
     }];
     
     [[[self.viewModel moreItemsSignal] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {

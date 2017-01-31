@@ -118,6 +118,7 @@
         } completed:^{
             [self.pieView.pieLayer removeAllAnimations];
             [self.pieView removeFromSuperview];
+            self.noResultLabel.hidden = YES;
             self.tableView.hidden = NO;
             [self.tableView reloadData];
             [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:NO];
@@ -158,6 +159,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [self.menu closeAllComponentsAnimated:YES];
     [self.textField resignFirstResponder];
 }
 

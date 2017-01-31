@@ -1,0 +1,16 @@
+//
+//  common.pch
+//  Gankee
+//
+//  Created by Wildog on 1/31/17.
+//  Copyright © 2017 Wildog. All rights reserved.
+//
+
+#ifndef common_pch
+#define common_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import <MagicalRecord/MagicalRecord.h>
+
+#endif /* common_pch */
