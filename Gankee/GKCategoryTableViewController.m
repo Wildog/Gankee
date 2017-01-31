@@ -31,7 +31,7 @@
 
 - (GKResultTableViewModel *)viewModel {
     if (!_viewModel) {
-        _viewModel = [[GKResultTableViewModel alloc] initWithItems:@[] category:self.category pageSize:15 cellIdentifier:@"category_cell_with_tag" configureCellBlock:^(id cell, GKItem *item) {
+        _viewModel = [[GKResultTableViewModel alloc] initWithItems:@[] category:self.category pageSize:15 cellIdentifier:@"result_cell_with_tag" configureCellBlock:^(id cell, GKItem *item) {
             UILabel *descLabel = (UILabel *)[cell viewWithTag:1];
             UILabel *authorLabel = (UILabel *)[cell viewWithTag:2];
             UILabel *timeLabel = (UILabel *)[cell viewWithTag:3];
@@ -45,7 +45,7 @@
             } else {
                 [timeLabel setText:[self.dateFormatter stringFromDate:item.created]];
             }
-        } altCellIdentifier:@"category_cell" altConfigureCellBlock:^(id cell, GKItem *item) {
+        } altCellIdentifier:@"result_cell" altConfigureCellBlock:^(id cell, GKItem *item) {
             UILabel *descLabel = (UILabel *)[cell viewWithTag:1];
             UILabel *authorLabel = (UILabel *)[cell viewWithTag:2];
             UILabel *timeLabel = (UILabel *)[cell viewWithTag:3];
@@ -179,7 +179,7 @@
 - (void)displayAlertWithError:(NSError *)error {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (error.code == -42 && [error.domain isEqualToString:@"GKErrorDomain"]) {
-            [RKDropdownAlert title:@"解锁成就" message:[error localizedDescription] backgroundColor:[UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1] textColor:[UIColor whiteColor]];
+            [RKDropdownAlert title:@"解锁成就" message:[error localizedDescription] backgroundColor:[UIColor colorWithRed:0.16 green:0.73 blue:0.61 alpha:1] textColor:[UIColor whiteColor]];
         } else {
             [RKDropdownAlert title:@"出错了，刷新试试" message:[error localizedDescription]];
         }

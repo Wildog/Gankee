@@ -10,43 +10,34 @@
 
 @implementation GKReportActivity
 
-- (id)initWithURL:(NSURL *)url
-{
+- (id)initWithURL:(NSURL *)url {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         [self prepareWithURL:url];
     }
     return self;
 }
 
-- (NSString *)activityType
-{
+- (NSString *)activityType {
     return @"GKReportActivityType";
 }
 
-- (NSString *)activityTitle
-{
+- (NSString *)activityTitle {
     return @"举报内容";
 }
 
-- (UIImage *)activityImage
-{
+- (UIImage *)activityImage {
     return [UIImage imageNamed:@"report"];
 }
 
-- (BOOL)canPerformWithActivityItems:(NSArray *)activityItems
-{
+- (BOOL)canPerformWithActivityItems:(NSArray *)activityItems {
     return YES;
 }
 
-- (void)prepareWithActivityItems:(NSArray *)activityItems
-{
+- (void)prepareWithActivityItems:(NSArray *)activityItems {
     NSURL* url = nil;
-    for (NSObject* obj in activityItems)
-    {
-        if ([obj isKindOfClass:[NSURL class]])
-        {
+    for (NSObject* obj in activityItems) {
+        if ([obj isKindOfClass:[NSURL class]]) {
             url = (NSURL*)obj;
         }
     }
@@ -54,18 +45,15 @@
     [self prepareWithURL:url];
 }
 
-- (void) prepareWithURL:(NSURL*)url
-{
+- (void)prepareWithURL:(NSURL*)url {
     activityViewController = [[UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"report_vc"];
 }
 
-- (UIViewController *)activityViewController
-{
+- (UIViewController *)activityViewController {
     return activityViewController;
 }
 
-+ (UIActivityCategory)activityCategory
-{
++ (UIActivityCategory)activityCategory {
     return UIActivityCategoryAction;
 }
 

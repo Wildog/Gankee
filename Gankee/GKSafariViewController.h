@@ -8,11 +8,13 @@
 
 #import <SafariServices/SafariServices.h>
 #import "GKItem.h"
+#import "GKFavoriteItem+CoreDataClass.h"
 
 @interface GKSafariViewController : SFSafariViewController
 
 @property (nonatomic, strong) GKItem *item;
 
 - (instancetype)initWithItem:(GKItem *)item;
+- (instancetype)initWithFavoriteItem:(GKFavoriteItem *)item;
 
 @end

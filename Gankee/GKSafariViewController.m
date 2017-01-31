@@ -6,25 +6,45 @@
 //  Copyright © 2017 Wildog. All rights reserved.
 //
 
+#import <RKDropdownAlert.h>
 #import "GKSafariViewController.h"
 #import "GKReportActivity.h"
+#import "GKFavoriteActivity.h"
+#import "GKUnfavoriteActivity.h"
 #import "AppDelegate.h"
+#import "GKFavoriteHelper.h"
 
 @interface GKSafariViewController () <SFSafariViewControllerDelegate>
 
 @property (nonatomic, strong) UIPreviewAction *shareAction;
+@property (nonatomic, strong) UIPreviewAction *favoriteAction;
+@property (nonatomic, strong) UIPreviewAction *unfavoriteAction;
 
 @end
 
 @implementation GKSafariViewController
 
 - (instancetype)initWithItem:(GKItem *)item {
-    _item = item;
     if (!item.url) {
         // sometimes gank.io backend provides null url
         item.url = [NSURL URLWithString:@"http://gank.io/404"];
     }
-    return [super initWithURL:item.url];
+    _item = item;
+    return [super initWithURL:_item.url];
+}
+
+- (instancetype)initWithFavoriteItem:(GKFavoriteItem *)item {
+    _item = [[GKItem alloc] init];
+    _item.itemID = item.itemID;
+    _item.created = item.created;
+    _item.published = item.published;
+    _item.url = (NSURL *)item.url;
+    _item.desc = item.desc;
+    _item.author = item.author;
+    _item.images = (NSArray *)item.images;
+    _item.category = item.category;
+    _item.source = item.source;
+    return [super initWithURL:_item.url];
 }
 
 - (void)viewDidLoad {
@@ -58,8 +78,44 @@
     return _shareAction;
 }
 
+- (UIPreviewAction *)favoriteAction {
+    if (!_favoriteAction) {
+        _favoriteAction = [UIPreviewAction actionWithTitle:@"收藏" style:UIPreviewActionStyleDefault handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+            [GKFavoriteHelper createFavoriteItemFromItem:_item];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+                if (error) {
+                    [RKDropdownAlert title:@"收藏失败" message:error.localizedDescription];
+                } else {
+                    [RKDropdownAlert title:@"已收藏" backgroundColor:[UIColor colorWithRed:0.16 green:0.73 blue:0.61 alpha:1] textColor:[UIColor whiteColor] time:1];
+                }
+            }];
+        }];
+    }
+    return _favoriteAction;
+}
+
+- (UIPreviewAction *)unfavoriteAction {
+    if (!_unfavoriteAction) {
+        _unfavoriteAction = [UIPreviewAction actionWithTitle:@"取消收藏" style:UIPreviewActionStyleDestructive handler:^(UIPreviewAction * _Nonnull action, UIViewController * _Nonnull previewViewController) {
+            GKFavoriteItem *favorite = [GKFavoriteHelper fetchFavoriteItemFromItem:_item];
+            [favorite MR_deleteEntity];
+            [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:^(BOOL success, NSError *error) {
+                if (error) {
+                    [RKDropdownAlert title:@"未能取消收藏" message:error.localizedDescription];
+                } else {
+                    [RKDropdownAlert title:@"已取消收藏" backgroundColor:[UIColor colorWithRed:0.2 green:0.27 blue:0.35 alpha:1] textColor:[UIColor whiteColor] time:1];
+                }
+            }];
+        }];
+    }
+    return _unfavoriteAction;
+}
+
 - (NSArray<id<UIPreviewActionItem>> *)previewActionItems {
-    return @[self.shareAction];
+    if ([GKFavoriteHelper fetchFavoriteItemFromItem:_item]) {
+        return @[self.unfavoriteAction, self.shareAction];
+    }
+    return @[self.favoriteAction, self.shareAction];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,8 +124,14 @@
 }
 
 - (NSArray<UIActivity *> *)safariViewController:(SFSafariViewController *)controller activityItemsForURL:(NSURL *)URL title:(NSString *)title {
-    GKReportActivity *activity = [[GKReportActivity alloc] initWithURL:URL];
-    return @[activity];
+    GKReportActivity *reportActivity = [[GKReportActivity alloc] initWithURL:URL];
+    UIActivity *favoriteActivity = nil;
+    if ([GKFavoriteHelper fetchFavoriteItemFromItem:_item]) {
+        favoriteActivity = [[GKUnfavoriteActivity alloc] initWithItem:_item];
+    } else {
+        favoriteActivity = [[GKFavoriteActivity alloc] initWithItem:_item];
+    }
+    return @[favoriteActivity, reportActivity];
 }
 
 /*

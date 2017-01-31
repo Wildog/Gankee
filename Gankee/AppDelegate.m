@@ -20,6 +20,7 @@
     // Override point for customization after application launch.
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 160;
+    [MagicalRecord setupCoreDataStackWithiCloudContainer:@"iCloud.dog.wil.Gankee" localStoreNamed:@"favorites"];
     return YES;
 }
 
@@ -48,6 +49,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [MagicalRecord cleanUp];
 }
 
 

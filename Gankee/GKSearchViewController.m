@@ -194,7 +194,7 @@
         BOOL shouldHidden = NO;
         
         if (error.code == -42 && [error.domain isEqualToString:@"GKErrorDomain"]) {
-            [RKDropdownAlert title:@"提示" message:@"没有更多结果了" backgroundColor:[UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1] textColor:[UIColor whiteColor]];
+            [RKDropdownAlert title:@"提示" message:@"没有更多结果了" backgroundColor:[UIColor colorWithRed:0.16 green:0.73 blue:0.61 alpha:1] textColor:[UIColor whiteColor]];
         } else if (error.code == -43 && [error.domain isEqualToString:@"GKErrorDomain"]) {
             shouldHidden = YES;
             self.noResultLabel.text = [NSString stringWithFormat:@"没有找到关于“%@”的结果", self.viewModel.search];

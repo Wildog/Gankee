@@ -11,6 +11,10 @@
 		150C7E4C1E3630220049E7B0 /* GKHomeTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E4B1E3630220049E7B0 /* GKHomeTableViewDataSource.m */; };
 		150C7E561E3896010049E7B0 /* DIDatepicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E531E3896010049E7B0 /* DIDatepicker.m */; };
 		150C7E571E3896010049E7B0 /* DIDatepickerDateView.m in Sources */ = {isa = PBXBuildFile; fileRef = 150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */; };
+		1520F5F81E40C4ED0026C048 /* GKFavoriteItem.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1520F5F61E40C4ED0026C048 /* GKFavoriteItem.xcdatamodeld */; };
+		1520F5FB1E40EC060026C048 /* GKFavoriteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1520F5FA1E40EC060026C048 /* GKFavoriteActivity.m */; };
+		1520F5FE1E40EFB60026C048 /* GKFavoriteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1520F5FD1E40EFB60026C048 /* GKFavoriteHelper.m */; };
+		1520F6011E40F12F0026C048 /* GKUnfavoriteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1520F6001E40F12F0026C048 /* GKUnfavoriteActivity.m */; };
 		1523E0D81E39C2A1009BB38F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1523E0D71E39C2A1009BB38F /* SafariServices.framework */; };
 		152D0F081E3EEF870072DE56 /* GKSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 152D0F071E3EEF870072DE56 /* GKSearchViewController.m */; };
 		1540BA3E1E3E04F900D14C8D /* GKSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540BA3D1E3E04F900D14C8D /* GKSafariViewController.m */; };
@@ -91,6 +95,13 @@
 		150C7E541E3896010049E7B0 /* DIDatepickerDateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIDatepickerDateView.h; sourceTree = "<group>"; };
 		150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIDatepickerDateView.m; sourceTree = "<group>"; };
 		150C7E5E1E39A8270049E7B0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1520F5F71E40C4ED0026C048 /* GKFavoriteItem.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GKFavoriteItem.xcdatamodel; sourceTree = "<group>"; };
+		1520F5F91E40EC060026C048 /* GKFavoriteActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKFavoriteActivity.h; sourceTree = "<group>"; };
+		1520F5FA1E40EC060026C048 /* GKFavoriteActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKFavoriteActivity.m; sourceTree = "<group>"; };
+		1520F5FC1E40EFB60026C048 /* GKFavoriteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKFavoriteHelper.h; sourceTree = "<group>"; };
+		1520F5FD1E40EFB60026C048 /* GKFavoriteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKFavoriteHelper.m; sourceTree = "<group>"; };
+		1520F5FF1E40F12F0026C048 /* GKUnfavoriteActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKUnfavoriteActivity.h; sourceTree = "<group>"; };
+		1520F6001E40F12F0026C048 /* GKUnfavoriteActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKUnfavoriteActivity.m; sourceTree = "<group>"; };
 		1523E0D71E39C2A1009BB38F /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		152D0F061E3EEF870072DE56 /* GKSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKSearchViewController.h; sourceTree = "<group>"; };
 		152D0F071E3EEF870072DE56 /* GKSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKSearchViewController.m; sourceTree = "<group>"; };
@@ -231,6 +242,7 @@
 			children = (
 				1569A18F1E35D689009F1E46 /* GKItem.h */,
 				1569A1901E35D689009F1E46 /* GKItem.m */,
+				1520F5F61E40C4ED0026C048 /* GKFavoriteItem.xcdatamodeld */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -279,6 +291,12 @@
 				1540BA401E3E0E9600D14C8D /* GKReportViewController.m */,
 				1540BA421E3E0F1300D14C8D /* GKReportActivity.h */,
 				1540BA431E3E0F1300D14C8D /* GKReportActivity.m */,
+				1520F5F91E40EC060026C048 /* GKFavoriteActivity.h */,
+				1520F5FA1E40EC060026C048 /* GKFavoriteActivity.m */,
+				1520F5FF1E40F12F0026C048 /* GKUnfavoriteActivity.h */,
+				1520F6001E40F12F0026C048 /* GKUnfavoriteActivity.m */,
+				1520F5FC1E40EFB60026C048 /* GKFavoriteHelper.h */,
+				1520F5FD1E40EFB60026C048 /* GKFavoriteHelper.m */,
 			);
 			name = "General Controllers";
 			sourceTree = "<group>";
@@ -682,15 +700,19 @@
 				150C7E491E360BE30049E7B0 /* GKHomeViewModel.m in Sources */,
 				156E7A841E3F8184005E469C /* WDHoshiTextField.m in Sources */,
 				1540BA441E3E0F1300D14C8D /* GKReportActivity.m in Sources */,
+				1520F5FB1E40EC060026C048 /* GKFavoriteActivity.m in Sources */,
+				1520F5F81E40C4ED0026C048 /* GKFavoriteItem.xcdatamodeld in Sources */,
 				1569A18E1E35BB70009F1E46 /* GKClient.m in Sources */,
 				154E446F1E3F7AAA00B74177 /* GKSubmitViewController.m in Sources */,
 				15D9BA591E3A2E8F0020C283 /* TAAnimatedDotView.m in Sources */,
 				1569A1661E35BAEE009F1E46 /* main.m in Sources */,
 				150C7E561E3896010049E7B0 /* DIDatepicker.m in Sources */,
 				150C7E571E3896010049E7B0 /* DIDatepickerDateView.m in Sources */,
+				1520F6011E40F12F0026C048 /* GKUnfavoriteActivity.m in Sources */,
 				1560E71E1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl.m in Sources */,
 				15D9BA5E1E3A2E8F0020C283 /* UIView+SDExtension.m in Sources */,
 				15D9BA5D1E3A2E8F0020C283 /* SDCycleScrollView.m in Sources */,
+				1520F5FE1E40EFB60026C048 /* GKFavoriteHelper.m in Sources */,
 				157B5F031E3AFEF600F310D8 /* GKPieView.m in Sources */,
 				156E7A851E3F8184005E469C /* WDTextFieldsEffects.m in Sources */,
 			);
@@ -927,6 +949,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1520F5F61E40C4ED0026C048 /* GKFavoriteItem.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1520F5F71E40C4ED0026C048 /* GKFavoriteItem.xcdatamodel */,
+			);
+			currentVersion = 1520F5F71E40C4ED0026C048 /* GKFavoriteItem.xcdatamodel */;
+			path = GKFavoriteItem.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1569A1591E35BAED009F1E46 /* Project object */;
 }
