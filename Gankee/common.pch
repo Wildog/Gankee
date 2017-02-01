@@ -11,6 +11,8 @@
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define GOSSAMER ([UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1])
+#define MADISON ([UIColor colorWithRed:0.2 green:0.27 blue:0.35 alpha:1])
 #import <MagicalRecord/MagicalRecord.h>
 
 #endif /* common_pch */

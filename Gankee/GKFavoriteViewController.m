@@ -7,6 +7,7 @@
 //
 
 #import <RKDropdownAlert.h>
+#import <SDImageCache.h>
 #import "GKFavoriteViewController.h"
 #import "GKFavoriteItem+CoreDataClass.h"
 #import "GKSafariViewController.h"
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *titleView;
 @property (strong, nonatomic) IBOutlet UIButton *settingButton;
+@property (weak, nonatomic) IBOutlet UILabel *noResultLabel;
+@property (weak, nonatomic) IBOutlet UIView *alertView;
 
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -55,6 +58,8 @@
     self.searchController.dimsBackgroundDuringPresentation = NO;
     self.searchController.searchBar.placeholder = @"搜索本地收藏";
     self.searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
+    self.searchController.searchBar.tintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:0.9];
+    self.searchController.searchBar.backgroundColor = [UIColor whiteColor];
     self.searchController.searchResultsUpdater = self;
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -81,6 +86,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)unwindSceneViewController:(UIStoryboardSegue *)segue {
+}
+
+- (IBAction)settingButtonDidPress:(id)sender {
+    UIAlertController *menu = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+    UIAlertAction *clearCache = [UIAlertAction actionWithTitle:@"清除图片缓存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
+            [RKDropdownAlert title:@"缓存清理完毕" backgroundColor:GOSSAMER textColor:[UIColor whiteColor]];
+        }];
+    }];
+    
+    UIAlertAction *review = [UIAlertAction actionWithTitle:@"给个评价" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSURL *url = [NSURL URLWithString:@"itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1201113401&onlyLatestVersion=true&pageNumber=0&sortOrdering=1&type=Purple+Software"];
+        [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:^(BOOL success) {}];
+    }];
+    
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
+    
+    [menu addAction:clearCache];
+    [menu addAction:review];
+    [menu addAction:cancel];
+    [self presentViewController:menu animated:YES completion:nil];
+}
+
 #pragma mark TableView DataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -88,7 +118,13 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.fetchedResultsController.sections[section] numberOfObjects];
+    NSInteger count = [self.fetchedResultsController.sections[section] numberOfObjects];
+    if (!self.fetchedResultsController.fetchRequest.predicate && count == 0) {
+        self.alertView.hidden = NO;
+    } else {
+        self.alertView.hidden = YES;
+    }
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -150,6 +186,13 @@
         [RKDropdownAlert title:@"出错了" message:error.localizedDescription];
     } else {
         [self.tableView reloadData];
+        if ([self.fetchedResultsController.sections[0] numberOfObjects] == 0
+            && searchController.searchBar.text.length > 0) {
+            self.noResultLabel.text = [NSString stringWithFormat:@"没有找到关于“%@”的结果", searchController.searchBar.text];
+            self.noResultLabel.hidden = NO;
+        } else {
+            self.noResultLabel.hidden = YES;
+        }
     }
 }
 

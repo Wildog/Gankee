@@ -311,7 +311,7 @@
     // setup loading view
     self.tableView.hidden = YES;
     if (!_pieView) {
-        _pieView = [[GKPieView alloc] initWithFrame:CGRectMake(0, 0, 60, 60) startAngle:0 endAngle:270 fillColor:[UIColor clearColor] strokeColor:[UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1] strokeWidth:2];
+        _pieView = [[GKPieView alloc] initWithFrame:CGRectMake(0, 0, 60, 60) startAngle:0 endAngle:270 fillColor:[UIColor clearColor] strokeColor:GOSSAMER strokeWidth:2];
     }
     [self.view addSubview:_pieView];
     [_pieView mas_makeConstraints:^(MASConstraintMaker *make) {

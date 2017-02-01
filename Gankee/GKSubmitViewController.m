@@ -99,7 +99,7 @@
         self.view.userInteractionEnabled = YES;
         self.submitButton.enabled = YES;
     } completed:^{
-        [RKDropdownAlert title:@"提交成功" message:@"等待编辑们的审核哦~" backgroundColor:[UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1] textColor:[UIColor whiteColor]];
+        [RKDropdownAlert title:@"提交成功" message:@"等待编辑们的审核哦~" backgroundColor:GOSSAMER textColor:[UIColor whiteColor]];
         [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
     }];
 }

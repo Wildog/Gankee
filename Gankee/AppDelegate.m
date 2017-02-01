@@ -24,6 +24,17 @@
     return YES;
 }
 
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    if ([shortcutItem.type isEqualToString:@"Categories"]) {
+        [(UITabBarController *)self.window.rootViewController setSelectedIndex:1];
+    } else if ([shortcutItem.type isEqualToString:@"Favorites"]) {
+        [(UITabBarController *)self.window.rootViewController setSelectedIndex:2];
+    } else if ([shortcutItem.type isEqualToString:@"Search"]) {
+        [(UITabBarController *)self.window.rootViewController setSelectedIndex:0];
+        [[(UITabBarController *)self.window.rootViewController selectedViewController] performSegueWithIdentifier:@"search_segue" sender:nil];
+    }
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

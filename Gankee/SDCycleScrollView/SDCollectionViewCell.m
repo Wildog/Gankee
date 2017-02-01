@@ -111,7 +111,7 @@
                                NSParagraphStyleAttributeName: _paragraphStyle,
                                NSBaselineOffsetAttributeName: @(5),
                                NSForegroundColorAttributeName: [UIColor whiteColor],
-                               NSBackgroundColorAttributeName: [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1]}];
+                               NSBackgroundColorAttributeName: GOSSAMER}];
     _descLabel.attributedText = attributedDesc;
 }
 
@@ -121,7 +121,7 @@
                                        NSParagraphStyleAttributeName: _paragraphStyle,
                                        NSBaselineOffsetAttributeName: @(1),
                                        NSForegroundColorAttributeName: [UIColor whiteColor],
-                                       NSBackgroundColorAttributeName: [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1]}];
+                                       NSBackgroundColorAttributeName: GOSSAMER}];
     _categoryLabel.attributedText = attributedCategory;
 }
 
@@ -131,7 +131,7 @@
                                NSParagraphStyleAttributeName: _paragraphStyle,
                                NSBaselineOffsetAttributeName: @(1),
                                NSForegroundColorAttributeName: [UIColor whiteColor],
-                               NSBackgroundColorAttributeName: [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1]}];
+                               NSBackgroundColorAttributeName: GOSSAMER}];
     _dateLabel.attributedText = attributedDate;
 }
 

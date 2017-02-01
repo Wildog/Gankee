@@ -49,6 +49,33 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconType</key>
+			<string>UIApplicationShortcutIconTypeSearch</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>搜索干货</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>Search</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>category-quickaction</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>干货分类</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>Categories</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>favorite-quickaction</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>干货收藏</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>Favorites</string>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

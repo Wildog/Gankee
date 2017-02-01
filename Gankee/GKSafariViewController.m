@@ -52,7 +52,7 @@
     self.delegate = self;
     if ([self respondsToSelector:NSSelectorFromString(@"setPreferredControlTintColor:")]) {
         // iOS 10+ only
-        self.preferredControlTintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1];
+        self.preferredControlTintColor = GOSSAMER;
     }
 }
 
@@ -103,7 +103,7 @@
                 if (error) {
                     [RKDropdownAlert title:@"未能取消收藏" message:error.localizedDescription];
                 } else {
-                    [RKDropdownAlert title:@"已取消收藏" backgroundColor:[UIColor colorWithRed:0.2 green:0.27 blue:0.35 alpha:1] textColor:[UIColor whiteColor] time:1];
+                    [RKDropdownAlert title:@"已取消收藏" backgroundColor:MADISON textColor:[UIColor whiteColor] time:1];
                 }
             }];
         }];

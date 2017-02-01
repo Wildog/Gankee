@@ -10,4 +10,6 @@
 
 @interface GKFavoriteViewController : UIViewController
 
+- (IBAction)unwindSceneViewController:(UIStoryboardSegue *)segue;
+
 @end

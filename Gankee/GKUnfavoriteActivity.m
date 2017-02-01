@@ -42,7 +42,7 @@
         if (error) {
             [RKDropdownAlert title:@"未能取消收藏" message:error.localizedDescription];
         } else {
-            [RKDropdownAlert title:@"已取消收藏" backgroundColor:[UIColor colorWithRed:0.2 green:0.27 blue:0.35 alpha:1] textColor:[UIColor whiteColor] time:1];
+            [RKDropdownAlert title:@"已取消收藏" backgroundColor:MADISON textColor:[UIColor whiteColor] time:1];
         }
     }];
 }

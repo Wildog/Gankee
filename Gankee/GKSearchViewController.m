@@ -79,8 +79,8 @@
     self.automaticallyAdjustsScrollViewInsets = NO;
     
     self.categories = @[@"全部分类", @"iOS", @"Android", @"App", @"前端", @"瞎推荐", @"拓展资源", @"休息视频", @"福利"];
-    self.menu.dataSource = self;
     self.menu.delegate = self;
+    self.menu.dataSource = self;
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 80;
@@ -178,11 +178,12 @@
     self.noResultLabel.hidden = YES;
     self.tableView.hidden = YES;
     if (!_pieView) {
-        _pieView = [[GKPieView alloc] initWithFrame:CGRectMake(0, 0, 60, 60) startAngle:0 endAngle:270 fillColor:[UIColor clearColor] strokeColor:[UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:1] strokeWidth:2];
+        _pieView = [[GKPieView alloc] initWithFrame:CGRectMake(0, 0, 60, 60) startAngle:0 endAngle:270 fillColor:[UIColor clearColor] strokeColor:GOSSAMER strokeWidth:2];
     }
     [self.view addSubview:_pieView];
     [_pieView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self.view);
+        make.centerX.equalTo(self.view.mas_centerX);
+        make.centerY.equalTo(self.view.mas_centerY).with.offset(-60);
         make.height.equalTo(@(60));
         make.width.equalTo(@(60));
     }];
