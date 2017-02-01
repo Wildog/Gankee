@@ -162,14 +162,19 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+- (NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewRowAction *delete = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDestructive title:@"取消收藏" handler:^(UITableViewRowAction * _Nonnull action, NSIndexPath * _Nonnull indexPath) {
         GKFavoriteItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        /*
         [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
             GKFavoriteItem *localItem = [item MR_inContext:localContext];
             [localItem MR_deleteEntity];
         }];
-    }
+         */
+        [item MR_deleteEntity];
+        [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
+    }];
+    return @[delete];
 }
 
 #pragma mark SearchResults Updater

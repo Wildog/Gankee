@@ -1,0 +1,1 @@
+../../../WACoreDataSpotlight/Files/WACDSSimpleMapping.h

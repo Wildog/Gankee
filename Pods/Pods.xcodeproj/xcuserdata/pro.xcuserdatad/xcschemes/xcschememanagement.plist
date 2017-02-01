@@ -54,6 +54,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>WACoreDataSpotlight.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>YTPageController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,17 +72,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0A2EF9873112B83D25321AC56DBF49D3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2166B0A0DEAD2B86A72BF1809AC4F391</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>3FEE113974A3C6CFECDAE003E8A7B144</key>
+		<key>0DF98A4D0BDF50753346409036983532</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,32 +82,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4C12577EF5BDC01C13DDE927ACE43CAD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4C8F80A249A51D37279C9A8FC6A5199B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>558DD321411961505CC7A5A2F7CE5CDE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>56E0E24F826C558E7C4B885A0AA758C5</key>
+		<key>6999A032E2FA0735A08D39A14D46A3A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>7621001FE3E4A0AC26DC0888C5465ED9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8F0EB7AFF1C83A63B70164FC56176560</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -123,6 +103,36 @@
 			<true/>
 		</dict>
 		<key>9DC8D9E02903E93BD0B2FEC9D846EA20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BCF180B620402B0BC653CFB9E85B6D67</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD7F1F4C8A9DB4A9FF5365074C3134B3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3F00BB8DF4388D9B90C220655952A6C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D986D2B466BF12D184133EE338F61705</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DD6DD3F3C3C74356506C0A138F218884</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F0B1229396DA06C486F34162CF3B47D7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

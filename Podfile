@@ -12,6 +12,7 @@ target "Gankee" do
     pod 'YTPageController'
     pod 'IQKeyboardManager'
     pod 'MagicalRecord'
+    pod 'WACoreDataSpotlight'
 end
 
 target "Share Extension" do

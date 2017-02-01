@@ -144,10 +144,16 @@
     } error:^(NSError * _Nullable error) {
         [self displayAlertWithError:error];
     } completed:^{
-        [self.pieView.pieLayer removeAllAnimations];
-        [self.pieView removeFromSuperview];
-        self.tableView.hidden = NO;
         [self.tableView reloadData];
+        [UIView animateWithDuration:0.1 animations:^{
+            self.pieView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.pieView.pieLayer removeAllAnimations];
+            [self.pieView removeFromSuperview];
+        }];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.tableView.alpha = 1;
+        } completion:nil];
     }];
 }
 
@@ -163,10 +169,11 @@
 
 - (void)setupLoadingView {
     // setup loading view
-    self.tableView.hidden = YES;
+    self.tableView.alpha = 0;
     if (!_pieView) {
         _pieView = [[GKPieView alloc] initWithFrame:CGRectMake(0, 0, 60, 60) startAngle:0 endAngle:270 fillColor:[UIColor clearColor] strokeColor:GOSSAMER strokeWidth:2];
     }
+    _pieView.alpha = 1;
     [self.view addSubview:_pieView];
     [_pieView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.center.equalTo(self.view);
@@ -183,9 +190,15 @@
         } else {
             [RKDropdownAlert title:@"出错了，刷新试试" message:[error localizedDescription]];
         }
-        [self.pieView.pieLayer removeAllAnimations];
-        [self.pieView removeFromSuperview];
-        self.tableView.hidden = NO;
+        [UIView animateWithDuration:0.1 animations:^{
+            self.pieView.alpha = 0;
+        } completion:^(BOOL finished) {
+            [self.pieView.pieLayer removeAllAnimations];
+            [self.pieView removeFromSuperview];
+        }];
+        [UIView animateWithDuration:0.2 animations:^{
+            self.tableView.alpha = 1;
+        } completion:nil];
     });
 }
 

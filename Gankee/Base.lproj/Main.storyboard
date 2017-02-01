@@ -36,13 +36,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Nj-NP-W5w">
-                                                    <rect key="frame" x="18" y="13" width="291" height="43"/>
+                                                    <rect key="frame" x="18" y="13" width="286" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.11255447566509247" green="0.12079138308763504" blue="0.14382587373256683" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59x-Ub-uxM">
-                                                    <rect key="frame" x="313.5" y="8" width="85.5" height="73.5"/>
+                                                    <rect key="frame" x="313" y="12" width="86" height="74"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" heightSizable="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 </imageView>
@@ -91,7 +91,7 @@
                                                 <constraint firstItem="7Dn-r4-MFe" firstAttribute="centerY" secondItem="mA6-Sa-zaS" secondAttribute="centerY" id="gll-QS-m4K"/>
                                                 <constraint firstItem="mA6-Sa-zaS" firstAttribute="leading" secondItem="kn2-GD-c3f" secondAttribute="trailing" constant="8" id="qad-Qi-qNd"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="LEK-Le-b3n" secondAttribute="bottom" constant="5" id="t8L-T7-37n"/>
-                                                <constraint firstAttribute="trailing" secondItem="6Nj-NP-W5w" secondAttribute="trailing" constant="105" id="x5t-Bj-sHn"/>
+                                                <constraint firstAttribute="trailing" secondItem="6Nj-NP-W5w" secondAttribute="trailing" constant="110" id="x5t-Bj-sHn"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>

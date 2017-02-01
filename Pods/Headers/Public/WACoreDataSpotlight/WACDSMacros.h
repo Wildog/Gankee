@@ -1,0 +1,1 @@
+../../../WACoreDataSpotlight/Files/WACDSMacros.h

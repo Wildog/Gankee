@@ -15,7 +15,6 @@
 		1520F5FB1E40EC060026C048 /* GKFavoriteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1520F5FA1E40EC060026C048 /* GKFavoriteActivity.m */; };
 		1520F5FE1E40EFB60026C048 /* GKFavoriteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1520F5FD1E40EFB60026C048 /* GKFavoriteHelper.m */; };
 		1520F6011E40F12F0026C048 /* GKUnfavoriteActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 1520F6001E40F12F0026C048 /* GKUnfavoriteActivity.m */; };
-		1523E0D81E39C2A1009BB38F /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1523E0D71E39C2A1009BB38F /* SafariServices.framework */; };
 		152D0F081E3EEF870072DE56 /* GKSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 152D0F071E3EEF870072DE56 /* GKSearchViewController.m */; };
 		1540BA3E1E3E04F900D14C8D /* GKSafariViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540BA3D1E3E04F900D14C8D /* GKSafariViewController.m */; };
 		1540BA411E3E0E9600D14C8D /* GKReportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1540BA401E3E0E9600D14C8D /* GKReportViewController.m */; };
@@ -41,7 +40,6 @@
 		156E7AB51E3FC283005E469C /* WDTextFieldsEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E7A831E3F8184005E469C /* WDTextFieldsEffects.m */; };
 		156E7AB61E3FC290005E469C /* GKClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A18D1E35BB70009F1E46 /* GKClient.m */; };
 		156E7AB71E3FC428005E469C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1569A1731E35BAEE009F1E46 /* Assets.xcassets */; };
-		156E7AB91E3FCA10005E469C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 156E7AB81E3FCA10005E469C /* MobileCoreServices.framework */; };
 		157B5F031E3AFEF600F310D8 /* GKPieView.m in Sources */ = {isa = PBXBuildFile; fileRef = 157B5F021E3AFEF600F310D8 /* GKPieView.m */; };
 		15B1BF9F1E3CBD1E00FBF4EE /* GKCategoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B1BF9E1E3CBD1E00FBF4EE /* GKCategoryTableViewController.m */; };
 		15B1BFA51E3CBF5900FBF4EE /* GKResultTableViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B1BFA41E3CBF5900FBF4EE /* GKResultTableViewModel.m */; };
@@ -185,7 +183,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1523E0D81E39C2A1009BB38F /* SafariServices.framework in Frameworks */,
 				8AFCDD311917514910D1CEA0 /* libPods-Gankee.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,7 +191,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				156E7AB91E3FCA10005E469C /* MobileCoreServices.framework in Frameworks */,
 				331E5721F2C0E02D225123C5 /* libPods-Share Extension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

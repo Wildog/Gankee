@@ -11,6 +11,7 @@ PODS:
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
   - UIScrollView-InfiniteScroll (1.0.0)
+  - WACoreDataSpotlight (0.0.7)
   - YTPageController (0.5.0)
   - YYModel (1.0.4)
 
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - RKDropdownAlert
   - SDWebImage
   - UIScrollView-InfiniteScroll
+  - WACoreDataSpotlight
   - YTPageController
   - YYModel
 
@@ -35,9 +37,10 @@ SPEC CHECKSUMS:
   RKDropdownAlert: f4b3364c251829ad439dc666836a1f2dad26f4c7
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   UIScrollView-InfiniteScroll: d26885be71caca7485cdb37eab513a8f89036bb0
+  WACoreDataSpotlight: 0b37abcbb5fd49d650342b00a8465f1711934e6f
   YTPageController: a42ed15972066e66ff7c8d769c214c11f27d483b
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 34c572ccb04dd5dccfa572717a0e8ca0e71d4930
+PODFILE CHECKSUM: b5b78d656fa74f7ae005a572c6b6b37099711eff
 
 COCOAPODS: 1.1.1

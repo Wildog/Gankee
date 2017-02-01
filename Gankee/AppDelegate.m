@@ -8,8 +8,14 @@
 
 #import "AppDelegate.h"
 #import "IQKeyboardManager.h"
+#import "GKFavoriteItem+CoreDataClass.h"
+#import "GKSafariViewController.h"
+#import <WACoreDataSpotlight.h>
+#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) WACDSIndexer *indexer;
 
 @end
 
@@ -17,10 +23,84 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    // setup keyboard avoider
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 160;
-    [MagicalRecord setupCoreDataStackWithiCloudContainer:@"iCloud.dog.wil.Gankee" localStoreNamed:@"favorites"];
+    
+    // setup core data
+    if ([[NSFileManager defaultManager] ubiquityIdentityToken]) {
+        [self iCloudCoreDataSetup];
+    } else {
+        [MagicalRecord setupAutoMigratingCoreDataStack];
+    }
+    
+    // setup spotlight indexer
+    self.indexer = [[WACDSIndexer alloc] initWithManagedObjectContext:[NSManagedObjectContext MR_defaultContext]];
+    
+    WACDSCustomMapping *mapping = [[WACDSCustomMapping alloc] initWithManagedObjectEntityName:@"GKFavoriteItem" uniqueIdentifierPattern:@"{#itemID#}" searchableItemAttributeSetBuilder:^CSSearchableItemAttributeSet *(GKFavoriteItem *item) {
+        CSSearchableItemAttributeSet *attributeSet = [[CSSearchableItemAttributeSet alloc] initWithItemContentType:(NSString *)kUTTypeText];
+        attributeSet.title = item.desc;
+        attributeSet.contentDescription = item.category;
+        attributeSet.contentCreationDate = item.created;
+        attributeSet.creator = item.author;
+        attributeSet.keywords = @[@"gankee", @"干货", item.desc, item.category];
+        
+        return attributeSet;
+    }];
+    [self.indexer registerMapping:mapping];
+    
+    return YES;
+}
+
+- (void)iCloudCoreDataSetup {
+    [MagicalRecord setupCoreDataStackWithiCloudContainer:@"iCloud.dog.wil.Gankee"
+                                          contentNameKey:@"GKFavoriteItem"
+                                         localStoreNamed:@"GKFavoriteItem.sqlite"
+                                 cloudStorePathComponent:@"Documents/CloudLogs"
+                                              completion:nil];
+    
+    // This notification is issued only once when
+    // 1) you run your app on a particular device for the first time
+    // 2) you disable/enable iCloud document storage on a particular device
+    // usually a couple of seconds after the respective event.
+    // The notification must be handled on the MAIN thread and synchronously
+    // (because as soon as it finishes, the persistent store is removed by OS).
+    // Refer to Apple's documentation for further details
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSPersistentStoreCoordinatorStoresWillChangeNotification
+                                                      object:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification *note) {
+                                                      
+                                                      // Save changes to current MOC and reset it
+                                                      if ([[NSManagedObjectContext MR_defaultContext] hasChanges]) {
+                                                          [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreAndWait];
+                                                      }
+                                                      [[NSManagedObjectContext MR_defaultContext] reset];
+                                                  }];
+    
+    // This notification is issued couple of times every time your app starts
+    // The notification must be handled on the BACKGROUND thread and asynchronously to prevent deadlock
+    // Refer to Apple's documentation for further details
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSPersistentStoreCoordinatorStoresDidChangeNotification
+                                                      object:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]
+                                                       queue:nil    // Run on the background thread
+                                                  usingBlock:^(NSNotification *note) {
+                                                      
+                                                      dispatch_async(dispatch_get_main_queue(), ^{
+                                                          // Recommended by Apple
+                                                          [[NSManagedObjectContext MR_defaultContext] reset];
+                                                          
+                                                          // Notify UI that the data has changes
+                                                          [[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCDidCompleteiCloudSetupNotification object:nil];
+                                                      });
+                                                  }];
+}
+
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
+    GKFavoriteItem *item = (GKFavoriteItem *)[self.indexer objectFromUserActivity:userActivity];
+    GKSafariViewController *viewController = [[GKSafariViewController alloc] initWithFavoriteItem:item];
+    [self.window.rootViewController presentViewController:viewController animated:YES completion:nil];
+    
     return YES;
 }
 
