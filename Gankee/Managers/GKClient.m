@@ -214,7 +214,7 @@
     return [[RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
         NSURL *finalUrl = [NSURL URLWithString:[NSString stringWithFormat:@"%@add2gank", BASE_URL]];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:finalUrl];
-        NSString *body = [NSString stringWithFormat:@"url=%@&desc=%@&type=%@&who=%@", url, desc, category, author];
+        NSString *body = [NSString stringWithFormat:@"url=%@&desc=%@&type=%@&who=%@&debug=false", url, desc, category, author];
         request.HTTPMethod = @"POST";
         request.HTTPBody = [body dataUsingEncoding:NSUTF8StringEncoding];
         request.timeoutInterval = 10;
