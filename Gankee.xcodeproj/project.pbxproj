@@ -255,15 +255,15 @@
 		150C7E511E364C860049E7B0 /* Home Scene */ = {
 			isa = PBXGroup;
 			children = (
-				1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */,
-				150C7E4A1E3630220049E7B0 /* GKHomeTableViewDataSource.h */,
-				150C7E4B1E3630220049E7B0 /* GKHomeTableViewDataSource.m */,
 				1569A16A1E35BAEE009F1E46 /* GKHomeViewController.h */,
 				1569A16B1E35BAEE009F1E46 /* GKHomeViewController.m */,
 				150C7E471E360BE30049E7B0 /* GKHomeViewModel.h */,
 				150C7E481E360BE30049E7B0 /* GKHomeViewModel.m */,
+				150C7E4A1E3630220049E7B0 /* GKHomeTableViewDataSource.h */,
+				150C7E4B1E3630220049E7B0 /* GKHomeTableViewDataSource.m */,
 				152D0F061E3EEF870072DE56 /* GKSearchViewController.h */,
 				152D0F071E3EEF870072DE56 /* GKSearchViewController.m */,
+				1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */,
 			);
 			path = "Home Scene";
 			sourceTree = "<group>";
@@ -281,18 +281,18 @@
 		1540BA3B1E3E048900D14C8D /* General Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				1540BA3C1E3E04F900D14C8D /* GKSafariViewController.h */,
+				1540BA3D1E3E04F900D14C8D /* GKSafariViewController.m */,
+				1540BA3F1E3E0E9600D14C8D /* GKReportViewController.h */,
+				1540BA401E3E0E9600D14C8D /* GKReportViewController.m */,
+				1540BA421E3E0F1300D14C8D /* GKReportActivity.h */,
+				1540BA431E3E0F1300D14C8D /* GKReportActivity.m */,
+				1520F5FF1E40F12F0026C048 /* GKUnfavoriteActivity.h */,
+				1520F6001E40F12F0026C048 /* GKUnfavoriteActivity.m */,
 				1520F5F91E40EC060026C048 /* GKFavoriteActivity.h */,
 				1520F5FA1E40EC060026C048 /* GKFavoriteActivity.m */,
 				1520F5FC1E40EFB60026C048 /* GKFavoriteHelper.h */,
 				1520F5FD1E40EFB60026C048 /* GKFavoriteHelper.m */,
-				1540BA421E3E0F1300D14C8D /* GKReportActivity.h */,
-				1540BA431E3E0F1300D14C8D /* GKReportActivity.m */,
-				1540BA3F1E3E0E9600D14C8D /* GKReportViewController.h */,
-				1540BA401E3E0E9600D14C8D /* GKReportViewController.m */,
-				1540BA3C1E3E04F900D14C8D /* GKSafariViewController.h */,
-				1540BA3D1E3E04F900D14C8D /* GKSafariViewController.m */,
-				1520F5FF1E40F12F0026C048 /* GKUnfavoriteActivity.h */,
-				1520F6001E40F12F0026C048 /* GKUnfavoriteActivity.m */,
 			);
 			path = "General Controllers";
 			sourceTree = "<group>";
@@ -338,16 +338,16 @@
 		1569A1631E35BAEE009F1E46 /* Gankee */ = {
 			isa = PBXGroup;
 			children = (
-				150C7E581E38960D0049E7B0 /* Additionals */,
-				150C7E4D1E364C150049E7B0 /* Categories Scene */,
-				15D5F15F1E40729B0004446B /* Custom Views */,
-				154297141E4085D2004D6CE7 /* Favorite Scene */,
-				1540BA3B1E3E048900D14C8D /* General Controllers */,
-				157580911E3F0AA500D62D08 /* General View Models */,
+				150C7E4E1E364C270049E7B0 /* Storyboard */,
 				150C7E511E364C860049E7B0 /* Home Scene */,
+				150C7E4D1E364C150049E7B0 /* Categories Scene */,
+				154297141E4085D2004D6CE7 /* Favorite Scene */,
+				157580911E3F0AA500D62D08 /* General View Models */,
+				1540BA3B1E3E048900D14C8D /* General Controllers */,
+				15D5F15F1E40729B0004446B /* Custom Views */,
 				150C7E501E364C730049E7B0 /* Managers */,
 				150C7E4F1E364C660049E7B0 /* Models */,
-				150C7E4E1E364C270049E7B0 /* Storyboard */,
+				150C7E581E38960D0049E7B0 /* Additionals */,
 				1569A1641E35BAEE009F1E46 /* Supporting Files */,
 				1569A1671E35BAEE009F1E46 /* AppDelegate.h */,
 				1569A1681E35BAEE009F1E46 /* AppDelegate.m */,
@@ -422,8 +422,8 @@
 			isa = PBXGroup;
 			children = (
 				15A9D8B31E3B20480020C459 /* GKPieView */,
-				156E7A861E3F818C005E469C /* WDHoshiTextField */,
 				1560E71B1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl */,
+				156E7A861E3F818C005E469C /* WDHoshiTextField */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
