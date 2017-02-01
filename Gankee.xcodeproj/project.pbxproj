@@ -221,7 +221,7 @@
 				154E446D1E3F7AAA00B74177 /* GKSubmitViewController.h */,
 				154E446E1E3F7AAA00B74177 /* GKSubmitViewController.m */,
 			);
-			name = "Categories Scene";
+			path = "Categories Scene";
 			sourceTree = "<group>";
 		};
 		150C7E4E1E364C270049E7B0 /* Storyboard */ = {
@@ -230,17 +230,17 @@
 				1569A1751E35BAEE009F1E46 /* LaunchScreen.storyboard */,
 				1569A1701E35BAEE009F1E46 /* Main.storyboard */,
 			);
-			name = Storyboard;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		150C7E4F1E364C660049E7B0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1520F5F61E40C4ED0026C048 /* GKFavoriteItem.xcdatamodeld */,
 				1569A18F1E35D689009F1E46 /* GKItem.h */,
 				1569A1901E35D689009F1E46 /* GKItem.m */,
-				1520F5F61E40C4ED0026C048 /* GKFavoriteItem.xcdatamodeld */,
 			);
-			name = Models;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		150C7E501E364C730049E7B0 /* Managers */ = {
@@ -249,52 +249,52 @@
 				1569A18C1E35BB70009F1E46 /* GKClient.h */,
 				1569A18D1E35BB70009F1E46 /* GKClient.m */,
 			);
-			name = Managers;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		150C7E511E364C860049E7B0 /* Home Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */,
+				150C7E4A1E3630220049E7B0 /* GKHomeTableViewDataSource.h */,
+				150C7E4B1E3630220049E7B0 /* GKHomeTableViewDataSource.m */,
 				1569A16A1E35BAEE009F1E46 /* GKHomeViewController.h */,
 				1569A16B1E35BAEE009F1E46 /* GKHomeViewController.m */,
 				150C7E471E360BE30049E7B0 /* GKHomeViewModel.h */,
 				150C7E481E360BE30049E7B0 /* GKHomeViewModel.m */,
-				150C7E4A1E3630220049E7B0 /* GKHomeTableViewDataSource.h */,
-				150C7E4B1E3630220049E7B0 /* GKHomeTableViewDataSource.m */,
-				1569A1921E35EFF7009F1E46 /* GKHomeSectionHeader.xib */,
 				152D0F061E3EEF870072DE56 /* GKSearchViewController.h */,
 				152D0F071E3EEF870072DE56 /* GKSearchViewController.m */,
 			);
-			name = "Home Scene";
+			path = "Home Scene";
 			sourceTree = "<group>";
 		};
 		150C7E581E38960D0049E7B0 /* Additionals */ = {
 			isa = PBXGroup;
 			children = (
-				15D5F15B1E406EBF0004446B /* UIRefreshControl-UITableView */,
-				15D9BA481E3A2E8F0020C283 /* SDCycleScrollView */,
 				15D9BA471E3A2E200020C283 /* DIDatePicker */,
+				15D9BA481E3A2E8F0020C283 /* SDCycleScrollView */,
+				15D5F15B1E406EBF0004446B /* UIRefreshControl-UITableView */,
 			);
-			name = Additionals;
+			path = Additionals;
 			sourceTree = "<group>";
 		};
 		1540BA3B1E3E048900D14C8D /* General Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				1540BA3C1E3E04F900D14C8D /* GKSafariViewController.h */,
-				1540BA3D1E3E04F900D14C8D /* GKSafariViewController.m */,
-				1540BA3F1E3E0E9600D14C8D /* GKReportViewController.h */,
-				1540BA401E3E0E9600D14C8D /* GKReportViewController.m */,
-				1540BA421E3E0F1300D14C8D /* GKReportActivity.h */,
-				1540BA431E3E0F1300D14C8D /* GKReportActivity.m */,
 				1520F5F91E40EC060026C048 /* GKFavoriteActivity.h */,
 				1520F5FA1E40EC060026C048 /* GKFavoriteActivity.m */,
-				1520F5FF1E40F12F0026C048 /* GKUnfavoriteActivity.h */,
-				1520F6001E40F12F0026C048 /* GKUnfavoriteActivity.m */,
 				1520F5FC1E40EFB60026C048 /* GKFavoriteHelper.h */,
 				1520F5FD1E40EFB60026C048 /* GKFavoriteHelper.m */,
+				1540BA421E3E0F1300D14C8D /* GKReportActivity.h */,
+				1540BA431E3E0F1300D14C8D /* GKReportActivity.m */,
+				1540BA3F1E3E0E9600D14C8D /* GKReportViewController.h */,
+				1540BA401E3E0E9600D14C8D /* GKReportViewController.m */,
+				1540BA3C1E3E04F900D14C8D /* GKSafariViewController.h */,
+				1540BA3D1E3E04F900D14C8D /* GKSafariViewController.m */,
+				1520F5FF1E40F12F0026C048 /* GKUnfavoriteActivity.h */,
+				1520F6001E40F12F0026C048 /* GKUnfavoriteActivity.m */,
 			);
-			name = "General Controllers";
+			path = "General Controllers";
 			sourceTree = "<group>";
 		};
 		154297141E4085D2004D6CE7 /* Favorite Scene */ = {
@@ -303,7 +303,7 @@
 				154297111E4085CB004D6CE7 /* GKFavoriteViewController.h */,
 				154297121E4085CB004D6CE7 /* GKFavoriteViewController.m */,
 			);
-			name = "Favorite Scene";
+			path = "Favorite Scene";
 			sourceTree = "<group>";
 		};
 		1560E71B1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl */ = {
@@ -318,11 +318,11 @@
 		1569A1581E35BAED009F1E46 = {
 			isa = PBXGroup;
 			children = (
-				1569A1631E35BAEE009F1E46 /* Gankee */,
-				156E7AA51E3FC192005E469C /* Share Extension */,
-				1569A1621E35BAEE009F1E46 /* Products */,
-				0A02169C409C798825FDEBCC /* Pods */,
 				25A43778CB02F8D9885AA4E0 /* Frameworks */,
+				1569A1631E35BAEE009F1E46 /* Gankee */,
+				0A02169C409C798825FDEBCC /* Pods */,
+				1569A1621E35BAEE009F1E46 /* Products */,
+				156E7AA51E3FC192005E469C /* Share Extension */,
 			);
 			sourceTree = "<group>";
 		};
@@ -338,22 +338,22 @@
 		1569A1631E35BAEE009F1E46 /* Gankee */ = {
 			isa = PBXGroup;
 			children = (
-				15AC67381E4099580089AF03 /* Gankee.entitlements */,
-				1569A1671E35BAEE009F1E46 /* AppDelegate.h */,
-				1569A1681E35BAEE009F1E46 /* AppDelegate.m */,
-				150C7E4E1E364C270049E7B0 /* Storyboard */,
-				150C7E511E364C860049E7B0 /* Home Scene */,
+				150C7E581E38960D0049E7B0 /* Additionals */,
 				150C7E4D1E364C150049E7B0 /* Categories Scene */,
-				154297141E4085D2004D6CE7 /* Favorite Scene */,
-				157580911E3F0AA500D62D08 /* General View Models */,
-				1540BA3B1E3E048900D14C8D /* General Controllers */,
 				15D5F15F1E40729B0004446B /* Custom Views */,
+				154297141E4085D2004D6CE7 /* Favorite Scene */,
+				1540BA3B1E3E048900D14C8D /* General Controllers */,
+				157580911E3F0AA500D62D08 /* General View Models */,
+				150C7E511E364C860049E7B0 /* Home Scene */,
 				150C7E501E364C730049E7B0 /* Managers */,
 				150C7E4F1E364C660049E7B0 /* Models */,
-				150C7E581E38960D0049E7B0 /* Additionals */,
-				1569A1731E35BAEE009F1E46 /* Assets.xcassets */,
-				1569A1781E35BAEE009F1E46 /* Info.plist */,
+				150C7E4E1E364C270049E7B0 /* Storyboard */,
 				1569A1641E35BAEE009F1E46 /* Supporting Files */,
+				1569A1671E35BAEE009F1E46 /* AppDelegate.h */,
+				1569A1681E35BAEE009F1E46 /* AppDelegate.m */,
+				1569A1731E35BAEE009F1E46 /* Assets.xcassets */,
+				15AC67381E4099580089AF03 /* Gankee.entitlements */,
+				1569A1781E35BAEE009F1E46 /* Info.plist */,
 			);
 			path = Gankee;
 			sourceTree = "<group>";
@@ -361,30 +361,30 @@
 		1569A1641E35BAEE009F1E46 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				1569A1651E35BAEE009F1E46 /* main.m */,
 				15AC673C1E40AF430089AF03 /* common.pch */,
+				1569A1651E35BAEE009F1E46 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		156E7A861E3F818C005E469C /* WDHoshiTextField */ = {
 			isa = PBXGroup;
 			children = (
-				156E7A801E3F8184005E469C /* WDHoshiTextField.m */,
 				156E7A811E3F8184005E469C /* WDHoshiTextField.h */,
+				156E7A801E3F8184005E469C /* WDHoshiTextField.m */,
 				156E7A821E3F8184005E469C /* WDTextFieldsEffects.h */,
 				156E7A831E3F8184005E469C /* WDTextFieldsEffects.m */,
 			);
-			name = WDHoshiTextField;
+			path = WDHoshiTextField;
 			sourceTree = "<group>";
 		};
 		156E7AA51E3FC192005E469C /* Share Extension */ = {
 			isa = PBXGroup;
 			children = (
+				156E7AAC1E3FC192005E469C /* Info.plist */,
+				156E7AA91E3FC192005E469C /* MainInterface.storyboard */,
 				156E7AA61E3FC192005E469C /* ShareViewController.h */,
 				156E7AA71E3FC192005E469C /* ShareViewController.m */,
-				156E7AA91E3FC192005E469C /* MainInterface.storyboard */,
-				156E7AAC1E3FC192005E469C /* Info.plist */,
 			);
 			path = "Share Extension";
 			sourceTree = "<group>";
@@ -395,7 +395,7 @@
 				15B1BFA31E3CBF5900FBF4EE /* GKResultTableViewModel.h */,
 				15B1BFA41E3CBF5900FBF4EE /* GKResultTableViewModel.m */,
 			);
-			name = "General View Models";
+			path = "General View Models";
 			sourceTree = "<group>";
 		};
 		15A9D8B31E3B20480020C459 /* GKPieView */ = {
@@ -406,7 +406,7 @@
 				157B5F011E3AFEF600F310D8 /* GKPieView.h */,
 				157B5F021E3AFEF600F310D8 /* GKPieView.m */,
 			);
-			name = GKPieView;
+			path = GKPieView;
 			sourceTree = "<group>";
 		};
 		15D5F15B1E406EBF0004446B /* UIRefreshControl-UITableView */ = {
@@ -422,10 +422,10 @@
 			isa = PBXGroup;
 			children = (
 				15A9D8B31E3B20480020C459 /* GKPieView */,
-				1560E71B1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl */,
 				156E7A861E3F818C005E469C /* WDHoshiTextField */,
+				1560E71B1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl */,
 			);
-			name = "Custom Views";
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		15D9BA471E3A2E200020C283 /* DIDatePicker */ = {
@@ -436,7 +436,7 @@
 				150C7E541E3896010049E7B0 /* DIDatepickerDateView.h */,
 				150C7E551E3896010049E7B0 /* DIDatepickerDateView.m */,
 			);
-			name = DIDatePicker;
+			path = DIDatePicker;
 			sourceTree = "<group>";
 		};
 		15D9BA481E3A2E8F0020C283 /* SDCycleScrollView */ = {
@@ -743,6 +743,7 @@
 				1569A1711E35BAEE009F1E46 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		1569A1751E35BAEE009F1E46 /* LaunchScreen.storyboard */ = {
@@ -751,6 +752,7 @@
 				1569A1761E35BAEE009F1E46 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		156E7AA91E3FC192005E469C /* MainInterface.storyboard */ = {
@@ -759,6 +761,7 @@
 				156E7AAA1E3FC192005E469C /* Base */,
 			);
 			name = MainInterface.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -861,7 +864,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gankee/Gankee.entitlements;
 				DEVELOPMENT_TEAM = 2476E2Q84Y;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Gankee/common.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Gankee/Supporting Files/common.pch";
 				INFOPLIST_FILE = Gankee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -877,7 +880,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Gankee/Gankee.entitlements;
 				DEVELOPMENT_TEAM = 2476E2Q84Y;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/Gankee/common.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/Gankee/Supporting Files/common.pch";
 				INFOPLIST_FILE = Gankee/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
