@@ -40,7 +40,7 @@
 - (NSDateFormatter *)dateFormatter {
     if (!_dateFormatter) {
         _dateFormatter = [[NSDateFormatter alloc] init];
-        [_dateFormatter setDateFormat:@"M-d"];
+        [_dateFormatter setDateFormat:@"yy-M-d"];
     }
     return _dateFormatter;
 }

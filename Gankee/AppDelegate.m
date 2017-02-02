@@ -94,6 +94,29 @@
                                                           [[NSNotificationCenter defaultCenter] postNotificationName:kMagicalRecordPSCDidCompleteiCloudSetupNotification object:nil];
                                                       });
                                                   }];
+    
+    // Core Data's iCloud integration is deprecating, this notification depracted in iOS 10.1, with no replacment yet
+    // But we still need to re-index spotlight based on changes from iCloud contents
+    [[NSNotificationCenter defaultCenter] addObserverForName:NSPersistentStoreDidImportUbiquitousContentChangesNotification
+                                                      object:[NSPersistentStoreCoordinator MR_defaultStoreCoordinator]
+                                                       queue:nil
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+                                                      
+                                                      for (NSManagedObjectID *objectID in [note.userInfo objectForKey:NSInsertedObjectsKey]) {
+                                                          GKFavoriteItem *item = [[NSManagedObjectContext MR_defaultContext] existingObjectWithID:objectID error:nil];
+                                                          if (item) [self.indexer updateIndexingForObject:item];
+                                                      }
+                                                      
+                                                      for (NSManagedObjectID *objectID in [note.userInfo objectForKey:NSUpdatedObjectsKey]) {
+                                                          GKFavoriteItem *item = [[NSManagedObjectContext MR_defaultContext] existingObjectWithID:objectID error:nil];
+                                                          if (item) [self.indexer updateIndexingForObject:item];
+                                                      }
+                                                      
+                                                      for (NSManagedObjectID *objectID in [note.userInfo objectForKey:NSDeletedObjectsKey]) {
+                                                          GKFavoriteItem *item = [[NSManagedObjectContext MR_defaultContext] existingObjectWithID:objectID error:nil];
+                                                          if (item) [self.indexer removeObjectsFromIndex:@[item]];
+                                                      }
+                                                  }];
 }
 
 - (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler {
