@@ -11,6 +11,7 @@
 #import "GKFavoriteViewController.h"
 #import "GKFavoriteItem+CoreDataClass.h"
 #import "GKSafariViewController.h"
+#import "AppDelegate.h"
 
 @interface GKFavoriteViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UISearchResultsUpdating>
 
@@ -92,6 +93,10 @@
 - (IBAction)settingButtonDidPress:(id)sender {
     UIAlertController *menu = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     
+    UIAlertAction *rebuildSpotlight = [UIAlertAction actionWithTitle:@"重建 Spotlight 索引" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
+        [[(AppDelegate *)[UIApplication sharedApplication].delegate indexer] indexExistingObjects:[GKFavoriteItem MR_findAll]];
+    }];
+    
     UIAlertAction *clearCache = [UIAlertAction actionWithTitle:@"清除图片缓存" style:UIAlertActionStyleDestructive handler:^(UIAlertAction * _Nonnull action) {
         [[SDImageCache sharedImageCache] clearDiskOnCompletion:^{
             [RKDropdownAlert title:@"缓存清理完毕" backgroundColor:GOSSAMER textColor:[UIColor whiteColor]];
@@ -105,6 +110,7 @@
     
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil];
     
+    [menu addAction:rebuildSpotlight];
     [menu addAction:clearCache];
     [menu addAction:review];
     [menu addAction:cancel];

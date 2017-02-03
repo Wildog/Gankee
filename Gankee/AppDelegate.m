@@ -10,12 +10,8 @@
 #import "IQKeyboardManager.h"
 #import "GKFavoriteItem+CoreDataClass.h"
 #import "GKSafariViewController.h"
-#import <WACoreDataSpotlight.h>
-#import <MobileCoreServices/MobileCoreServices.h>
 
 @interface AppDelegate ()
-
-@property (nonatomic, strong) WACDSIndexer *indexer;
 
 @end
 

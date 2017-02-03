@@ -84,9 +84,14 @@
     if (selectedIndex == _selectedIndex) return;
     if (![[self.scrollView viewWithTag:selectedIndex] isKindOfClass:[UIButton class]]) return;
     
-    [(UIButton *)[self.scrollView viewWithTag:_selectedIndex] setSelected:NO];
+    UIButton *from = (UIButton *)[self.scrollView viewWithTag:_selectedIndex];
     UIButton *target = [self.scrollView viewWithTag:selectedIndex];
-    [target setSelected:YES];
+    [UIView transitionWithView:from duration:self.indicatorMoveDuration options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        from.selected = NO;
+    } completion:nil];
+    [UIView transitionWithView:target duration:self.indicatorMoveDuration options:UIViewAnimationOptionTransitionCrossDissolve animations:^{
+        target.selected = YES;
+    } completion:nil];
     _selectedIndex = target.tag;
     
     if (!self.indicator) {

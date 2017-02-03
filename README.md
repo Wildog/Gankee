@@ -42,13 +42,18 @@ App 还待完善，欢迎提交各种 PR。
 
 ## TODO
 
-- 夜间模式/主题切换
-- Today Widget
-- Spotlight 搜索加入缩略图
-- 加入手动重建 Spotlight 索引选项
-- UI Testing
+- [ ] 夜间模式/主题切换
+- [ ] Today Widget
+- [ ] Spotlight 搜索加入缩略图
+- [x] ~~加入手动重建 Spotlight 索引选项~~
+- [ ] UI Testing
 
 ## Changelog
+
+### v1.0.2
+
+1. 添加手动重建 Spotlight 索引选项
+2. 分页控件标题跟随滑动渐变
 
 ### v1.0.1
 
