@@ -10,6 +10,8 @@
 #import "IQKeyboardManager.h"
 #import "GKFavoriteItem+CoreDataClass.h"
 #import "GKSafariViewController.h"
+#import <SDWebImage/SDImageCache.h>
+#import <SDWebImage/SDWebImageManager.h>
 
 @interface AppDelegate ()
 
@@ -40,6 +42,16 @@
         attributeSet.contentCreationDate = item.created;
         attributeSet.creator = item.author;
         attributeSet.keywords = @[@"gankee", @"干货", item.desc, item.category];
+        
+        NSArray *images = (NSArray *)item.images;
+        if (images.count > 0) {
+            NSURL *imageUrl = images[0];
+            NSString *cacheKey = [[SDWebImageManager sharedManager] cacheKeyForURL:imageUrl];
+            UIImage *image = [[SDImageCache sharedImageCache] imageFromCacheForKey:cacheKey];
+            if (image) {
+                attributeSet.thumbnailData = UIImagePNGRepresentation(image);
+            }
+        }
         
         return attributeSet;
     }];
