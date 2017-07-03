@@ -2,18 +2,18 @@
 
 [![CI Status](http://img.shields.io/travis/Wildog/Gankee.svg?style=flat)](https://travis-ci.org/Wildog/Gankee)
 [![Tag](https://img.shields.io/github/tag/Wildog/Gankee.svg?style=flat)](https://github.com/Wildog/Gankee)
-[![App Store](https://img.shields.io/badge/app_store-v1.0.1-orange.svg?style=flat)](https://itunes.apple.com/cn/app/gankee-gan-huo-ji-zhong-ying/id1201113401?mt=8)
+[![App Store](https://img.shields.io/badge/app_store-v1.0.2-orange.svg?style=flat)](https://itunes.apple.com/cn/app/gankee-gan-huo-ji-zhong-ying/id1201113401?mt=8)
 [![Language](https://img.shields.io/badge/language-objc-blue.svg?style=flat)](https://github.com/Wildog/Gankee)
 [![License](https://img.shields.io/github/license/Wildog/Gankee.svg?style=flat)](https://github.com/Wildog/Gankee/blob/master/LICENSE)
 
 可能是 iOS 上最好用的 Gank.io 客户端，已上架 [App Store](https://itunes.apple.com/cn/app/gankee-gan-huo-ji-zhong-ying/id1201113401?mt=8)
 
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/news.jpg" width="30%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/category.PNG" width="30%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/favorite.PNG" width="30%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/search.PNG" width="30%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/share-extension.jpg" width="30%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/spotlight.jpg" width="30%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/news.jpg" width="28%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/category.PNG" width="28%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/favorite.PNG" width="28%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/search.PNG" width="28%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/share-extension.jpg" width="28%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/spotlight.jpg" width="28%">
 
 ## Features
 
