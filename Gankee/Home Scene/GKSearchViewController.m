@@ -26,7 +26,7 @@
 @property (strong, nonatomic) GKResultTableViewModel *viewModel;
 @property (strong, nonatomic) GKPieView *pieView;
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
-@property (strong, nonatomic) NSArray *categories;
+@property (copy, nonatomic) NSArray *categories;
 
 @end
 

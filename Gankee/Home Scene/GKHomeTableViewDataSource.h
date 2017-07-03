@@ -11,7 +11,7 @@
 
 @interface GKHomeTableViewDataSource : NSObject <UITableViewDataSource>
 
-@property (nonatomic, strong) NSDictionary<NSString *, NSArray *> *dict;
+@property (nonatomic, copy) NSDictionary<NSString *, NSArray *> *dict;
 
 - (id)initWithDict:(NSDictionary<NSString *, NSArray *> *)dict
     cellIdentifier:(NSString *)identifier

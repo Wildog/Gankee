@@ -11,8 +11,8 @@
 
 @interface GKHomeViewModel ()
 
-@property (nonatomic, strong) NSArray *availableDays;
-@property (nonatomic, strong) NSArray *randomItems;
+@property (nonatomic, copy) NSArray *availableDays;
+@property (nonatomic, copy) NSArray *randomItems;
 @property (nonatomic, strong) RACSubject *allDataLoadedSignal;
 
 @end

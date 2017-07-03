@@ -40,7 +40,7 @@ IB_DESIGNABLE
 // button font, default to system font 15pt
 @property (nonatomic, strong) IBInspectable UIFont *font;
 
-@property (nonatomic, strong) NSArray *buttons;
+@property (nonatomic, copy) NSArray *buttons;
 @property (nonatomic, assign) NSInteger selectedIndex;
 @property (nonatomic, strong) id<WDScrollableSegmentedControlDelegate> delegate;
 

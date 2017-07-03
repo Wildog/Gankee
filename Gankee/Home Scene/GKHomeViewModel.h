@@ -14,10 +14,10 @@
 
 @interface GKHomeViewModel : NSObject
 
-@property (nonatomic, strong) NSString *currentDay;
+@property (nonatomic, copy) NSString *currentDay;
 @property (nonatomic, assign) NSInteger currentRandomItemIndex;
-@property (nonatomic, strong, readonly) NSArray *availableDays;
-@property (nonatomic, strong, readonly) NSArray<GKItem *> *randomItems;
+@property (nonatomic, copy, readonly) NSArray *availableDays;
+@property (nonatomic, copy, readonly) NSArray<GKItem *> *randomItems;
 @property (nonatomic, strong, readonly) GKHomeTableViewDataSource *dataSource;
 @property (nonatomic, strong, readonly) RACSubject *allDataLoadedSignal;
 
