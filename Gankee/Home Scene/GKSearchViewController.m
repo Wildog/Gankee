@@ -14,6 +14,7 @@
 #import "GKResultTableViewModel.h"
 #import "GKSafariViewController.h"
 #import "GKPieView.h"
+#import "GKFavoriteHelper.h"
 
 @interface GKSearchViewController () <MKDropdownMenuDataSource, MKDropdownMenuDelegate, UITableViewDelegate, UIViewControllerPreviewingDelegate>
 
@@ -39,6 +40,7 @@
             UILabel *authorLabel = (UILabel *)[cell viewWithTag:2];
             UILabel *timeLabel = (UILabel *)[cell viewWithTag:3];
             UILabel *categoryLabel = (UILabel *)[cell viewWithTag:4];
+            UIImageView *indicator = (UIImageView *)[cell viewWithTag:5];
             
             [descLabel setText:item.desc];
             [authorLabel setText:item.author];
@@ -48,10 +50,18 @@
             } else {
                 [timeLabel setText:[self.dateFormatter stringFromDate:item.published]];
             }
+            
+            GKFavoriteItem *favoriteItem = [GKFavoriteHelper fetchFavoriteItemFromItem:item];
+            if (favoriteItem) {
+                indicator.hidden = NO;
+            } else {
+                indicator.hidden = YES;
+            }
         } altCellIdentifier:@"result_cell" altConfigureCellBlock:^(id cell, GKItem *item) {
             UILabel *descLabel = (UILabel *)[cell viewWithTag:1];
             UILabel *authorLabel = (UILabel *)[cell viewWithTag:2];
             UILabel *timeLabel = (UILabel *)[cell viewWithTag:3];
+            UIImageView *indicator = (UIImageView *)[cell viewWithTag:4];
             
             [descLabel setText:item.desc];
             [authorLabel setText:item.author];
@@ -59,6 +69,13 @@
                 [timeLabel setText:@"未知日期"];
             } else {
                 [timeLabel setText:[self.dateFormatter stringFromDate:item.published]];
+            }
+            
+            GKFavoriteItem *favoriteItem = [GKFavoriteHelper fetchFavoriteItemFromItem:item];
+            if (favoriteItem) {
+                indicator.hidden = NO;
+            } else {
+                indicator.hidden = YES;
             }
         }];
     }
