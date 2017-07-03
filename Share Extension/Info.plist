@@ -28,6 +28,12 @@
 			<dict>
 				<key>NSExtensionActivationSupportsWebURLWithMaxCount</key>
 				<integer>1</integer>
+				<key>NSExtensionActivationSupportsWebPageWithMaxCount</key>
+				<integer>1</integer>
+				<key>NSExtensionActivationSupportsText</key>
+				<true/>
+				<key>NSExtensionActivationSupportsAttachmentsWithMaxCount</key>
+				<integer>2</integer>
 			</dict>
 		</dict>
 		<key>NSExtensionMainStoryboard</key>

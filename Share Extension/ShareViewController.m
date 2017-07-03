@@ -44,6 +44,16 @@
         }];
     }
     
+    // Chrome
+    if (!_url && extensionItem.attachments.count > 1) {
+        NSItemProvider *itemProvider = extensionItem.attachments[1];
+        if ([itemProvider hasItemConformingToTypeIdentifier:(NSString *)kUTTypeURL]) {
+            [itemProvider loadItemForTypeIdentifier:(NSString *)kUTTypeURL options:nil completionHandler:^(NSURL *item, NSError * _Null_unspecified error) {
+                _url = item.absoluteString;
+            }];
+        }
+    }
+    
     [self.indicator stopAnimating];
     self.wholeView.transform = CGAffineTransformMakeTranslation(0, 600);
     self.categories = @[@"瞎推荐", @"iOS", @"Android", @"App", @"前端", @"拓展资源", @"福利"];
@@ -89,7 +99,6 @@
 - (IBAction)submitButtonDidPress {
     [self.view endEditing:YES];
     self.submitButton.enabled = NO;
-    self.view.userInteractionEnabled = NO;
     [UIView animateWithDuration:0.2 animations:^{
         self.mainView.alpha = 0;
         [self.indicator startAnimating];
@@ -98,6 +107,13 @@
         self.heightConstraint.constant = 80;
         [self.view layoutIfNeeded];
     }];
+    if (!_url) {
+        self.successLabel.text = @"URL有误";
+        self.successLabel.alpha = 1;
+        [self.indicator stopAnimating];
+        return;
+    }
+    self.view.userInteractionEnabled = NO;
     [[[[GKClient client] submitURL:_url desc:self.descField.text category:self.categories[[self.categoryPicker selectedRowInComponent:0]] author:self.authorField.text] deliverOnMainThread] subscribeNext:^(id  _Nullable x) {
     } error:^(NSError * _Nullable error) {
         [self.submitButton setTitle:[error localizedDescription] forState:UIControlStateNormal];
