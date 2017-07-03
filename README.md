@@ -44,11 +44,16 @@ App 还待完善，欢迎提交各种 PR。
 
 - [ ] 夜间模式/主题切换
 - [ ] Today Widget
-- [ ] Spotlight 搜索加入缩略图
+- [x] ~~Spotlight 搜索加入缩略图~~
 - [x] ~~加入手动重建 Spotlight 索引选项~~
 - [ ] UI Testing
 
 ## Changelog
+
+### v1.1.0
+1. Spotlight 索引和收藏夹列表加入缩略图显示
+2. 收藏过的干货会在列表上显示标记了
+3. 支持从 Chrome 中直接分享干货了
 
 ### v1.0.2
 
