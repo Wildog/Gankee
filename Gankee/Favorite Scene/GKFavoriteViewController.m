@@ -191,6 +191,7 @@
          */
         [item MR_deleteEntity];
         [[NSManagedObjectContext MR_defaultContext] MR_saveToPersistentStoreWithCompletion:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:kTableViewUpdateNotif object:nil];
     }];
     return @[delete];
 }

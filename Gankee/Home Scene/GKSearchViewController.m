@@ -172,6 +172,11 @@
         //return !tableView.refreshControl.refreshing;
         return !self.viewModel.noMoreResults && self.viewModel.items.count >= self.viewModel.pageSize;
     }];
+    
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:kTableViewUpdateNotif object:nil] takeUntil:[self rac_willDeallocSignal]] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self)
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

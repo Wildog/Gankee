@@ -41,6 +41,7 @@
         if (error) {
             [RKDropdownAlert title:@"收藏失败" message:error.localizedDescription];
         } else {
+            [[NSNotificationCenter defaultCenter] postNotificationName:kTableViewUpdateNotif object:nil];
             [RKDropdownAlert title:@"已收藏" backgroundColor:[UIColor colorWithRed:0.16 green:0.73 blue:0.61 alpha:1] textColor:[UIColor whiteColor] time:1];
         }
     }];

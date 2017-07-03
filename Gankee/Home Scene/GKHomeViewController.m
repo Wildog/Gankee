@@ -315,6 +315,11 @@
                                                 }];
                                             }
                                         }];
+    
+    [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:kTableViewUpdateNotif object:nil] takeUntil:[self rac_willDeallocSignal]] subscribeNext:^(NSNotification * _Nullable x) {
+        @strongify(self)
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
