@@ -8,12 +8,12 @@
 
 可能是 iOS 上最好用的 Gank.io 客户端，已上架 [App Store](https://itunes.apple.com/cn/app/gankee-gan-huo-ji-zhong-ying/id1201113401?mt=8)
 
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/news.jpg" width="28%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/category.PNG" width="28%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/favorite.PNG" width="28%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/search.PNG" width="28%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/share-extension.jpg" width="28%">
-<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/spotlight.jpg" width="28%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/news.jpg" width="25%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/category.PNG" width="25%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/favorite.PNG" width="25%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/search.PNG" width="25%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/share-extension.jpg" width="25%">
+<img src="https://github.com/Wildog/Gankee/raw/master/screenshots/spotlight.jpg" width="25%">
 
 ## Features
 
