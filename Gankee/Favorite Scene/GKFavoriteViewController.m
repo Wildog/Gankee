@@ -12,6 +12,7 @@
 #import "GKFavoriteItem+CoreDataClass.h"
 #import "GKSafariViewController.h"
 #import "AppDelegate.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface GKFavoriteViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UISearchResultsUpdating>
 
@@ -134,7 +135,13 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"result_cell_with_tag" forIndexPath:indexPath];
+    GKFavoriteItem *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    UITableViewCell *cell;
+    if ([(NSArray *)item.images count] > 0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"favorite_cell" forIndexPath:indexPath];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"favorite_cell_no_img" forIndexPath:indexPath];
+    }
     [self configureCell:cell atIndexPath:indexPath];
     UIView *bgView = [[UIView alloc] init];
     bgView.backgroundColor = [UIColor colorWithRed:0.92 green:0.92 blue:0.94 alpha:1];
@@ -149,6 +156,11 @@
     UILabel *authorLabel = (UILabel *)[cell viewWithTag:2];
     UILabel *timeLabel = (UILabel *)[cell viewWithTag:3];
     UILabel *categoryLabel = (UILabel *)[cell viewWithTag:4];
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:5];
+    NSArray *images = (NSArray *)item.images;
+    if (imageView && images.count > 0) {
+        [imageView sd_setImageWithURL:images[0] placeholderImage:[UIImage imageNamed:@"placeholder"] options:SDWebImageProgressiveDownload];
+    }
     
     [descLabel setText:item.desc];
     [authorLabel setText:item.author];
