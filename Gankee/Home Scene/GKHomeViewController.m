@@ -324,9 +324,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [UIView animateWithDuration:0.2 animations:^{
-        self.tabBarController.tabBar.transform = CGAffineTransformIdentity;
-    } completion:nil];
     [self check3DTouch];
 }
 

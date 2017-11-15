@@ -25,6 +25,9 @@
     [IQKeyboardManager sharedManager].enableAutoToolbar = NO;
     [IQKeyboardManager sharedManager].keyboardDistanceFromTextField = 160;
     
+    // window background color
+    self.window.backgroundColor = [UIColor whiteColor];
+    
     // setup core data
     if ([[NSFileManager defaultManager] ubiquityIdentityToken]) {
         [self iCloudCoreDataSetup];

@@ -93,7 +93,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.titleView = self.titleView;
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.menu];
     
     self.categories = @[@"全部分类", @"iOS", @"Android", @"App", @"前端", @"瞎推荐", @"拓展资源", @"休息视频", @"福利"];
     self.menu.delegate = self;
@@ -105,11 +105,6 @@
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.infiniteScrollIndicatorMargin = 22;
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        self.tabBarController.tabBar.transform = CGAffineTransformMakeTranslation(0, self.tabBarController.tabBar.frame.size.height);
-    }];
-    [self.textField becomeFirstResponder];
     
     @weakify(self)
     [[[[[[[self.textField.rac_textSignal deliverOnMainThread] distinctUntilChanged] doNext:^(NSString * _Nullable x) {
@@ -176,6 +171,11 @@
     [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:kTableViewUpdateNotif object:nil] takeUntil:[self rac_willDeallocSignal]] subscribeNext:^(NSNotification * _Nullable x) {
         @strongify(self)
         [self.tableView reloadData];
+    }];
+    
+    [[[self rac_signalForSelector:@selector(viewDidAppear:)] take:1] subscribeNext:^(id  _Nullable x) {
+        @strongify(self)
+        [self.textField becomeFirstResponder];
     }];
 }
 
@@ -246,7 +246,7 @@
     NSString *title = self.categories[self.viewModel.category];
     return [[NSAttributedString alloc] initWithString:title
                                            attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:17],
-                                                        NSForegroundColorAttributeName: self.navigationController.navigationBar.tintColor}];
+                                                        NSForegroundColorAttributeName: GOSSAMER}];
 }
 
 - (NSAttributedString *)dropdownMenu:(MKDropdownMenu *)dropdownMenu attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {

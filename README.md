@@ -2,7 +2,7 @@
 
 [![CI Status](http://img.shields.io/travis/Wildog/Gankee.svg?style=flat)](https://travis-ci.org/Wildog/Gankee)
 [![Tag](https://img.shields.io/github/tag/Wildog/Gankee.svg?style=flat)](https://github.com/Wildog/Gankee)
-[![App Store](https://img.shields.io/badge/app_store-v1.0.2-orange.svg?style=flat)](https://itunes.apple.com/cn/app/gankee-gan-huo-ji-zhong-ying/id1201113401?mt=8)
+[![App Store](https://img.shields.io/badge/app_store-v1.1.1-orange.svg?style=flat)](https://itunes.apple.com/cn/app/gankee-gan-huo-ji-zhong-ying/id1201113401?mt=8)
 [![Language](https://img.shields.io/badge/language-objc-blue.svg?style=flat)](https://github.com/Wildog/Gankee)
 [![License](https://img.shields.io/github/license/Wildog/Gankee.svg?style=flat)](https://github.com/Wildog/Gankee/blob/master/LICENSE)
 
@@ -37,7 +37,7 @@ App 还待完善，欢迎提交各种 PR。
 
 ## Requirements
 
-- Xcode 8+
+- Xcode 9+
 - iOS 9.0+
 
 ## TODO
@@ -49,6 +49,9 @@ App 还待完善，欢迎提交各种 PR。
 - [ ] UI Testing
 
 ## Changelog
+
+### v1.1.1
+1. 适配 iPhone X 和 iOS 11
 
 ### v1.1.0
 1. Spotlight 索引和收藏夹列表加入缩略图显示

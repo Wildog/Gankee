@@ -54,6 +54,7 @@
 		15D9BA5E1E3A2E8F0020C283 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 15D9BA571E3A2E8F0020C283 /* UIView+SDExtension.m */; };
 		15DA126F1E40C303001B75A6 /* GKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1569A1901E35D689009F1E46 /* GKItem.m */; };
 		15EF4CF21E3AF89C00FA6A04 /* GKPieLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EF4CF11E3AF89C00FA6A04 /* GKPieLayer.m */; };
+		15FC18861FBBEC6600B6E9E8 /* GKTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 15FC18851FBBEC6600B6E9E8 /* GKTitleView.m */; };
 		331E5721F2C0E02D225123C5 /* libPods-Share Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E6AF3C2E842ECE6E8120FED8 /* libPods-Share Extension.a */; };
 		8AFCDD311917514910D1CEA0 /* libPods-Gankee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD3146582E3823EBEB1936C /* libPods-Gankee.a */; };
 /* End PBXBuildFile section */
@@ -168,6 +169,8 @@
 		15D9BA571E3A2E8F0020C283 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
 		15EF4CF01E3AF89C00FA6A04 /* GKPieLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKPieLayer.h; sourceTree = "<group>"; };
 		15EF4CF11E3AF89C00FA6A04 /* GKPieLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKPieLayer.m; sourceTree = "<group>"; };
+		15FC18841FBBEC6600B6E9E8 /* GKTitleView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GKTitleView.h; sourceTree = "<group>"; };
+		15FC18851FBBEC6600B6E9E8 /* GKTitleView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GKTitleView.m; sourceTree = "<group>"; };
 		1ED5307FC54FFD72242EBB4E /* Pods-ShareAction.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareAction.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareAction/Pods-ShareAction.release.xcconfig"; sourceTree = "<group>"; };
 		5E46AEC01AEAB05D099024FB /* Pods-Gankee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gankee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Gankee/Pods-Gankee.release.xcconfig"; sourceTree = "<group>"; };
 		6D9CE4FD0975C99AC916C93C /* Pods-Share Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Share Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-Share Extension/Pods-Share Extension.release.xcconfig"; sourceTree = "<group>"; };
@@ -424,6 +427,8 @@
 				15A9D8B31E3B20480020C459 /* GKPieView */,
 				1560E71B1E3D1ED100E3BBD8 /* WDScrollableSegmentedControl */,
 				156E7A861E3F818C005E469C /* WDHoshiTextField */,
+				15FC18841FBBEC6600B6E9E8 /* GKTitleView.h */,
+				15FC18851FBBEC6600B6E9E8 /* GKTitleView.m */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -531,7 +536,7 @@
 		1569A1591E35BAED009F1E46 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = Wildog;
 				TargetAttributes = {
 					1569A1601E35BAED009F1E46 = {
@@ -683,6 +688,7 @@
 				15D9BA5A1E3A2E8F0020C283 /* TADotView.m in Sources */,
 				15C2D38F1E40C23100E8A49F /* GKItem.m in Sources */,
 				1569A16F1E35BAEE009F1E46 /* GKCategoriesViewController.m in Sources */,
+				15FC18861FBBEC6600B6E9E8 /* GKTitleView.m in Sources */,
 				1569A1691E35BAEE009F1E46 /* AppDelegate.m in Sources */,
 				15EF4CF21E3AF89C00FA6A04 /* GKPieLayer.m in Sources */,
 				15D9BA581E3A2E8F0020C283 /* TAAbstractDotView.m in Sources */,
@@ -777,7 +783,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -785,7 +793,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -825,7 +837,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -833,7 +847,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;

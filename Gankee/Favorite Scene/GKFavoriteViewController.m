@@ -21,6 +21,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *settingButton;
 @property (weak, nonatomic) IBOutlet UILabel *noResultLabel;
 @property (weak, nonatomic) IBOutlet UIView *alertView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *extendedTopConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *extendedBottomContraint;
 
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -52,7 +56,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.automaticallyAdjustsScrollViewInsets = NO;
     self.navigationItem.titleView = self.titleView;
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.settingButton];
     
@@ -61,12 +64,21 @@
     self.searchController.searchBar.placeholder = @"搜索本地收藏";
     self.searchController.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     self.searchController.searchBar.tintColor = [UIColor colorWithRed:0.08 green:0.58 blue:0.53 alpha:0.9];
-    self.searchController.searchBar.backgroundColor = [UIColor whiteColor];
     self.searchController.searchResultsUpdater = self;
+    if (@available(iOS 11.0, *)) {
+        self.navigationItem.searchController = self.searchController;
+        self.topConstraint.active = self.bottomConstraint.active = NO;
+        self.extendedTopConstraint.active = self.extendedBottomContraint.active = YES;
+    } else {
+        self.tableView.tableHeaderView = self.searchController.searchBar;
+        self.searchController.searchBar.backgroundColor = [UIColor whiteColor];
+        self.automaticallyAdjustsScrollViewInsets = NO;
+        self.topConstraint.active = self.bottomConstraint.active = YES;
+        self.extendedTopConstraint.active = self.extendedBottomContraint.active = NO;
+    }
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 80;
-    self.tableView.tableHeaderView = self.searchController.searchBar;
     self.tableView.tableFooterView = [UIView new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

@@ -25,7 +25,9 @@
         if ([imageURL containsString:@"img.gank.io"] || [imageURL containsString:@"https://"]) {
             NSString *urlString = [NSString stringWithFormat:@"%@%@", imageURL, @"?imageView2/2/w/200/format/jpg/interlace/1"];
             NSURL *url = [NSURL URLWithString:urlString];
-            [images addObject:url];
+            if (url) {
+                [images addObject:url];
+            }
         }
     }
     _images = images;
